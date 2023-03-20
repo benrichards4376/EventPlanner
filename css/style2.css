@@ -1,8 +1,12 @@
-body {
+/* background for whole website */
+body
+{
     background-color: gold;
 }
 
-#title {
+/* title for login page */
+#title
+{
     font-size: 40px;
     width: 100%;
     margin: 2% 5%;
@@ -11,7 +15,9 @@ body {
     color: black;
 }
 
-#loginDiv {
+/* white box for login page */
+#loginDiv
+{
     font-size: 30px;
     height: 70%;
     width: 40%;
@@ -20,7 +26,21 @@ body {
     background-color: white;
 }
 
-#loginButton {
+/* title within loginDiv */
+#inner-title
+{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 2%;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+}
+
+/* login button within loginDiv */
+#loginButton
+{
     font-size: 30px;
     border-radius: 25px;
     width: 20%;
@@ -30,7 +50,9 @@ body {
     background-color: black;
 }
 
-#registerButton {
+/* register button within loginDiv */
+#registerButton
+{
     font-size: 30px;
     border-radius: 25px;
     width: 20%;
@@ -40,13 +62,39 @@ body {
     background-color: black;
 }
 
-.buttons:hover {
+/* display when failed login */
+#loginResult
+{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 2%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #95060a;
+}
+
+/* white box for register page */
+#registerDiv
+{
+    font-size: 30px;
+    height: 70%;
+    width: 40%;
+    margin-left: 15%;
+    padding: 25px;
+    background-color: white;
+}
+
+/* hovering over a button changes color */
+.buttons:hover
+{
     color: black;
     background-color: grey;
     opacity: 50%;
 }
 
-#accessUIDiv {
+#accessUIDiv
+{
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
@@ -71,7 +119,9 @@ body {
 	font-size: 30px;
 }
 
-input[type="text"],input[type="password"] {
+/* all input text boxes */
+input[type="text"],input[type="password"]
+{
     border-radius: 25px;
     text-align: left;
     width: 80%;
@@ -80,39 +130,23 @@ input[type="text"],input[type="password"] {
     font-family: 'Ubuntu', sans-serif;
 }
 
-#inner-title {
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-    color: black;
-}
-
-#loginResult{
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #95060a;
-}
-
-#userName{
+#userName
+{
     display: inline-block;
     width: 80%;
     margin-left: 10%;
     text-align: left;
 }
 
-#logoutButton{
+/*
+#logoutButton
+{
     width: 20%;
     margin-left: 40%;
 }
 
-select{
+select
+{
     width: 30%;
     margin-left: 35%;
     margin-top: 2%;
@@ -120,11 +154,13 @@ select{
     font-family: 'Ubuntu', sans-serif;
 }
 
-#colorSearchResult{
+#colorSearchResult
+{
     display: none;
 }
 
-#colorAddResult{
+#colorAddResult
+{
     display: inline-block;
     font-size: 0.8em;
     width: 90%;
@@ -135,3 +171,4 @@ select{
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
 }
+*/
