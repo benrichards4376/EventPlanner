@@ -1,5 +1,8 @@
 -- CREATE USER SigmaUser INDENTIFIED BY ILoveFullStackProjects;
 -- GRANT ALL PRIVILEGES ON COP4710.* TO SigmaUser;
+-- $conn = new mysqli("localhost", "SigmaUser", "ILoveFullStackProjects", "COP4710");
+
+-- Insert
 
 CREATE TABLE
 Users
@@ -16,13 +19,11 @@ Users
     ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE
-Students
+Attending
     (user_id int NOT NULL,
-     university int NOT NULL,
-     rso varchar(20),
-     PRIMARY KEY (user_id)
+     university varchar(50) NOT NULL,
      FOREIGN KEY (user_id) REFERENCES Users (user_id),
-     FOREIGN KEY (university) REFERENCES Uni_Profs(uni_id)
+     FOREIGN KEY (university) REFERENCES Uni_Profs(email_ending)
     ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE
@@ -53,8 +54,9 @@ Student_RSOS
 CREATE TABLE
 Super_Admins
     (user_id int NOT NULL,
+     email_ending varchar(50) NOT NULL,
      PRIMARY KEY (user_id),
-     FOREIGN KEY (user_id) REFERENCES Users (user_id)
+     FOREIGN KEY (user_id) REFERENCES Users (user_id),
     ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Relationship between Student and Post represented by id of who created it
@@ -75,10 +77,12 @@ Uni_Profs
      name varchar(50) NOT NULL DEFAULT ,
      description varchar(200),
      image_path varchar(100),
-     location varchar(200) NOT NULL DEFAULT ,
+     location varchar(200) NOT NULL DEFAULT,
+     email_ending varchar(50) NOT NULL,
      super_id int NOT NULL,
      PRIMARY KEY (uni_id),
      FOREIGN KEY (super_id) REFERENCES Super_Admins (user_id)
+     FOREIGN KEY (email_ending) REFERENCES Super_Admins(email_ending)
     ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE
