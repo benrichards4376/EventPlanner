@@ -4,8 +4,8 @@ body
     background-color: gold;
 }
 
-#studentHomeDiv,
-#adminHomeDiv
+#studentHeader,
+#adminHeader
 {
     position: absolute;
     top: 0%;
