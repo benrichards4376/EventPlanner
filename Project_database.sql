@@ -38,6 +38,7 @@ CREATE TABLE
 RSO
     (rso_id int NOT NULL AUTO_INCREMENT,
      admin_id int NOT NULL,
+     active boolean NOT NULL DEFAULT TRUE,
      PRIMARY KEY (rso_id),
      FOREIGN KEY (admin_id) REFERENCES Admin (user_id),
      ON DELETE CASCADE
@@ -64,11 +65,13 @@ CREATE TABLE
 Posts
     (post_id int NOT NULL AUTO_INCREMENT,
      student_id int NOT NULL,
+     event_id int NOT NULL AUTO_INCREMENT,
      comment varchar(200) NOT NULL DEFAULT ,
      rating int NOT NULL check(rating >= 1 AND rating <= 5),
      date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
      PRIMARY KEY (post_id),
-     FOREIGN KEY (student_id) REFERENCES Users (user_id)
+     FOREIGN KEY (student_id) REFERENCES Users (user_id),
+     FOREIGN KEY (event_id) REFERENCES Events (event_id)
     ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE
@@ -82,7 +85,7 @@ Uni_Profs
      super_id int NOT NULL,
      PRIMARY KEY (uni_id),
      FOREIGN KEY (super_id) REFERENCES Super_Admins (user_id)
-     FOREIGN KEY (email_ending) REFERENCES Super_Admins(email_ending)
+     FOREIGN KEY (email_ending) REFERENCES Super_Admins (email_ending)
     ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE
@@ -92,6 +95,7 @@ Events
      uni_id int NOT NULL,
      admin_id int NOT NULL,
      category varchar(20) NOT NULL DEFAULT private,
+     approved boolean NOT NULL DEFAULT FALSE,
      description varchar(200),
      time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
      contact_phone varchar(20) NOT NULL DEFAULT ,
