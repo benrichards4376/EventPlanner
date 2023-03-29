@@ -1,0 +1,19 @@
+/* background for whole website */
+body
+{
+    background-color: gold;
+}
+
+#studentHomeDiv,
+#adminHomeDiv
+{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-0%, -0%); 
+    padding: 10px;
+    height: 15%;
+    width: 100%;
+    text-align: left;
+    background-color: white;
+}
