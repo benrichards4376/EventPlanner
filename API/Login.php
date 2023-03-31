@@ -14,14 +14,20 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT user_id,first_name,last_name FROM Users WHERE login=? AND password =?");
-		$stmt->bind_param("ss", mysqli_real_escape_string($conn, $inData["login"]), mysqli_real_escape_string($conn, $inData["password"]));
+		$stmt = $conn->prepare("SELECT email,first_name,last_name, university, university_name FROM Users WHERE email=? AND password =?");
+		$stmt->bind_param("ss", mysqli_real_escape_string($conn, $inData["email"]), mysqli_real_escape_string($conn, $inData["password"]));
 		$stmt->execute();
 		$result = $stmt->get_result();
 
-		if( $row = $result->fetch_assoc())
+		if( $result->num_rows != 0)
 		{
-			returnWithInfo( $row['first_name'], $row['last_name'], $row['user_id'] );
+			$data = array();
+            while ($row = $result->fetch_assoc())
+            {
+                $data[] = $row;
+            }
+            $json = json_encode($data);
+            sendResultInfoAsJson($json);
 		}
 		else
 		{
@@ -45,13 +51,13 @@
 
 	function returnWithError( $err )
 	{
-		$retValue = '{"user_id":0,"first_name":"","last_name":"","error":"' . $err . '"}';
+		$retValue = '{"email":"","first_name":"","last_name":"","error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 
-	function returnWithInfo( $first_name, $last_name, $user_id )
+	function returnWithInfo( $first_name, $last_name, $user_id, $university, $university_name )
 	{
-		$retValue = '{"user_id":' . $user_id . ',"first_name":"' . $first_name . '","last_name":"' . $last_name . '","error":""}';
+		$retValue = '{"email":' . $email . ',"first_name":"' . $first_name . '","last_name":"' . $last_name . ',"university":"' . $university . ',"university_name":"' . $university_name . ',"error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 
