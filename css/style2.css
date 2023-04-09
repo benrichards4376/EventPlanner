@@ -50,6 +50,11 @@ body
     background-color: black;
 }
 
+#eventButton
+{
+    position: absolute;
+    left: 20%;
+}
 /* register button within loginDiv */
 #registerButton
 {
