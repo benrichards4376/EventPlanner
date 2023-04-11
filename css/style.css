@@ -1,0 +1,146 @@
+/* background for whole website */
+body
+{
+    background-color: aqua;
+}
+
+/* title for login page */
+#title
+{
+    margin-top: 15%;
+    font-size: 35px;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+    margin-top: 20px;
+}
+
+/* white box for login page */
+#loginDiv
+{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    height: 40%;
+    width: 30%;
+    text-align: center;
+    font-size: 45px;
+    margin: 0;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* title within Login */
+#inner-title
+{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 10%;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+}
+
+/* all input text boxes */
+input[type="text"],input[type="password"]
+{
+    height: 10%;
+    width: 100%;
+    padding: 2px;
+    text-align: left;
+    margin: 0;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* login & register button */
+#loginButton
+{
+    font-size: 20px;
+    border-radius: 25px;
+    height: 10%;
+    width: 40%;
+    margin-top: 15%;
+    margin-left: 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+#registerButton
+{
+    font-size: 20px;
+    border-radius: 25px;
+    height: 10%;
+    width: 40%;
+    margin-top: 15%;
+    margin-right: 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+/* display when failed login */
+#loginResult
+{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 2%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #95060a;
+}
+
+/* white box for register page */
+#registerDiv
+{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    height: 70%;
+    width: 30%;
+    text-align: center;
+    font-size: 45px;
+    margin: 0;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#register-title
+{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 10%;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+}
+
+
+/* hovering over a button changes color */
+.buttons:hover
+{
+    color: black;
+    background-color: grey;
+    opacity: 50%;
+}
+
+#accessUIDiv
+{
+    font-size: 30px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 25px;
+    background-color: #b2b2b2;
+}
