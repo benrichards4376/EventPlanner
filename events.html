@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <script type="text/javascript" src="js/md5.js"></script>
+        <script type="text/javascript" src="js/code.js"></script>
+        <link href="css/events.css" rel="stylesheet">	
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- STUDENT HEADER ----------------------------------------------------------->
+        <div class="header" id="studentHeader">
+
+            <!-- EVENTS BUTTON -->
+            <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
+          
+            <!-- CREATE DROPDOWN -->
+            <form onclick="moveToCreate()" id="stduent-create" method="GET">
+                <select class="create-dropdown" id="student-create-dropdown">
+                    <option selected disabled hidden>Create</option>
+                    <option value="create-rso-club">RSO Club</option>
+                </select>
+            </form>
+          
+            <!-- JOIN BUTTON -->
+            <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
+        </div>
+
+        <!-- ADMIN HEADER ------------------------------------------------------------->
+        <div class="header" id="adminHeader">
+
+            <!-- EVENTS BUTTON -->
+            <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
+
+            <!-- CREATE DROPDOWN -->
+            <form onclick="moveToCreate()" id="admin-create" method="GET">
+                <select class="create-dropdown" id="admin-create-dropdown">
+                    <option selected disabled hidden>Create</option>
+                    <option value="create-rso-club">RSO Club</option>
+                    <option value="create-rso-event">RSO Event</option>
+                    <option value="create-pulic-event">Public Event</option>
+                    <option value="create-private-event">Private Event</option>
+                </select>
+            </form>
+
+            <!-- JOIN BUTTON -->
+            <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
+        </div>
+
+        <!-- SUPER ADMIN HEADER ------------------------------------------------------------->
+        <div class="header" id="superHeader">
+
+            <!-- EVENTS  DROPDOWN -->
+            <select class="events-dropdown" id="super-events-dropdown" onchange="window.location.href = value;">
+                <option selected disabled hidden>Eevnts</option>
+                <option value="events.html">View</option>
+                <option value="approve.html">Approve</option>
+            </select>
+
+            <!-- CREATE DROPDOWN -->
+            <form onclick="moveToCreate()" id="super-create" method="GET">
+                <select class="create-dropdown" id="super-create-dropdown">
+                    <option selected disabled hidden>Create</option>
+                    <option value="create-rso-club">RSO Club</option>
+                    <option value="create-rso-event">RSO Event</option>
+                    <option value="create-pulic-event">Public Event</option>
+                    <option value="create-private-event">Private Event</option>
+                </select>
+            </form>
+
+            <!-- JOIN BUTTON -->
+            <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
+        </div>
+
+        <!-- EVENTS SECTION ----------------------------------------------------------->
+        <div id="event-container">
+
+            <form onclick="searchEvent()" id="search-bar">
+                <input type="text" placeholder="Search..." id="search-result">
+                <button type="submit" id="search-button">Search</button>
+            </form>
+
+            <div class="thisEvent">
+
+                <div class="eventInfo" id="eventName">Name</div>
+                <div class="eventInfo" id="eventCat">Category</div>
+                <div class="eventInfo" id="eventDesc">Description</div>
+                <div class="eventInfo" id="eventTime">Time</div>
+                <div class="eventInfo" id="eventLong">Longitude</div>
+                <div class="eventInfo" id="eventLat">Latitude</div>
+                <div class="eventInfo" id="eventEmail">Email</div>
+                <div class="eventInfo" id="eventPhone">Phone</div>
+
+                <!-- REVIEWS BUTTON -->
+                <button onclick="window.location.href = 'reviews.html';">Reviews</button>
+            </div>
+        </div>
+
+    </body>
+</html>

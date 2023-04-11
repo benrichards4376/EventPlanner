@@ -1,0 +1,265 @@
+<html>
+    <head>
+        <script type="text/javascript" src="js/md5.js"></script>
+        <script type="text/javascript" src="js/code.js"></script>
+        <link href="css/create.css" rel="stylesheet">	
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- STUDENT HEADER ----------------------------------------------------------->
+        <div class="header" id="studentHeader">
+
+            <!-- EVENTS BUTTON -->
+            <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
+          
+            <!-- CREATE DROPDOWN -->
+            <form onclick="moveToCreate()" id="stduent-create" method="GET">
+                <select class="create-dropdown" id="student-create-dropdown">
+                    <option selected disabled hidden>Create</option>
+                    <option value="create-rso-club">RSO Club</option>
+                </select>
+            </form>
+          
+            <!-- JOIN BUTTON -->
+            <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
+        </div>
+
+        <!-- ADMIN HEADER ------------------------------------------------------------->
+        <div class="header" id="adminHeader">
+
+            <!-- EVENTS BUTTON -->
+            <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
+
+            <!-- CREATE DROPDOWN -->
+            <form onclick="moveToCreate()" id="admin-create" method="GET">
+                <select class="create-dropdown" id="admin-create-dropdown">
+                    <option selected disabled hidden>Create</option>
+                    <option value="create-rso-club">RSO Club</option>
+                    <option value="create-rso-event">RSO Event</option>
+                    <option value="create-pulic-event">Public Event</option>
+                    <option value="create-private-event">Private Event</option>
+                </select>
+            </form>
+
+            <!-- JOIN BUTTON -->
+            <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
+        </div>
+
+        <!-- SUPER ADMIN HEADER ------------------------------------------------------------->
+        <div class="header" id="superHeader">
+
+            <!-- EVENTS  DROPDOWN -->
+            <select class="events-dropdown" id="super-events-dropdown" onchange="window.location.href = value;">
+                <option selected disabled hidden>Eevnts</option>
+                <option value="events.html">View</option>
+                <option value="approve.html">Approve</option>
+            </select>
+
+            <!-- CREATE DROPDOWN -->
+            <form onclick="moveToCreate()" id="super-create" method="GET">
+                <select class="create-dropdown" id="super-create-dropdown">
+                    <option selected disabled hidden>Create</option>
+                    <option value="create-rso-club">RSO Club</option>
+                    <option value="create-rso-event">RSO Event</option>
+                    <option value="create-pulic-event">Public Event</option>
+                    <option value="create-private-event">Private Event</option>
+                </select>
+            </form>
+
+            <!-- JOIN BUTTON -->
+            <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
+        </div>
+        
+        <!-- RSO CLUB ---------------------------------------------------------->
+        <div class="createDiv" id="rso-club-div">
+            <form onsubmit="createRSOClub()" id="rso-club"  method="GET">
+                <span id="rso-club-title">Create RSO Club</span>
+                <input type="text" id="rso-club-name" placeholder="Name" /><br />
+                <input type="text" id="rso-leader" placeholder="Leader" /><br />
+                <input type="text" id="rso-member1" placeholder="Member 1" /><br />
+                <input type="text" id="rso-member2" placeholder="Member 2" /><br />
+                <input type="text" id="rso-member3" placeholder="Member 3" /><br />
+                <input type="text" id="rso-member4" placeholder="Member 4" /><br />
+                <button type="button" id="rso-club-button" class="buttons" onclick="createRSOClub();">Create RSO</button>
+                <span id="rso-club-result"></span>
+            </form>
+        </div>
+        
+        <!-- RSO EVENT --------------------------------------------------------->
+        <div class="createDiv" id="rso-event-div">
+            <form onsubmit="createRSOEvent()" id="rso-event"  method="GET">
+                <span id="rso-event-title">Create RSO Event</span>
+                <input type="text" id="rso-event-name" placeholder="Name" /><br />
+                <input type="text" id="affiliated-rso" placeholder="RSO" /><br />
+                <input type="text" id="rso-cat" placeholder="Category" /><br />
+                <input type="text" id="rso-desc" placeholder="Description" /><br />
+                <input type="text" id="rso-time" placeholder="Time" /><br />
+                <input type="text" id="rso-date" placeholder="Date" /><br />
+                <input type="text" id="rso-loc" placeholder="Location" /><br />
+                <input type="text" id="rso-phone" placeholder="Phone" /><br />
+                <input type="text" id="rso-email" placeholder="Email" /><br />
+                <button type="button" id="rso-event-button" class="buttons" onclick="createRSOEvent();">Create Event</button>
+                <span id="rso-event-result"></span>
+            </form>
+        </div>
+
+        <!-- PUBLIC EVENT ------------------------------------------------------>
+        <div class="createDiv" id="public-div">
+            <form onsubmit="createPublicEvent()" id="public-event"  method="GET">
+                <span id="public-title">Create Public Event</span>
+                <input type="text" id="public-name" placeholder="Name" /><br />
+                <input type="text" id="public-cat" placeholder="Category" /><br />
+                <input type="text" id="public-desc" placeholder="Description" /><br />
+                <input type="text" id="public-time" placeholder="Time" /><br />
+                <input type="text" id="public-date" placeholder="Date" /><br />
+                <input type="text" id="public-loc" placeholder="Location" /><br />
+                <input type="text" id="public-phone" placeholder="Phone" /><br />
+                <input type="text" id="public-email" placeholder="Email" /><br />
+                <button type="button" id="rso-event-button" class="buttons" onclick="createPublicEvent();">Request Event</button>
+                <span id="public-result"></span>
+            </form>
+        </div>
+
+        <!-- PRIVATE EVENT ----------------------------------------------------->
+        <div class="createDiv" id="private-div">
+            <form onsubmit="createPrivateEvent()" id="private-event"  method="GET">
+                <span id="private-title">Create Private Event</span>
+                <input type="text" id="private-name" placeholder="Name" /><br />
+                <input type="text" id="private-cat" placeholder="Category" /><br />
+                <input type="text" id="private-desc" placeholder="Description" /><br />
+                <input type="text" id="private-time" placeholder="Time" /><br />
+                <input type="text" id="private-date" placeholder="Date" /><br />
+                <input type="text" id="private-loc" placeholder="Location" /><br />
+                <input type="text" id="private-phone" placeholder="Phone" /><br />
+                <input type="text" id="private-email" placeholder="Email" /><br />
+                <button type="button" id="rso-event-button" class="buttons" onclick="createPrivateEvent();">Create Event</button>
+                <span id="private-result"></span>
+            </form>
+        </div>
+
+        <!-- CREATE EVENT -->
+        <div class="createDiv">
+            <h1>Create Event</h1>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Name" required><br>
+                <label for="time">Time:</label>
+                <input type="datetime-local" id="time" required><br>
+                <label for="description">Description:</label><br>
+                <textarea id="description" cols="80" rows="5" required></textarea><br>
+                <label for="location">Location:</label>
+                <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+                <button id="event-button">Create Event</button>
+            </form>
+
+            <div id="map"></div>
+        </div>
+
+
+
+
+
+
+        <!-- MAP FROM BEN ----------------------------------------------->
+        <script>
+            function initMap()
+            {
+
+                const input = document.getElementById("pac-input");
+                const searchBox = new google.maps.places.Autocomplete(input);
+
+                searchBox.addListener("place_changed", () => 
+                {
+                    const places = searchBox.getPlace();
+
+                    if (places.length == 0)
+                    {
+                        return;
+                    }
+
+                    let markers = [];
+
+                    const bounds = new google.maps.LatLngBounds();
+                    if (!places.geometry || !places.geometry.location)
+                    {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+
+                    const marker = new google.maps.Marker(
+                    {
+                        map,
+                        title: places.name,
+                        position: places.geometry.location,
+                    });
+                    markers.push(marker);
+
+                    if (places.geometry.viewport)
+                    {
+                        bounds.union(places.geometry.viewport);
+                    } 
+                    else
+                    {
+                        bounds.extend(places.geometry.location);
+                    }
+
+                    map.fitBounds(bounds);
+                });
+            
+                const createEventButton = document.getElementById("event-button");
+                createEventButton.addEventListener("click", (event) => 
+                {
+                    event.preventDefault();
+
+                    const name = document.getElementById("name").value;
+                    const time = document.getElementById("time").value;
+                    const description = document.getElementById("description").value;
+                    const locationName = searchBox.getPlace().name;
+                    const longitude = searchBox.getPlace().geometry.location.lng();
+                    const latitude = searchBox.getPlace().geometry.location.lat();
+                    console.log(name)
+                    console.log(time)
+                    console.log(description)
+                    console.log(locationName)
+                    console.log(longitude)
+                    console.log(latitude)
+                    const xhr = new XMLHttpRequest();
+                    const url = "create_event.php";
+                    xhr.open("POST", url, true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onreadystatechange = function ()
+                    {
+                        if (xhr.readyState === 4 && xhr.status === 200)
+                        {
+                            console.log(xhr.responseText);
+                        }
+                    };
+                    xhr.send(
+                        "name=" +
+                        name +
+                        "&time=" +
+                        time +
+                        "&description=" +
+                        description +
+                        "&location_name=" +
+                        locationName +
+                        "&longitude=" +
+                        longitude +
+                        "&latitude=" +
+                        latitude
+                    );
+                    
+                    document.getElementById("name").value = "";
+                    document.getElementById("time").value = "";
+                    document.getElementById("description").value = "";
+                    document.getElementById("pac-input").value = "";
+                    markers = null;
+                });
+            } // end function initMap
+        </script>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBZYNvOkenwpXai6IUlxcLNPlDq0KpOKQ&libraries=places&callback=initMap"></script>
+
+    </body>
+</html>
