@@ -1,0 +1,80 @@
+body
+{
+    background-color: gold;
+    margin: 0;
+    overflow-y: scroll;
+    overflow: hidden;
+}
+
+/* HEADER ***************************************************************/
+.header
+{
+    padding: 5px;
+    width: 100%;
+    background: black;
+}
+
+.events-button
+{
+    visibility: visible;
+	position: absolute;
+    top: 3%;
+    left: 2%;
+}
+
+.events-dropdown
+{
+    visibility: hidden;
+	position: absolute;
+    top: 3%;
+    left: 2%;
+}
+
+.create-dropdown
+{
+	position: absolute;
+    top: 3%;
+    left: 20%;
+}
+
+.join-button
+{
+	position: absolute;
+    top: 3%;
+    left: 40%;
+}
+
+/* SEARCH ***************************************************************/
+#search-bar
+{
+    position: relative;
+    top: 5vh;
+    left: 5vw;
+}
+#search-result
+{
+    width: 40vw;
+}
+
+#search-button
+{
+    background-color: lightgray;
+    color: black;
+}
+
+/* EVENTS ***************************************************************/
+.thisEvent
+{
+    position: relative;
+    top: 10vh;
+    width: 80vw;
+    left: 5vw;
+    background-color: white;
+    color: black;
+    text-align: left;
+}
+
+.eventInfo
+{
+    padding-left: 1%;
+}
