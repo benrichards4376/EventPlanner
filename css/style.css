@@ -162,10 +162,9 @@ body
     background-color: black;
 }
 
-/* HOVER ****************************************************************/
+/* BUTTON HOVER *********************************************************/
 .buttons:hover
 {
     color: black;
-    background-color: grey;
-    opacity: 50%;
+    background-color: rgb(51, 153, 255);
 }
