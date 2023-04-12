@@ -3,19 +3,23 @@
         <title>COP 4710 Database</title>
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
-        <link href="css/style.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
     <body>
 
-        <h1 id="title">COP 4710 Database</h1>
+        <span id="title">COP 4710 Database</span>
 
         <!-- LOGIN PAGE -->
         <div id="loginDiv">
             <form onsubmit="doLogin()" id="login"  method="GET">
-                <span id="inner-title">Login</span>
-                <input type="text" id="loginName" placeholder="Username" /><br />
-                <input type="password" id="loginPassword" placeholder="Password"/><br />
+                <span id="inner-title">Login</span><br>
+                <label for="loginName" class="loginLabel">Email:</label><br>
+                <input type="text" id="loginName" placeholder="Email" /><br>
+                <br>
+                <label for="loginPassword" class="loginLabel">Password:</label><br>
+                <input type="password" id="loginPassword" placeholder="Password"/><br>
+                <br>
                 <button type="button" id="loginButton" class="buttons" onclick="doLogin();">LOGIN</button>
                 <button type="button" id="registerButton" class="buttons" onclick="moveToRegister();">REGISTER</button>
                 <span id="loginResult"></span>
