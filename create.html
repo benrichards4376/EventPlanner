@@ -73,93 +73,96 @@
         
         <!-- RSO CLUB ---------------------------------------------------------->
         <div class="createDiv" id="rso-club-div">
-            <form onsubmit="createRSOClub()" id="rso-club"  method="GET">
-                <span id="rso-club-title">Create RSO Club</span>
-                <input type="text" id="rso-club-name" placeholder="Name" /><br />
-                <input type="text" id="rso-leader" placeholder="Leader" /><br />
-                <input type="text" id="rso-member1" placeholder="Member 1" /><br />
-                <input type="text" id="rso-member2" placeholder="Member 2" /><br />
-                <input type="text" id="rso-member3" placeholder="Member 3" /><br />
-                <input type="text" id="rso-member4" placeholder="Member 4" /><br />
-                <button type="button" id="rso-club-button" class="buttons" onclick="createRSOClub();">Create RSO</button>
-                <span id="rso-club-result"></span>
-            </form>
+            <h1>Create RSO Club</h1>
+                <form onsubmit="createRSOClub()" id="rso-club"  method="GET">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" placeholder="Name" required><br>
+                    <br>
+                    <label for="leader">Leader:</label><br>
+                    <input type="text" id="leader" placeholder="Leader" required><br>
+                    <br>
+                    <label for="member1">Member #1:</label><br>
+                    <input type="text" id="member1" placeholder="Member Name" required><br>
+                    <br>
+                    <label for="member2">Member #2:</label><br>
+                    <input type="text" id="member2" placeholder="Member Name" required><br>
+                    <br>
+                    <label for="member3">Member #3:</label><br>
+                    <input type="text" id="member3" placeholder="Member Name" required><br>
+                    <br>
+                    <label for="member4">Member #4:</label><br>
+                    <input type="text" id="member4" placeholder="Member Name" required><br>
+                    <br>
+                    
         </div>
         
         <!-- RSO EVENT --------------------------------------------------------->
         <div class="createDiv" id="rso-event-div">
-            <form onsubmit="createRSOEvent()" id="rso-event"  method="GET">
-                <span id="rso-event-title">Create RSO Event</span>
-                <input type="text" id="rso-event-name" placeholder="Name" /><br />
-                <input type="text" id="affiliated-rso" placeholder="RSO" /><br />
-                <input type="text" id="rso-cat" placeholder="Category" /><br />
-                <input type="text" id="rso-desc" placeholder="Description" /><br />
-                <input type="text" id="rso-time" placeholder="Time" /><br />
-                <input type="text" id="rso-date" placeholder="Date" /><br />
-                <input type="text" id="rso-loc" placeholder="Location" /><br />
-                <input type="text" id="rso-phone" placeholder="Phone" /><br />
-                <input type="text" id="rso-email" placeholder="Email" /><br />
-                <button type="button" id="rso-event-button" class="buttons" onclick="createRSOEvent();">Create Event</button>
-                <span id="rso-event-result"></span>
-            </form>
+            <h1>Create RSO Event</h1>
+                <form onsubmit="createRSOEvent()" id="rso-event"  method="GET">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" placeholder="Name" required><br>
+                    <br>
+                    <label for="rso">RSO:</label><br>
+                    <input type="text" id="rso-club" placeholder="RSO Name" required><br>
+                    <br>
+                    <label for="time">Time:</label><br>
+                    <input type="datetime-local" id="time" required><br>
+                    <br>
+                    <label for="description">Description:</label><br>
+                    <textarea id="description" cols="70" rows="5" required></textarea><br>
+                    <br>
+                    <label for="location">Location:</label><br>
+                    <input id="pac-input" class="controls" type="text" placeholder="Enter a location"><br>
+                    <br>
+                    <button type="button" id="rso-event-button" class="buttons" onclick="createRSOEvent();">Create Event</button>
+                </form>
+            <div id="map"></div>
         </div>
 
         <!-- PUBLIC EVENT ------------------------------------------------------>
-        <div class="createDiv" id="public-div">
+        <div class="createDiv" id="public-event-div">
+            <h1>Create Public Event</h1>
             <form onsubmit="createPublicEvent()" id="public-event"  method="GET">
-                <span id="public-title">Create Public Event</span>
-                <input type="text" id="public-name" placeholder="Name" /><br />
-                <input type="text" id="public-cat" placeholder="Category" /><br />
-                <input type="text" id="public-desc" placeholder="Description" /><br />
-                <input type="text" id="public-time" placeholder="Time" /><br />
-                <input type="text" id="public-date" placeholder="Date" /><br />
-                <input type="text" id="public-loc" placeholder="Location" /><br />
-                <input type="text" id="public-phone" placeholder="Phone" /><br />
-                <input type="text" id="public-email" placeholder="Email" /><br />
-                <button type="button" id="rso-event-button" class="buttons" onclick="createPublicEvent();">Request Event</button>
-                <span id="public-result"></span>
-            </form>
-        </div>
-
-        <!-- PRIVATE EVENT ----------------------------------------------------->
-        <div class="createDiv" id="private-div">
-            <form onsubmit="createPrivateEvent()" id="private-event"  method="GET">
-                <span id="private-title">Create Private Event</span>
-                <input type="text" id="private-name" placeholder="Name" /><br />
-                <input type="text" id="private-cat" placeholder="Category" /><br />
-                <input type="text" id="private-desc" placeholder="Description" /><br />
-                <input type="text" id="private-time" placeholder="Time" /><br />
-                <input type="text" id="private-date" placeholder="Date" /><br />
-                <input type="text" id="private-loc" placeholder="Location" /><br />
-                <input type="text" id="private-phone" placeholder="Phone" /><br />
-                <input type="text" id="private-email" placeholder="Email" /><br />
-                <button type="button" id="rso-event-button" class="buttons" onclick="createPrivateEvent();">Create Event</button>
-                <span id="private-result"></span>
-            </form>
-        </div>
-
-        <!-- CREATE EVENT -->
-        <div class="createDiv">
-            <h1>Create Event</h1>
-            <form>
-                <label for="name">Name:</label>
+                <label for="name">Name:</label><br>
                 <input type="text" id="name" placeholder="Name" required><br>
-                <label for="time">Time:</label>
+                <br>
+                <label for="time">Time:</label><br>
                 <input type="datetime-local" id="time" required><br>
+                <br>
                 <label for="description">Description:</label><br>
-                <textarea id="description" cols="80" rows="5" required></textarea><br>
-                <label for="location">Location:</label>
-                <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-                <button id="event-button">Create Event</button>
+                <textarea id="description" cols="70" rows="5" required></textarea><br>
+                <br>
+                <label for="location">Location:</label><br>
+                <input id="pac-input" class="controls" type="text" placeholder="Enter a location"><br>
+                <br>
+                <button type="button" id="public-event-button" class="buttons" onclick="createPublicEvent();">Create Event</button>
             </form>
 
             <div id="map"></div>
         </div>
 
+        <!-- PRIVATE EVENT ----------------------------------------------------->
+        <div class="createDiv" id="private-event-div">
+            <h1>Create Private Event</h1>
+            <form onsubmit="createPrivateEvent()" id="private-event"  method="GET">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" placeholder="Name" required><br>
+                <br>
+                <label for="time">Time:</label><br>
+                <input type="datetime-local" id="time" required><br>
+                <br>
+                <label for="description">Description:</label><br>
+                <textarea id="description" cols="70" rows="5" required></textarea><br>
+                <br>
+                <label for="location">Location:</label><br>
+                <input id="pac-input" class="controls" type="text" placeholder="Enter a location"><br>
+                <br>
+                <button type="button" id="private-event-button" class="buttons" onclick="createPrivateEvent();">Create Event</button>
+            </form>
 
-
-
-
+            <div id="map"></div>
+        </div>
 
         <!-- MAP FROM BEN ----------------------------------------------->
         <script>

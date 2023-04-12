@@ -2,7 +2,7 @@
     <head>
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
-        <link href="css/events.css" rel="stylesheet">	
+        <link href="css/join.css" rel="stylesheet">	
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
     <body>
@@ -71,30 +71,29 @@
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
         </div>
 
-        <!-- EVENTS SECTION ----------------------------------------------------------->
-        <div id="eventDiv">
-            <h1>Events Page</h1>
+        <!-- JOIN --------------------------------------------------------------------------->
 
-            <form onclick="searchEvent()" id="search-bar">
-                <input type="text" placeholder="Search..." id="search-event-result">
+        <div class="joinDiv">
+            <h1>Join RSO Club</h1>
+
+            <form onclick="searchRSO()" id="search-bar">
+                <input type="text" placeholder="Search..." id="search-club-result">
                 <button type="submit" id="search-button">Search</button>
             </form>
 
-            <div class="thisEvent">
+            <div class="thisRSO">
 
-                <div class="eventInfo" id="eventName">Name</div>
-                <div class="eventInfo" id="eventCat">Category</div>
-                <div class="eventInfo" id="eventDesc">Description</div>
-                <div class="eventInfo" id="eventTime">Time</div>
-                <div class="eventInfo" id="eventLong">Longitude</div>
-                <div class="eventInfo" id="eventLat">Latitude</div>
-                <div class="eventInfo" id="eventEmail">Email</div>
-                <div class="eventInfo" id="eventPhone">Phone</div>
+                <div class="RSOInfo" id="RSOName">Name</div>
+                <div class="RSOInfo" id="RSOCat">Category</div>
+                <div class="RSOInfo" id="RSODesc">Description</div>
+                <div class="RSOInfo" id="RSOTime">Time</div>
+                <div class="RSOInfo" id="RSOLong">Longitude</div>
+                <div class="RSOInfo" id="RSOLat">Latitude</div>
+                <div class="RSOInfo" id="RSOEmail">Email</div>
+                <div class="RSOInfo" id="RSOPhone">Phone</div>
 
-                <!-- REVIEWS BUTTON -->
-                <button onclick="window.location.href = 'reviews.html';">Reviews</button>
+                <!-- JOIN BUTTON -->
+                <button onclick="joinRSO()">Join</button>
             </div>
-        </div>
 
-    </body>
-</html>
+        </div>
