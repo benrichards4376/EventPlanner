@@ -26,6 +26,8 @@ error_reporting(E_ALL);
         $contactPhone = mysqli_real_escape_string($conn, $inData["contactPhone"]);
         $contactEmail = mysqli_real_escape_string($conn, $inData["contactEmail"]);
         $location = mysqli_real_escape_string($conn, $inData["location"]);
+        $longitude = mysqli_real_escape_string($conn, $inData["longitude"]);
+        $latitude = mysqli_real_escape_string($conn, $inData["latitude"]);
         // Get the current date and time as a DateTime object
         $currentDateTime = new DateTime();
         
@@ -56,9 +58,9 @@ error_reporting(E_ALL);
                     return;
                 }
 				
-                $stmt = $conn->prepare("INSERT INTO Events (name, uni_id, admin_id, category, description, time, contact_phone, contact_email, location, approved)
+                $stmt = $conn->prepare("INSERT INTO Events (name, uni_id, admin_id, category, description, time, contact_phone, contact_email, location, longitude, latitude, approved)
                                         VALUES (?, ?, ?, 'public', ?, ?, ?, ?, ?, FALSE)");
-                $stmt->bind_param("ssssssss", $name, $uni_id, $admin_id, $description, $formattedDateTime, $contactPhone, $contactEmail, $location);
+                $stmt->bind_param("ssssssssss", $name, $uni_id, $admin_id, $description, $formattedDateTime, $contactPhone, $contactEmail, $longitude, $latitude, $location);
                 if(!$stmt->execute())
                 {
                     throw new Exception($stmt->error);

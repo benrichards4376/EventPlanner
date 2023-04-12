@@ -638,6 +638,8 @@ definitions:
     - contactPhone
     - contactEmail
     - location
+    - longitude
+    - latitude
     properties:
       name:
         type: string
@@ -666,6 +668,12 @@ definitions:
       location:
         type: string
         example: "ENG2 Atrium"
+      longitude:
+        type: string
+        example: "50.555234325"
+      latitude:
+        type: string
+        example: "100.3345"
   CreatePrivateEvent:
     type: object
     required:
@@ -678,6 +686,8 @@ definitions:
     - contactPhone
     - contactEmail
     - location
+    - longitude
+    - latitude
     properties:
       name:
         type: string
@@ -706,6 +716,12 @@ definitions:
       location:
         type: string
         example: "The reflection pond"
+      longitude:
+        type: string
+        example: "50.555234325"
+      latitude:
+        type: string
+        example: "100.3345"
   CreateRsoEvent:
     type: object
     required:
@@ -719,6 +735,8 @@ definitions:
     - contactEmail
     - location
     - event_rso
+    - longitude
+    - latitude
     properties:
       name:
         type: string
@@ -750,6 +768,12 @@ definitions:
       event_rso:
         type: string
         example: "AI club"
+      longitude:
+        type: string
+        example: "50.555234325"
+      latitude:
+        type: string
+        example: "100.3345"
   ApproveEvents:
     type: object
     required:

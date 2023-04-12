@@ -1,10 +1,14 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 	$conn = new mysqli("localhost", "SigmaUser", "ILoveFullStackProjects", "COP4710");
 
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
 	}
+    
 	else
 	{
 		$inData = getRequestInfo();
@@ -17,8 +21,11 @@
         $contactPhone = mysqli_real_escape_string($conn, $inData["contact_phone"]);
         $contactEmail = mysqli_real_escape_string($conn, $inData["contact_email"]);
         $location = mysqli_real_escape_string($conn, $inData["location"]);
+        $longitude = mysqli_real_escape_string($conn, $inData["longitude"]);
+        $latitude = mysqli_real_escape_string($conn, $inData["latitude"]);
         // Get the current date and time as a DateTime object
         $currentDateTime = new DateTime();
+        $currentDateTime = $currentDateTime->format('Y-m-d H:i:s');
         
         // Check if the event is in the future or in the past
         if ($currentDateTime > $dateTimeObject)
@@ -46,10 +53,10 @@
 					$conn->close();
                     return;
                 }
-				
-                $stmt = $conn->prepare("INSERT INTO Events (name, uni_id, admin_id, category, description, time, contact_phone, contact_email, location, approved)
-                                        VALUES (?, ?, 'admin@knights.ucf.edu', 'public', ?, ?, ?, ?, ?, TRUE)");
-                $stmt->bind_param("sssssss", $name, $uni_id, $description, $formattedDateTime, $contactPhone, $contactEmail, $location);
+				$stmt->close();
+                $stmt = $conn->prepare("INSERT INTO Events (name, uni_id, admin_id, category, description, time, contact_phone, contact_email, location, longitude, latitude, approved)
+                                        VALUES (?, ?, 'admin@knights.ucf.edu', 'public', ?, ?, ?, ?, ?, ?, ?, TRUE)");
+                $stmt->bind_param("sssssssss", $name, $uni_id, $description, $formattedDateTime, $contactPhone, $contactEmail, $location, $longitude, $latitude);
                 if(!$stmt->execute())
                 {
                     throw new Exception($stmt->error);
