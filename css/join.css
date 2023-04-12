@@ -51,7 +51,7 @@ body
     top: 5vh;
     left: 10vw;
 }
-#search-event-result
+#search-club-result
 {
     width: 40vw;
 }
@@ -70,7 +70,7 @@ h1
     left: 10vw;
 }
 
-.thisEvent
+.thisRSO
 {
     position: relative;
     top: 10vh;
