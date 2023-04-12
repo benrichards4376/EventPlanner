@@ -2,7 +2,7 @@
     <head>
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
-        <link href="css/events.css" rel="stylesheet">	
+        <link href="events.css" rel="stylesheet">	
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
     <body>
@@ -73,7 +73,7 @@
 
         <!-- EVENTS SECTION ----------------------------------------------------------->
         <div id="eventDiv">
-            <h1>Events Page</h1>
+            <span id="event-title">Events Page</span>
 
             <form onclick="searchEvent()" id="search-bar">
                 <input type="text" placeholder="Search..." id="search-event-result">
@@ -84,15 +84,15 @@
 
                 <div class="eventInfo" id="eventName">Name</div>
                 <div class="eventInfo" id="eventCat">Category</div>
-                <div class="eventInfo" id="eventDesc">Description</div>
                 <div class="eventInfo" id="eventTime">Time</div>
                 <div class="eventInfo" id="eventLong">Longitude</div>
                 <div class="eventInfo" id="eventLat">Latitude</div>
                 <div class="eventInfo" id="eventEmail">Email</div>
                 <div class="eventInfo" id="eventPhone">Phone</div>
+                <div class="eventInfo" id="eventDesc">Description</div>
 
                 <!-- REVIEWS BUTTON -->
-                <button onclick="window.location.href = 'reviews.html';">Reviews</button>
+                <button class="button" id="reviews-button" onclick="window.location.href = 'reviews.html';">Reviews</button>
             </div>
         </div>
 
