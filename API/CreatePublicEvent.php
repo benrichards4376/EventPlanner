@@ -49,15 +49,15 @@ error_reporting(E_ALL);
                 $row = $result->fetch_assoc();
                 if ($result->num_rows != 0)
                 {
-                    returnWithError('Location ' . $location . ' is already being used by ' . $row['name'] . ' at the time ' . $dateTimeString);
+                    returnWithError('Location ' . $location . ' is already being used by ' . $row['name'] . ' at the time ' . $formattedDateTime);
                     $stmt->close();
 					$conn->close();
                     return;
                 }
 				
                 $stmt = $conn->prepare("INSERT INTO Events (name, uni_id, admin_id, category, description, time, contact_phone, contact_email, location, longitude, latitude, approved)
-                                        VALUES (?, ?, ?, 'public', ?, ?, ?, ?, ?, FALSE)");
-                $stmt->bind_param("ssssssssss", $name, $uni_id, $admin_id, $description, $formattedDateTime, $contactPhone, $contactEmail, $longitude, $latitude, $location);
+                                        VALUES (?, ?, ?, 'public', ?, ?, ?, ?, ?, ?, ?, FALSE)");
+                $stmt->bind_param("ssssssssss", $name, $uni_id, $admin_id, $description, $formattedDateTime, $contactPhone, $contactEmail, $location, $longitude, $latitude);
                 if(!$stmt->execute())
                 {
                     throw new Exception($stmt->error);

@@ -10,9 +10,9 @@ function initMap(id, btn, name, time, description)
     {
         event.preventDefault();
         const name = document.getElementById('public-event-name').value;
-        const email_ending = getCookie("email_ending");
-        const user_id = getCookie("email");
-
+        const email_ending = localStorage.getItem("email_ending");
+        const user_id = localStorage.getItem("email");
+        console.log(user_id);
         const description = document.getElementById('public-event-description').value;
         const time = document.getElementById('public-event-date-time').value;
         const contactPhone = document.getElementById('public-event-phone').value;
@@ -23,11 +23,11 @@ function initMap(id, btn, name, time, description)
         console.log(name)
         console.log(time)
         console.log(description)
-        console.log(locationName)
+        console.log(location)
         console.log(longitude)
         console.log(latitude)
         const xhr = new XMLHttpRequest();
-        const url = "first-web.xyz/API/CreatePublicEvent.php";
+        const url = "/API/CreatePublicEvent.php";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function ()
@@ -38,7 +38,7 @@ function initMap(id, btn, name, time, description)
             }
             else
             {
-                document.getElementById("createPublicEventResult").innerHTML = xhr.responseText;
+                document.getElementById("createPublicEventResult").innerHTML = JSON.parse(xhr.responseText).error;
             }
         };
         let tmp = {name:name,email_ending:email_ending,user_id:user_id,description:description,
@@ -46,24 +46,9 @@ function initMap(id, btn, name, time, description)
             location:location,longitude:longitude,latitude:latitude};
         xhr.send(JSON.stringify(tmp));
         
-        document.getElementById(name).value = "";
-        document.getElementById(time).value = "";
-        document.getElementById(description).value = "";
-        document.getElementById(id).value = "";
+        document.getElementById('public-event-name').value = "";
+        document.getElementById('public-event-date-time').value = "";
+        document.getElementById('public-event-description').value = "";
         markers = null;
     });
 } // end function initMap
-
-function getCookie(name)
-{
-    let cookieArr = document.cookie.split("; ");
-    for(let i = 0; i < cookieArr.length; i++)
-    {
-      let cookiePair = cookieArr[i].split("=");
-      if(name == cookiePair[0])
-      {
-        return cookiePair[1];
-      }
-    }
-    return null;
-}

@@ -12,19 +12,15 @@
 	{
 		$email = mysqli_real_escape_string($conn, $inData["email"]);
 		$password = mysqli_real_escape_string($conn, $inData["password"]);
-		$stmt = $conn->prepare("SELECT email,first_name,last_name, university, university_name, role FROM Users WHERE email=? AND password =?");
+		$stmt = $conn->prepare("SELECT email,first_name,last_name, university, university_name, role FROM Users WHERE (email=? AND password =?)");
 		$stmt->bind_param("ss", $email, $password);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
 		if($result->num_rows != 0)
 		{
-			$data = array();
-            while ($row = $result->fetch_assoc())
-            {
-                $data[] = $row;
-            }
-            $json = json_encode($data);
+			$row = $result->fetch_assoc();
+            $json = json_encode($row);
             sendResultInfoAsJson($json);
 		}
 		else
