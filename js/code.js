@@ -13,8 +13,8 @@ function doLogin()
 	lastName = "";
 
 	// get the incoming values
-	let login = document.getElementById("email").value;
-	let password = document.getElementById("password").value;
+	let login = document.getElementById("loginName").value;
+	let password = document.getElementById("loginPassword").value;
 	console.log(login);
 	console.log(password);
 	// get results from login
