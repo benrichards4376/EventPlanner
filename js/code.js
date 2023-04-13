@@ -37,15 +37,14 @@ function doLogin()
 			if (this.readyState == 4 && this.status == 200)
 			{
 				let jsonObject = JSON.parse(xhr.responseText);
-				console.log(xhr.responseText);
+				// console.log(xhr.responseText);
 				email = jsonObject.email;
-				email_ending = jsonObject.email_ending;
+				email_ending = jsonObject.university;
 				if (email == "")
 				{
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
-				console.log("made it");
 				firstName = jsonObject.first_name;
 				lastName = jsonObject.last_name;
 
