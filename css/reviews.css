@@ -45,7 +45,7 @@ body
 
 .events-button
 {
-    visibility: visible;
+    visibility: hidden;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -60,7 +60,7 @@ body
 
 .events-dropdown
 {
-    visibility: hidden;
+    visibility: visible;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -70,6 +70,7 @@ body
     font-family: 'Ubuntu', sans-serif;
     color: white;
     background-color: black;
+    text-align: center;
     border: none;
 }
 
@@ -88,6 +89,16 @@ body
     border: none;
 }
 
+#student-create-dropdown
+{
+    visibility: hidden;
+}
+
+#admin-create-dropdown
+{
+    visibility: visible;
+}
+
 .join-button
 {
     position: absolute;
@@ -102,106 +113,66 @@ body
     border: none;
 }
 
-/* CREATE BOX ***********************************************************/
-.create-title
+#reviews-title
 {
-    position: relative;
-    top: 2vh;
+    position: absolute;
+    top: 15vh;
+    left: 10vw;
     font-size: 30px;
     width: 90%;
     text-align: left;
     font-family: 'Ubuntu', sans-serif;
-    color: black;
+    color: white;
 }
 
-.createDiv
+/* REVIEWS **************************************************************/
+.thisReview
 {
-    position: absolute;
-    top: 20vh;
-    height: 70vh;
-    width: 75vw;
+    visibility: visible;
+    position: relative;
+    top: 30vh;
+    height: 10vh;
+    width: 80vw;
     left: 10vw;
     background-color: white;
     color: black;
     text-align: left;
     padding: 10px;
-    border-radius: 10px;
-}
-
-label
-{
-    position: relative;
-    top: 5vh;
-}
-
-input[type=text]
-{
-    position: relative;
-    top: 5vh;
-    height: 4vh;
-    width: 50vw;
     border-radius: 5px;
 }
 
-input[type=datetime-local]
+#reviewName
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* WRITE REVIEW *********************************************************/
+#writeReview
 {
     position: relative;
-    top: 5vh;
-    height: 4vh;
-    width: 50vw;
+    top: 25vh;
+    left: 10vw;
+    height: 7vh;
+}
+
+#review-comment
+{
+    height: 8vh;
+    width: 60vw;
     border-radius: 5px;
 }
 
-textarea
-{
-    position: relative;
-    top: 5vh;
-    width: 50vw;
-    border-radius: 5px;
-}
-
-.buttons
+#post-button
 {
     position: absolute;
-    bottom: 1vh;
-    left: 33vw;
-    font-size: 15px;
-    height: 30px;
+    font-size: 20px;
+    height: 4vh;
     width: 150px;
     border-radius: 25px;
     font-family: 'Ubuntu', sans-serif;
     color: white;
     background-color: black;
-}
-
-/* RSO CLUB *************************************************************/
-#rso-club-div
-{
-    visibility: hidden;
-}
-
-/* RSO EVENT ************************************************************/
-
-#rso-event-div
-{
-    visibility: hidden;
-    height: 85vh;
-}
-
-/* PUBLIC EVENT *********************************************************/
-
-#public-event-div
-{
-    visibility: visible;
-    height: 75vh;
-}
-
-/* PRIVATE EVENT ********************************************************/
-
-#private-event-div
-{
-    visibility: hidden;
-    height: 75vh;
 }
 
 /* BUTTON HOVER *********************************************************/
@@ -229,13 +200,7 @@ textarea
     background-color: white;
 }
 
-#search-button:hover
-{
-    color: black;
-    background-color: white;
-}
-
-.buttons:hover
+#post-button:hover
 {
     color: white;
     background-color: rgb(51, 153, 255);

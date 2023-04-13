@@ -1,0 +1,235 @@
+body
+{
+    background-image: linear-gradient(to bottom left, magenta,  purple, rgb(0, 110, 255), aqua);
+    margin: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* HEADER ***************************************************************/
+#studentHeader
+{
+    visibility: visible;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    padding: 20px;
+    height: 5vh;
+    width: 100%;
+    background-color: black;
+}
+
+#adminHeader
+{
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    padding: 20px;
+    height: 5vh;
+    width: 100%;
+    background-color: black;
+}
+
+#superHeader
+{
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    padding: 20px;
+    height: 5vh;
+    width: 100%;
+    background-color: black;
+}
+
+.events-button
+{
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+.events-dropdown
+{
+    visibility: visible;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    text-align: center;
+    border: none;
+}
+
+.create-dropdown
+{
+    position: absolute;
+    top: 0%;
+    left: 20%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    text-align: center;
+    border: none;
+}
+
+#student-create-dropdown
+{
+    visibility: hidden;
+}
+
+#admin-create-dropdown
+{
+    visibility: visible;
+}
+
+#super-create-dropdown
+{
+    visibility: visible;
+}
+
+.join-button
+{
+    position: absolute;
+    top: 0%;
+    left: 40%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+#event-title
+{
+    position: absolute;
+    top: 15vh;
+    left: 10vw;
+    font-size: 30px;
+    width: 90%;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+
+/* SEARCH ***************************************************************/
+#search-bar
+{
+    position: relative;
+    top: 25vh;
+    left: 10vw;
+    height: 7vh;
+}
+#search-event-result
+{
+    height: 4vh;
+    width: 40vw;
+    border-radius: 5px;
+}
+
+#search-button
+{
+    font-size: 20px;
+    height: 4vh;
+    width: 20%;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+/* EVENTS ***************************************************************/
+.thisEvent
+{
+    visibility: visible;
+    position: relative;
+    top: 30vh;
+    height: 35vh;
+    width: 80vw;
+    left: 10vw;
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#eventName
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#eventCat
+{
+    font-style: italic;
+}
+
+#reviews-button
+{
+    position: absolute;
+    bottom: 1vh;
+    right: 5vw;
+    font-size: 15px;
+    height: 30px;
+    width: 100px;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+/* BUTTON HOVER *********************************************************/
+.events-button:hover
+{
+    color: black;
+    background-color: white;
+}
+
+.events-dropdown:hover
+{
+    color: black;
+    background-color: white;
+}
+
+.create-dropdown:hover
+{
+    color: black;
+    background-color: white;
+}
+
+.join-button:hover
+{
+    color: black;
+    background-color: white;
+}
+
+#search-button:hover
+{
+    color: black;
+    background-color: white;
+}
+
+#reviews-button:hover
+{
+    color: white;
+    background-color: rgb(51, 153, 255);
+}

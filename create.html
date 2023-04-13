@@ -15,7 +15,7 @@
             <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
           
             <!-- CREATE DROPDOWN -->
-            <form onclick="moveToCreate" id="stduent-create" method="GET">
+            <form onclick="moveToCreate()" id="stduent-create" method="GET">
                 <select class="create-dropdown" id="student-create-dropdown">
                     <option selected disabled hidden>Create</option>
                     <option value="create-rso-club">RSO Club</option>
@@ -33,7 +33,7 @@
             <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
 
             <!-- CREATE DROPDOWN -->
-            <form onclick="moveToCreate" id="admin-create" method="GET">
+            <form onclick="moveToCreate()" id="admin-create" method="GET">
                 <select class="create-dropdown" id="admin-create-dropdown">
                     <option selected disabled hidden>Create</option>
                     <option value="create-rso-club">RSO Club</option>
@@ -46,19 +46,19 @@
             <!-- JOIN BUTTON -->
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
         </div>
-
-        <!-- SUPER ADMIN HEADER ------------------------------------------------------------->
+        
+        <!-- SUPER ADMIN HEADER ------------------------------------------------------->
         <div class="header" id="superHeader">
 
             <!-- EVENTS  DROPDOWN -->
             <select class="events-dropdown" id="super-events-dropdown" onchange="window.location.href = value;">
-                <option selected disabled hidden>Events</option>
+                <option selected disabled hidden>Eevnts</option>
                 <option value="events.html">View</option>
                 <option value="approve.html">Approve</option>
             </select>
 
             <!-- CREATE DROPDOWN -->
-            <form onclick="moveToCreate" id="super-create" method="GET">
+            <form onclick="moveToCreate()" id="super-create" method="GET">
                 <select class="create-dropdown" id="super-create-dropdown">
                     <option selected disabled hidden>Create</option>
                     <option value="create-rso-club">RSO Club</option>
@@ -72,9 +72,9 @@
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
         </div>
         
-        <!-- RSO CLUB ---------------------------------------------------------->
+        <!-- RSO CLUB ----------------------------------------------------------------->
         <div class="createDiv" id="rso-club-div">
-            <h1>Create RSO Club</h1>
+            <span class="create-title" id="rso-club-title">Create RSO Club</span>
                 <form onsubmit="createRSOClub" id="rso-club"  method="GET">
                     <label for="name">Name:</label><br>
                     <input type="text" id="rso-club-name" placeholder="Name" required><br>
@@ -94,12 +94,13 @@
                     <label for="member4">Member #4:</label><br>
                     <input type="text" id="member4" placeholder="Member Name" required><br>
                     <br>
+                    <button type="button" id="rso-club-button" class="buttons" onclick="createRSOClub();">Create Club</button>
                 </form>   
         </div>
         
-        <!-- RSO EVENT --------------------------------------------------------->
+        <!-- RSO EVENT ---------------------------------------------------------------->
         <div class="createDiv" id="rso-event-div">
-            <h1>Create RSO Event</h1>
+            <span class="create-title" id="rso-event-title">Create RSO Event</span>
                 <form onsubmit="createRSOEvent" id="rso-event"  method="GET">
                     <label for="name">Name:</label><br>
                     <input type="text" id="rso-event-name" placeholder="Name" required><br>
@@ -116,14 +117,20 @@
                     <label for="location">Location:</label><br>
                     <input id="rso_map" class="controls" type="text" placeholder="Enter a location"><br>
                     <br>
-                    <button type="button" id="rso-event-button" class="buttons" onclick="createRSOEvent;">Create Event</button>
+                    <label for="phone">Phone:</label><br>
+                    <input type="text" id="rso-event-phone" placeholder="Phone" required><br>
+                    <br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" id="rso-event-email" placeholder="Email" required><br>
+                    <br>
+                    <button type="button" id="rso-event-button" class="buttons" onclick="createRSOEvent();">Create Event</button>
                 </form>
             <div id="map"></div>
         </div>
-
-        <!-- PUBLIC EVENT ------------------------------------------------------>
+        
+        <!-- PUBLIC EVENT ------------------------------------------------------------->
         <div class="createDiv" id="public-event-div">
-            <h1>Create Public Event</h1>
+            <span class="create-title" id="public-event-title">Create Public Event</span>
             <form onsubmit="createPublicEvent" id="public-event"  method="GET">
                 <label for="name">Name:</label><br>
                 <input type="text" id="public-event-name" placeholder="Name" required><br>
@@ -137,15 +144,21 @@
                 <label for="location">Location:</label><br>
                 <input id="public_map" class="controls" type="text" placeholder="Enter a location"><br>
                 <br>
-                <button type="button" id="public-event-button" class="buttons" onclick="createPublicEvent;">Create Event</button>
+                <label for="phone">Phone:</label><br>
+                <input type="text" id="public-event-phone" placeholder="Phone" required><br>
+                <br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="public-event-email" placeholder="Email" required><br>
+                <br>
+                <button type="button" id="public-event-button" class="buttons" onclick="createPublicEvent();">Request Event</button>
             </form>
 
             <div id="map"></div>
         </div>
-
-        <!-- PRIVATE EVENT ----------------------------------------------------->
+        
+        <!-- PRIVATE EVENT ------------------------------------------------------------>
         <div class="createDiv" id="private-event-div">
-            <h1>Create Private Event</h1>
+            <span class="create-title" id="private-event-title">Create Private Event</span>
             <form onsubmit="createPrivateEvent" id="private-event"  method="GET">
                 <label for="name">Name:</label><br>
                 <input type="text" id="private-event-name" placeholder="Name" required><br>
@@ -159,7 +172,13 @@
                 <label for="location">Location:</label><br>
                 <input id="private_map" class="controls" type="text" placeholder="Enter a location"><br>
                 <br>
-                <button type="button" id="private-event-button" class="buttons" onclick="createPrivateEvent;">Create Event</button>
+                <label for="phone">Phone:</label><br>
+                <input type="text" id="private-event-phone" placeholder="Phone" required><br>
+                <br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="private-event-email" placeholder="Email" required><br>
+                <br>
+                <button type="button" id="private-event-button" class="buttons" onclick="createPrivateEvent();">Create Event</button>
             </form>
 
             <div id="map"></div>
