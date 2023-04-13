@@ -152,7 +152,7 @@ function saveCookie()
     document.cookie = "firstName=" + firstName + "; expires=" + date.toGMTString() + "path=/";
     document.cookie = "lastName=" + lastName + "; expires=" + date.toGMTString() + "path=/";
     document.cookie = "email=" + email + "; expires=" + date.toGMTString() + "path=/";
-    document.cookie = "university=" + email_ending + "; expires=" + date.toGMTString() + "path=/";
+    document.cookie = "email_ending=" + email_ending + "; expires=" + date.toGMTString() + "path=/";
     document.cookie = "role=" + role + "; expires=" + date.toGMTString() + "path=/";
 } // end of saveCookie function
 

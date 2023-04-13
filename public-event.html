@@ -16,7 +16,7 @@
             <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
           
             <!-- CREATE DROPDOWN -->
-            <form onchange="moveToCreate()" id="student-create" method="GET">
+            <form onchange="moveToCreate(this.value)" id="student-create" method="GET">
                 <select class="create-dropdown" id="student-create-dropdown">
                     <option selected disabled hidden>Create</option>
                     <option value="create-rso-club">RSO Club</option>
@@ -34,7 +34,7 @@
             <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
 
             <!-- CREATE DROPDOWN -->
-            <form onchange="moveToCreate()" id="admin-create" method="GET">
+            <form onchange="moveToCreate(this.value)" id="admin-create" method="GET">
                 <select class="create-dropdown" id="admin-create-dropdown">
                     <option selected disabled hidden>Create</option>
                     <option value="create-rso-club">RSO Club</option>
@@ -59,7 +59,7 @@
             </select>
 
             <!-- CREATE DROPDOWN -->
-            <form onchange="moveToCreate()" id="super-create" method="GET">
+            <form onchange="moveToCreate(this.value)" id="super-create" method="GET">
                 <select class="create-dropdown" id="super-create-dropdown">
                     <option selected disabled hidden>Create</option>
                     <option value="create-rso-club">RSO Club</option>
@@ -97,7 +97,7 @@
                 <br>
                 <button type="button" id="public-event-button" class="buttons" onclick="createPublicEvent();">Request Event</button>
             </form>
-
+            <span id="createPublicEventResult"></span>
             <div id="map"></div>
         </div>
         

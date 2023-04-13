@@ -9,11 +9,15 @@ function initMap(id, btn, name, time, description)
     createEventButton.addEventListener("click", (event) => 
     {
         event.preventDefault();
+        const name = document.getElementById('public-event-name').value;
+        const email_ending = getCookie("email_ending");
+        const user_id = getCookie("email");
 
-        const name = document.getElementById(name).value;
-        const time = document.getElementById(time).value;
-        const description = document.getElementById(description).value;
-        const locationName = searchBox.getPlace().name;
+        const description = document.getElementById('public-event-description').value;
+        const time = document.getElementById('public-event-date-time').value;
+        const contactPhone = document.getElementById('public-event-phone').value;
+        const contactEmail = document.getElementById('public-event-email').value;
+        const location = searchBox.getPlace().name;
         const longitude = searchBox.getPlace().geometry.location.lng();
         const latitude = searchBox.getPlace().geometry.location.lat();
         console.log(name)
@@ -23,7 +27,7 @@ function initMap(id, btn, name, time, description)
         console.log(longitude)
         console.log(latitude)
         const xhr = new XMLHttpRequest();
-        const url = "create_event.php";
+        const url = "first-web.xyz/API/CreatePublicEvent.php";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function ()
@@ -32,21 +36,15 @@ function initMap(id, btn, name, time, description)
             {
                 console.log(xhr.responseText);
             }
+            else
+            {
+                document.getElementById("createPublicEventResult").innerHTML = xhr.responseText;
+            }
         };
-        xhr.send(
-            "name=" +
-            name +
-            "&time=" +
-            time +
-            "&description=" +
-            description +
-            "&location_name=" +
-            locationName +
-            "&longitude=" +
-            longitude +
-            "&latitude=" +
-            latitude
-        );
+        let tmp = {name:name,email_ending:email_ending,user_id:user_id,description:description,
+            time:time,contactPhone:contactPhone,contactEmail:contactEmail,
+            location:location,longitude:longitude,latitude:latitude};
+        xhr.send(JSON.stringify(tmp));
         
         document.getElementById(name).value = "";
         document.getElementById(time).value = "";
@@ -55,3 +53,17 @@ function initMap(id, btn, name, time, description)
         markers = null;
     });
 } // end function initMap
+
+function getCookie(name)
+{
+    let cookieArr = document.cookie.split("; ");
+    for(let i = 0; i < cookieArr.length; i++)
+    {
+      let cookiePair = cookieArr[i].split("=");
+      if(name == cookiePair[0])
+      {
+        return cookiePair[1];
+      }
+    }
+    return null;
+}
