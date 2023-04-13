@@ -5,7 +5,6 @@ let email = "";
 let firstName = "";
 let lastName = "";
 let email_ending = "";
-let role = "";
 
 function doLogin()
 {
@@ -38,15 +37,15 @@ function doLogin()
 			if (this.readyState == 4 && this.status == 200)
 			{
 				let jsonObject = JSON.parse(xhr.responseText);
-				// console.log(xhr.responseText);
+				console.log(xhr.responseText);
 				email = jsonObject.email;
-				email_ending = jsonObject.university;
-				role = jsonObject.role;
+				email_ending = jsonObject.email_ending;
 				if (email == "")
 				{
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
+				console.log("made it");
 				firstName = jsonObject.first_name;
 				lastName = jsonObject.last_name;
 
@@ -147,28 +146,28 @@ function doRegister(){
 
 function saveCookie()
 {
-	let minutes = 20;
-	let date = new Date();
-	date.setTime(date.getTime()+(minutes*60*1000));
-	document.cookie = "firstName=" + firstName + "; expires=" + date.toGMTString() + "path=/";
-	document.cookie = "lastName=" + lastName + "; expires=" + date.toGMTString() + "path=/";
-	document.cookie = "email=" + email + "; expires=" + date.toGMTString() + "path=/";
-	document.cookie = "university=" + email_ending + "; expires=" + date.toGMTString() + "path=/";
-	document.cookie = "role=" + role + "; expires=" + date.toGMTString() + "path=/";
+    let minutes = 20;
+    let date = new Date();
+    date.setTime(date.getTime()+(minutes*60*1000));
+    document.cookie = "firstName=" + firstName + "; expires=" + date.toGMTString() + "path=/";
+    document.cookie = "lastName=" + lastName + "; expires=" + date.toGMTString() + "path=/";
+    document.cookie = "email=" + email + "; expires=" + date.toGMTString() + "path=/";
+    document.cookie = "university=" + email_ending + "; expires=" + date.toGMTString() + "path=/";
+    document.cookie = "role=" + role + "; expires=" + date.toGMTString() + "path=/";
 } // end of saveCookie function
 
 function getCookie(name)
 {
-	let cookieArr = document.cookie.split("; ");
-	for(let i = 0; i < cookieArr.length; i++)
-	{
-	  let cookiePair = cookieArr[i].split("=");
-	  if(name == cookiePair[0])
-	  {
-		return cookiePair[1];
-	  }
-	}
-	return null;
+    let cookieArr = document.cookie.split("; ");
+    for(let i = 0; i < cookieArr.length; i++)
+    {
+      let cookiePair = cookieArr[i].split("=");
+      if(name == cookiePair[0])
+      {
+        return cookiePair[1];
+      }
+    }
+    return null;
 }
 
 function doLogout()
@@ -179,3 +178,4 @@ function doLogout()
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 } // end function doLogout
+

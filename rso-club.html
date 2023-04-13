@@ -73,41 +73,30 @@
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
         </div>
         
-        <!-- RSO EVENT ---------------------------------------------------------------->
-        <div class="createDiv" id="rso-event-div">
-            <span class="create-title" id="rso-event-title">Create RSO Event</span>
-                <form onsubmit="createRSOEvent" id="rso-event"  method="GET">
+        <!-- RSO CLUB ----------------------------------------------------------------->
+        <div class="createDiv" id="rso-club-div">
+            <span class="create-title" id="rso-club-title">Create RSO Club</span>
+                <form onsubmit="createRSOClub" id="rso-club"  method="GET">
                     <label for="name">Name:</label><br>
-                    <input type="text" id="rso-event-name" placeholder="Name" required><br>
+                    <input type="text" id="rso-club-name" placeholder="Name" required><br>
                     <br>
-                    <label for="rso">RSO:</label><br>
-                    <input type="text" id="rso-club" placeholder="RSO Name" required><br>
+                    <label for="leader">Leader:</label><br>
+                    <input type="text" id="leader" placeholder="Leader Email" required><br>
                     <br>
-                    <label for="rso-event-time">Time:</label><br>
-                    <input type="datetime-local" id="time" required><br>
+                    <label for="member1">Member #1:</label><br>
+                    <input type="text" id="member1" placeholder="Member Email" required><br>
                     <br>
-                    <label for="description">Description:</label><br>
-                    <textarea id="rso-event-description" cols="70" rows="5" required></textarea><br>
+                    <label for="member2">Member #2:</label><br>
+                    <input type="text" id="member2" placeholder="Member Email" required><br>
                     <br>
-                    <label for="location">Location:</label><br>
-                    <input id="rso_map" class="controls" type="text" placeholder="Enter a location"><br>
+                    <label for="member3">Member #3:</label><br>
+                    <input type="text" id="member3" placeholder="Member Email" required><br>
                     <br>
-                    <label for="phone">Phone:</label><br>
-                    <input type="text" id="rso-event-phone" placeholder="Phone" required><br>
+                    <label for="member4">Member #4:</label><br>
+                    <input type="text" id="member4" placeholder="Member Email" required><br>
                     <br>
-                    <label for="email">Email:</label><br>
-                    <input type="text" id="rso-event-email" placeholder="Email" required><br>
-                    <br>
-                    <button type="button" id="rso-event-button" class="buttons" onclick="createRSOEvent();">Create Event</button>
-                </form>
-            <div id="map"></div>
-        </div>
-
-        <script>
-            window.addEventListener("load", function() {
-                initMap("rso_map", "rso-event-button", "rso-event-name", "rso-event-time", "rso-event-description");
-            });
-        </script>     
-
+                    <button type="button" id="rso-club-button" class="buttons" onclick="createRSOClub();">Create Club</button>
+                </form>   
+        </div>  
     </body>
 </html>
