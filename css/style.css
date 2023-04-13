@@ -21,7 +21,7 @@ body
 /* LOGIN ****************************************************************/
 #loginDiv
 {
-    visibility: hidden;
+    visibility: visible;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -105,7 +105,7 @@ body
 /* REGISTER *************************************************************/
 #registerDiv
 {
-    visibility: visible;
+    visibility: hidden;
     position: absolute;
     top: 50%;
     left: 50%;
