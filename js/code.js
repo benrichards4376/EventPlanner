@@ -1,25 +1,27 @@
 const urlBase = 'http://first-web.xyz/API';
 const extension = 'php';
 
-let userId = 0;
+let email = "";
 let firstName = "";
 let lastName = "";
+let email_ending = "";
 
 function doLogin()
 {
-	userId = 0;
+	email = "";
 	firstName = "";
 	lastName = "";
 
 	// get the incoming values
-	let login = document.getElementById("loginName").value;
-	let password = document.getElementById("loginPassword").value;
-
+	let login = document.getElementById("email").value;
+	let password = document.getElementById("password").value;
+	console.log(login);
+	console.log(password);
 	// get results from login
 	document.getElementById("loginResult").innerHTML = "";
 
 	// set values as a JSON string
-	let tmp = {login:login,password:password};
+	let tmp = {email:login,password:password};
 	let jsonPayload = JSON.stringify( tmp );
 
 	let url = urlBase + '/Login.' + extension;
@@ -35,19 +37,21 @@ function doLogin()
 			if (this.readyState == 4 && this.status == 200)
 			{
 				let jsonObject = JSON.parse(xhr.responseText);
-				userId = jsonObject.user_id;
-				if( userId < 1 )
+				console.log(xhr.responseText);
+				email = jsonObject.email;
+				email_ending = jsonObject.email_ending;
+				if (email == "")
 				{
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
-
+				console.log("made it");
 				firstName = jsonObject.first_name;
 				lastName = jsonObject.last_name;
 
 				saveCookie();
 
-				window.location.href = "color.html";
+				window.location.href = "create.html";
 			}
 		}; // end onreadystatechange
 
@@ -145,7 +149,7 @@ function saveCookie()
 	let minutes = 20;
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",email=" + email + ",university=" + email_ending + ";expires=" + date.toGMTString();
 } // end of saveCookie function
 
 function readCookie()

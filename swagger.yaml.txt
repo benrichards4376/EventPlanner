@@ -1,0 +1,929 @@
+swagger: '2.0'
+info:
+  description: This is the API documentation for COP 4710
+  version: 1.0.0
+  title: Event Planner
+  # put the contact info for your development or API team
+  contact:
+    email: ha@ha.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+paths:
+  /Login.php:
+    post:
+        tags:
+        - Users
+        summary: Logs in to the login app
+        operationId: dlLogin
+        description: Logs in to login app
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: loginItem
+          description: Login
+          schema:
+            $ref: '#/definitions/Login'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /CreateStudentAccount.php:
+    post:
+        tags:
+        - Users
+        summary: Creates student account
+        operationId: dCSA
+        description: Creates Student Account
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: CSAItem
+          description: CSA
+          schema:
+            $ref: '#/definitions/CreateStudentAccount'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /CreateSuperAdminAccount.php:
+    post:
+        tags:
+        - Super Admin
+        summary: Creates SA account
+        operationId: SAcreate
+        description: Creates SA account
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: loginItem
+          description: Login
+          schema:
+            $ref: '#/definitions/CreateSuperAdminAccount'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /CreateUniProf.php:
+    post:
+        tags:
+        - Super Admin
+        summary: Creates Uni Prof
+        operationId: UPcreate
+        description: Creates Uni Prof
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: loginItem
+          description: Login
+          schema:
+            $ref: '#/definitions/CreateUniProf'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /CreatePublicEvent.php:
+    post:
+        tags:
+        - Admin
+        summary: Creates public event
+        operationId: PEcreate
+        description: Creates public event
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: PEItem
+          description: Create
+          schema:
+            $ref: '#/definitions/CreatePublicEvent'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /CreatePrivateEvent.php:
+    post:
+        tags:
+        - Admin
+        summary: Creates private event
+        operationId: PrEcreate
+        description: Creates private event
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: PRItem
+          description: Create
+          schema:
+            $ref: '#/definitions/CreatePrivateEvent'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /ApproveEvents.php:
+    post:
+        tags:
+        - Super Admin
+        summary: Approve public events
+        operationId: PEApprove
+        description: Approves PE
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: APE
+          description: APE
+          schema:
+            $ref: '#/definitions/ApproveEvents'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /ViewApprovableEvents.php:
+    post:
+        tags:
+        - Super Admin
+        summary: View Approvable public events
+        operationId: VAE
+        description: Approves PE
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: VAE
+          description: APE
+          schema:
+            $ref: '#/definitions/ViewApprovableEvents'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /ViewEvents.php:
+    post:
+        tags:
+        - Users
+        summary: View events
+        operationId: VE
+        description: View events
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: VE
+          description: VE
+          schema:
+            $ref: '#/definitions/ViewEvents'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /CreateRsoEvent.php:
+    post:
+        tags:
+        - Admin
+        summary: Creates RSO event
+        operationId: REcreate
+        description: Creates RSO event
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: PEItem
+          description: Create
+          schema:
+            $ref: '#/definitions/CreateRsoEvent'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /ViewAdminRso.php:
+    post:
+        tags:
+        - Admin
+        summary: View RSOs for which you are admin
+        operationId: VAR
+        description: View RSOs for which you are admin
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: VAR
+          description: View
+          schema:
+            $ref: '#/definitions/ViewAdminRso'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /ViewMyRso.php:
+    post:
+        tags:
+        - Users
+        summary: View RSOs for which you are in
+        operationId: VMR
+        description: View RSOs for which you are admin
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: VMR
+          description: View
+          schema:
+            $ref: '#/definitions/ViewMyRso'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /CreateRso.php:
+    post:
+        tags:
+        - Users
+        summary: Creates RSO
+        operationId: Rcreate
+        description: Creates RSO
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: RItem
+          description: Create
+          schema:
+            $ref: '#/definitions/CreateRso'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /JoinRso.php:
+    post:
+        tags:
+        - Users
+        summary: Joins an RSO
+        operationId: JRSO
+        description: Joins an RSO
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: JRSOItem
+          description: Join
+          schema:
+            $ref: '#/definitions/JoinRso'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /LeaveRso.php:
+    post:
+        tags:
+        - Users
+        summary: Leaves an RSO
+        operationId: LRSO
+        description: Leaves an RSO
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: LRSOItem
+          description: Leave
+          schema:
+            $ref: '#/definitions/LeaveRso'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /SearchRso.php:
+    post:
+        tags:
+        - Users
+        summary: Searches an RSO
+        operationId: SRSO
+        description: Searches an RSO
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: SRSOItem
+          description: Search
+          schema:
+            $ref: '#/definitions/SearchRso'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /CreatePost.php:
+    post:
+        tags:
+        - Users
+        summary: Create Post
+        operationId: CP
+        description: Create Post
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: CP
+          description: CP
+          schema:
+            $ref: '#/definitions/CreatePost'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /EditPost.php:
+    post:
+        tags:
+        - Users
+        summary: Edit Post
+        operationId: EP
+        description: Edit Post
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: EP
+          description: EP
+          schema:
+            $ref: '#/definitions/EditPost'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /DeletePost.php:
+    post:
+        tags:
+        - Users
+        summary: Delete Post
+        operationId: DP
+        description: Delete Post
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: DP
+          description: DP
+          schema:
+            $ref: '#/definitions/DeletePost'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /CanDelete.php:
+    post:
+        tags:
+        - Users
+        summary: Returns true if user can delete post
+        operationId: CD
+        description: Returns true if user can delete post
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: CD
+          description: CD
+          schema:
+            $ref: '#/definitions/CanDelete'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /ViewPosts.php:
+    post:
+        tags:
+        - Users
+        summary: View Posts
+        operationId: VP
+        description: View Posts
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: VP
+          description: VP
+          schema:
+            $ref: '#/definitions/ViewPosts'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+            
+definitions:
+  Login:
+    type: object
+    required:
+    - email
+    - password
+    properties:
+      email:
+        type: string
+        example: "jacobh@fsu.edu"
+      password:
+        type: string
+        example: "jacob3"
+  CreateStudentAccount:
+    type: object
+    required:
+    - email
+    - password
+    - first_name
+    - last_name
+    properties:
+      email:
+        type: string
+        example: "jacobh@fsu.edu"
+      password:
+        type: string
+        example: "password"
+      first_name:
+        type: string
+        example: "James"
+      last_name:
+        type: string
+        example: "Barnes"
+  CreateSuperAdminAccount:
+    type: object
+    required:
+    - email
+    - password
+    - first_name
+    - last_name
+    properties:
+      email:
+        type: string
+        example: "jacobh@fsu.edu"
+      password:
+        type: string
+        example: "ucf123"
+      first_name:
+        type: string
+        example: "John"
+      last_name:
+        type: string
+        example: "Wayne"
+  CreateRso:
+    type: object
+    required:
+    - admin_email
+    - email1
+    - email2
+    - email3
+    - email4
+    - name
+    properties:
+      admin_email:
+        type: string
+        example: "henrymancini@knights.ucf.edu"
+      email1:
+        type: string
+        example: "brianprenugh@knights.ucf.edu"
+      email2:
+        type: string
+        example: "johnkansas@knights.ucf.edu"
+      email3:
+        type: string
+        example: "brucewayne@knights.ucf.edu"
+      email4:
+        type: string
+        example: "peterparker@knights.ucf.edu"
+      name:
+        type: string
+        example: AI club
+  CreateUniProf:
+    type: object
+    required:
+    - name
+    - description
+    - image_path
+    - location
+    - email
+    - user_id
+    properties:
+      name:
+        type: string
+        example: "University of Central Florida"
+      description:
+        type: string
+        example: "Home of the Knights"
+      image_path:
+        type: string
+        example: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FUniversity_of_Central_Florida&psig=AOvVaw1UOcz8qv6f1eOKOVRfu6VP&ust=1680148902048000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCIiR8MWggP4CFQAAAAAdAAAAABAE"
+      location:
+        type: string
+        example: "4000 Central Florida Blvd, Orlando, FL 32816"
+      email:
+        type: string
+        example: "johnw@knights.ucf.edu"
+      user_id:
+        type: integer
+        example: 84
+  CreatePublicEvent:
+    type: object
+    required:
+    - name
+    - email_ending
+    - user_id
+    - description
+    - date
+    - time
+    - contactPhone
+    - contactEmail
+    - location
+    - longitude
+    - latitude
+    properties:
+      name:
+        type: string
+        example: "Stem Career Fair"
+      email_ending:
+        type: string
+        example: "knights.ucf.edu"
+      user_id:
+        type: integer
+        example: 84
+      description:
+        type: string
+        example: "Internship opportunities from around the US"
+      date:
+        type: string
+        example: "12/31/2024"
+      time:
+        type: string
+        example: "05:30"
+      contactPhone:
+        type: string
+        example: "321-443-4477"
+      contactEmail:
+        type: string
+        example: "henryh@knights.ucf.edu"
+      location:
+        type: string
+        example: "ENG2 Atrium"
+      longitude:
+        type: string
+        example: "50.555234325"
+      latitude:
+        type: string
+        example: "100.3345"
+  CreatePrivateEvent:
+    type: object
+    required:
+    - name
+    - email_ending
+    - user_id
+    - description
+    - date
+    - time
+    - contactPhone
+    - contactEmail
+    - location
+    - longitude
+    - latitude
+    properties:
+      name:
+        type: string
+        example: "Super Splash Fun Zone"
+      email_ending:
+        type: string
+        example: "knights.ucf.edu"
+      user_id:
+        type: integer
+        example: 84
+      description:
+        type: string
+        example: "Join us for free food and water activities in the reflection pond!"
+      date:
+        type: string
+        example: "12/31/2024"
+      time:
+        type: string
+        example: "05:30"
+      contactPhone:
+        type: string
+        example: "321-443-4477"
+      contactEmail:
+        type: string
+        example: "henryh@knights.ucf.edu"
+      location:
+        type: string
+        example: "The reflection pond"
+      longitude:
+        type: string
+        example: "50.555234325"
+      latitude:
+        type: string
+        example: "100.3345"
+  CreateRsoEvent:
+    type: object
+    required:
+    - name
+    - email_ending
+    - user_id
+    - description
+    - date
+    - time
+    - contactPhone
+    - contactEmail
+    - location
+    - event_rso
+    - longitude
+    - latitude
+    properties:
+      name:
+        type: string
+        example: "Chat GPT Deep Dive"
+      email_ending:
+        type: string
+        example: "knights.ucf.edu"
+      user_id:
+        type: string
+        example: "brianprenugh@knights.ucf.edu"
+      description:
+        type: string
+        example: "Join us to uncover the mysteries of GPT-4"
+      date:
+        type: string
+        example: "5/22/2028"
+      time:
+        type: string
+        example: "15:30"
+      contactPhone:
+        type: string
+        example: "123-456-7890"
+      contactEmail:
+        type: string
+        example: "brianprenugh@knights.ucf.edu"
+      location:
+        type: string
+        example: "HEC 330"
+      event_rso:
+        type: string
+        example: "AI club"
+      longitude:
+        type: string
+        example: "50.555234325"
+      latitude:
+        type: string
+        example: "100.3345"
+  ApproveEvents:
+    type: object
+    required:
+    - event_id
+    properties:
+      event_id:
+        type: integer
+        example: 75
+  ViewApprovableEvents:
+    type: object
+    required:
+    - university
+    properties:
+      university:
+        type: string
+        example: "knights.ucf.edu"
+  ViewEvents:
+    type: object
+    required:
+    - user_id
+    - university
+    properties:
+      user_id:
+        type: string
+        example: "henrymancini@knights.ucf.edu"
+      university:
+        type: string
+        example: "knights.ucf.edu"
+  ViewAdminRso:
+    type: object
+    required:
+    - user_id
+    properties:
+      user_id:
+        type: string
+        example: "henrymancini@knights.ucf.edu"
+  ViewMyRso:
+    type: object
+    required:
+    - user_id
+    properties:
+      user_id:
+        type: string
+        example: "henrymancini@knights.ucf.edu"
+  JoinRso:
+    type: object
+    required:
+    - rso_name
+    - user_id
+    - university_name
+    properties:
+      rso_name:
+        type: string
+        example: "AI Club"
+      user_id:
+        type: string
+        example: "bobbyf@knights.ucf.edu"
+      university_name:
+        type: string
+        example: "University of Central Florida"
+  LeaveRso:
+    type: object
+    required:
+    - rso_name
+    - user_id
+    properties:
+      rso_name:
+        type: string
+        example: "AI Club"
+      user_id:
+        type: string
+        example: "bobbyf@knights.ucf.edu"
+  SearchRso:
+    type: object
+    required:
+    - university
+    properties:
+      university:
+        type: string
+        example: "knights.ucf.edu"
+  CreatePost:
+    type: object
+    required:
+    - user_id
+    - event_id
+    - comment
+    - rating
+    properties:
+      user_id:
+        type: string
+        example: "bobbyf@knights.ucf.edu"
+      event_id:
+        type: integer
+        example: 75
+      comment:
+        type: string
+        example: "Too boring, waterboarding at guantanamo bay was way more fun"
+      rating:
+        type: integer
+        example: 2
+  EditPost:
+    type: object
+    required:
+    - post_id
+    - comment
+    - rating
+    properties:
+      post_id:
+        type: integer
+        example: 75
+      comment:
+        type: string
+        example: "Actually surprisingly tame; thought it was mid"
+      rating:
+        type: integer
+        example: 3
+  DeletePost:
+    type: object
+    required:
+    - post_id
+    - user_id
+    properties:
+      post_id:
+        type: integer
+        example: 75
+      user_id:
+        type: string
+        example: "bobbyf@knights.ucf.edu"
+  CanDelete:
+    type: object
+    required:
+    - post_id
+    - user_id
+    properties:
+      post_id:
+        type: integer
+        example: 75
+      user_id:
+        type: string
+        example: "bobbym@knights.ucf.edu"
+  ViewPosts:
+    type: object
+    required:
+    - event_id
+    properties:
+      event_id:
+        type: integer
+        example: 75
+        
+host: first-web.xyz
+basePath: /API
+schemes:
+- http
