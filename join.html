@@ -2,7 +2,7 @@
     <head>
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
-        <link href="css/join.css" rel="stylesheet">	
+        <link href="join.css" rel="stylesheet">	
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
     <body>
@@ -71,12 +71,12 @@
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
         </div>
 
-        <!-- JOIN --------------------------------------------------------------------------->
+        <!-- JOIN SECTION ------------------------------------------------------------------->
 
         <div class="joinDiv">
-            <h1>Join RSO Club</h1>
+            <span id="join-title">Join RSO Club</span>
 
-            <form onclick="searchRSO()" id="search-bar">
+            <form onclick="searchEvent()" id="search-bar">
                 <input type="text" placeholder="Search..." id="search-club-result">
                 <button type="submit" id="search-button">Search</button>
             </form>
@@ -84,16 +84,13 @@
             <div class="thisRSO">
 
                 <div class="RSOInfo" id="RSOName">Name</div>
-                <div class="RSOInfo" id="RSOCat">Category</div>
-                <div class="RSOInfo" id="RSODesc">Description</div>
                 <div class="RSOInfo" id="RSOTime">Time</div>
                 <div class="RSOInfo" id="RSOLong">Longitude</div>
                 <div class="RSOInfo" id="RSOLat">Latitude</div>
-                <div class="RSOInfo" id="RSOEmail">Email</div>
-                <div class="RSOInfo" id="RSOPhone">Phone</div>
+                <div class="RSOInfo" id="RSODesc">Description</div>
 
                 <!-- JOIN BUTTON -->
-                <button onclick="joinRSO()">Join</button>
+                <button id="join-rso-button" onclick="joinRSO()">Join</button>
             </div>
 
         </div>

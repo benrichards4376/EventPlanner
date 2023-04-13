@@ -1,84 +1,218 @@
 body
 {
-    background-color: aqua;
+    background-image: linear-gradient(to bottom left, magenta,  purple, rgb(0, 110, 255), aqua);
     margin: 0;
     overflow-y: scroll;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* HEADER ***************************************************************/
-.header
+#studentHeader
 {
-    padding: 5px;
+    visibility: visible;
+    position: absolute;
+    top: 0%;
     width: 100%;
-    background: black;
+    padding: 20px;
+    height: 5vh;
+    width: 100%;
+    background-color: black;
+}
+
+#adminHeader
+{
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    padding: 20px;
+    height: 5vh;
+    width: 100%;
+    background-color: black;
+}
+
+#superHeader
+{
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    padding: 20px;
+    height: 5vh;
+    width: 100%;
+    background-color: black;
 }
 
 .events-button
 {
     visibility: visible;
-	position: absolute;
-    top: 3%;
-    left: 2%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    border: none;
 }
 
 .events-dropdown
 {
     visibility: hidden;
-	position: absolute;
-    top: 3%;
-    left: 2%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    border: none;
 }
 
 .create-dropdown
 {
-	position: absolute;
-    top: 3%;
+    position: absolute;
+    top: 0%;
     left: 20%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    text-align: center;
+    border: none;
 }
 
 .join-button
 {
-	position: absolute;
-    top: 3%;
+    position: absolute;
+    top: 0%;
     left: 40%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+#event-title
+{
+    position: absolute;
+    top: 15vh;
+    left: 10vw;
+    font-size: 30px;
+    width: 90%;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
 }
 
 /* SEARCH ***************************************************************/
 #search-bar
 {
     position: relative;
-    top: 5vh;
+    top: 25vh;
     left: 10vw;
+    height: 7vh;
 }
 #search-event-result
 {
+    height: 4vh;
     width: 40vw;
+    border-radius: 5px;
 }
 
 #search-button
 {
-    background-color: lightgray;
-    color: black;
+    font-size: 20px;
+    height: 4vh;
+    width: 20%;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
 }
 
 /* EVENTS ***************************************************************/
-h1
-{
-    position: relative;
-    top: 5vh;
-    left: 10vw;
-}
-
 .thisEvent
 {
+    visibility: visible;
     position: relative;
-    top: 10vh;
+    top: 30vh;
+    height: 30vh;
     width: 80vw;
     left: 10vw;
     background-color: white;
     color: black;
     text-align: left;
-    padding-left: 1%;
-    border-radius: 3%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#eventName
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#eventCat
+{
+    font-style: italic;
+}
+
+#reviews-button
+{
+    position: absolute;
+    bottom: 1vh;
+    right: 1vw;
+    font-size: 15px;
+    height: 20px;
+    width: 100px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+/* BUTTON HOVER *********************************************************/
+.events-button:hover
+{
+    color: black;
+    background-color: rgb(51, 153, 255);
+}
+
+.events-dropdown:hover
+{
+    color: black;
+    background-color: rgb(51, 153, 255);
+}
+
+.create-dropdown:hover
+{
+    color: black;
+    background-color: rgb(51, 153, 255);
+}
+
+.join-button:hover
+{
+    color: black;
+    background-color: rgb(51, 153, 255);
+}
+
+#search-button:hover
+{
+    color: black;
+    background-color: rgb(51, 153, 255);
+}
+
+#reviews-button:hover
+{
+    color: black;
+    background-color: rgb(51, 153, 255);
 }
