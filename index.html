@@ -10,23 +10,23 @@
 
         <span id="title">COP 4710 Database</span>
 
-        <!-- LOGIN PAGE -->
+        <!-- LOGIN PAGE --------------------------------------------------------------->
         <div id="loginDiv">
             <form onsubmit="doLogin()" id="login"  method="GET">
                 <span id="inner-title">Login</span><br>
                 <label for="loginName" class="loginLabel">Email:</label><br>
-                <input type="text" id="email" class="loginInput" placeholder="Email"/><br>
+                <input type="text" id="loginName" class="loginInput" placeholder="Email"/><br>
                 <br>
                 <label for="loginPassword" class="loginLabel">Password:</label><br>
-                <input type="password" id="password" class="loginInput" placeholder="Password"/><br>
+                <input type="password" id="loginPassword" class="loginInput" placeholder="Password"/><br>
                 <br>
                 <button type="button" id="loginButton" class="buttons" onclick="doLogin();">LOGIN</button>
                 <button type="button" id="registerButton1" class="buttons" onclick="moveToRegister();">REGISTER</button>
                 <span id="loginResult"></span>
             </form>
         </div>
-
-        <!-- REGISTER PAGE -->
+        
+        <!-- REGISTER PAGE ------------------------------------------------------------>
         <div id="registerDiv">
             <form onsubmit="doRegister()" id="register"  method="GET">
                 <span id="register-title">Register</span>

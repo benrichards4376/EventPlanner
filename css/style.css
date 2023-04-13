@@ -163,8 +163,20 @@ body
 }
 
 /* BUTTON HOVER *********************************************************/
-.buttons:hover
+#loginButton:hover
 {
-    color: black;
+    color: white;
+    background-color: rgb(51, 153, 255);
+}
+
+#registerButton1:hover
+{
+    color: white;
+    background-color: rgb(51, 153, 255);
+}
+
+#registerButton2:hover
+{
+    color: white;
     background-color: rgb(51, 153, 255);
 }

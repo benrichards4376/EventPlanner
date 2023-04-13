@@ -45,7 +45,7 @@ body
 
 .events-button
 {
-    visibility: visible;
+    visibility: hidden;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -60,7 +60,7 @@ body
 
 .events-dropdown
 {
-    visibility: hidden;
+    visibility: visible;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -70,6 +70,7 @@ body
     font-family: 'Ubuntu', sans-serif;
     color: white;
     background-color: black;
+    text-align: center;
     border: none;
 }
 
@@ -86,6 +87,21 @@ body
     background-color: black;
     text-align: center;
     border: none;
+}
+
+#student-create-dropdown
+{
+    visibility: hidden;
+}
+
+#admin-create-dropdown
+{
+    visibility: visible;
+}
+
+#super-create-dropdown
+{
+    visibility: visible;
 }
 
 .join-button
@@ -146,7 +162,7 @@ body
     visibility: visible;
     position: relative;
     top: 30vh;
-    height: 30vh;
+    height: 35vh;
     width: 80vw;
     left: 10vw;
     background-color: white;
@@ -171,10 +187,11 @@ body
 {
     position: absolute;
     bottom: 1vh;
-    right: 1vw;
+    right: 5vw;
     font-size: 15px;
-    height: 20px;
+    height: 30px;
     width: 100px;
+    border-radius: 25px;
     font-family: 'Ubuntu', sans-serif;
     color: white;
     background-color: black;
@@ -184,35 +201,35 @@ body
 .events-button:hover
 {
     color: black;
-    background-color: rgb(51, 153, 255);
+    background-color: white;
 }
 
 .events-dropdown:hover
 {
     color: black;
-    background-color: rgb(51, 153, 255);
+    background-color: white;
 }
 
 .create-dropdown:hover
 {
     color: black;
-    background-color: rgb(51, 153, 255);
+    background-color: white;
 }
 
 .join-button:hover
 {
     color: black;
-    background-color: rgb(51, 153, 255);
+    background-color: white;
 }
 
 #search-button:hover
 {
     color: black;
-    background-color: rgb(51, 153, 255);
+    background-color: white;
 }
 
 #reviews-button:hover
 {
-    color: black;
+    color: white;
     background-color: rgb(51, 153, 255);
 }
