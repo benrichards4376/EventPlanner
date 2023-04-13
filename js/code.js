@@ -51,7 +51,7 @@ function doLogin()
 
 				saveCookie();
 
-				window.location.href = "create.html";
+				window.location.href = "events.html";
 			}
 		}; // end onreadystatechange
 
