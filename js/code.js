@@ -13,8 +13,8 @@ function doLogin()
 	lastName = "";
 
 	// get the incoming values
-	let login = document.getElementById("email").value;
-	let password = document.getElementById("password").value;
+	let login = document.getElementById("loginName").value;
+	let password = document.getElementById("loginPassword").value;
 	console.log(login);
 	console.log(password);
 	// get results from login
@@ -193,3 +193,4 @@ function doLogout()
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 } // end function doLogout
+
