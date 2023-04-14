@@ -94,7 +94,7 @@ body
 
 #admin-create-dropdown
 {
-    visibility: hidden;
+    visibility: visible;
 }
 
 #super-create-dropdown

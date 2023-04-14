@@ -146,44 +146,29 @@ function doRegister(){
 
 function saveCookie()
 {
-	let minutes = 20;
-	let date = new Date();
-	date.setTime(date.getTime()+(minutes*60*1000));
-	document.cookie = "firstName=" + firstName + "; expires=" + date.toGMTString();
+    let minutes = 20;
+    let date = new Date();
+    date.setTime(date.getTime()+(minutes*60*1000));
+    document.cookie = "firstName=" + firstName + "; expires=" + date.toGMTString() + "path=/";
+    document.cookie = "lastName=" + lastName + "; expires=" + date.toGMTString() + "path=/";
+    document.cookie = "email=" + email + "; expires=" + date.toGMTString() + "path=/";
+    document.cookie = "university=" + email_ending + "; expires=" + date.toGMTString() + "path=/";
+    document.cookie = "role=" + role + "; expires=" + date.toGMTString() + "path=/";
 } // end of saveCookie function
 
-function readCookie()
+function getCookie(name)
 {
-	userId = -1;
-	let data = document.cookie;
-	let splits = data.split("; ");
-	for(var i = 0; i < splits.length; i++)
-	{
-		let thisOne = splits[i].trim();
-		let tokens = thisOne.split("=");
-		if( tokens[0] == "firstName" )
-		{
-			firstName = tokens[1];
-		}
-		else if( tokens[0] == "lastName" )
-		{
-			lastName = tokens[1];
-		}
-		else if( tokens[0] == "userId" )
-		{
-			userId = parseInt( tokens[1].trim() );
-		}
-	} // end for loop
-
-	if( userId < 0 )
-	{
-		window.location.href = "index.html";
-	}
-	else
-	{
-		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
-	}
-} // end function readCookie
+    let cookieArr = document.cookie.split("; ");
+    for(let i = 0; i < cookieArr.length; i++)
+    {
+      let cookiePair = cookieArr[i].split("=");
+      if(name == cookiePair[0])
+      {
+        return cookiePair[1];
+      }
+    }
+    return null;
+}
 
 function doLogout()
 {
