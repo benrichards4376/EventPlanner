@@ -21,88 +21,155 @@ function moveToCreate(category)
     }
 } // end moveToCreate function
 
-function createPublicEvent(){
-
-	// get the incoming values
-	let eventName = document.getElementById("public-event-name").value;
-	let description = document.getElementById("public-event-description").value;
-	let dateTime = document.getElementById("public-event-date-time").value;
-	let location = document.getElementById("public_map").value;
-    let phone = document.getElementById("public-event-phone").value;
-    let email = document.getElementById("public-event-email").value;
-
-    // split dateTime into date & time
-    const [dateString, timeString] = dateTimeString.split(" ");
-
-    // Convert the time to 24-hour format
-    const timeParts = timeString.split(":");
-    let hours = parseInt(timeParts[0]);
-    const minutes = parseInt(timeParts[1]);
-
-    if (hours === 12) {
-    hours = 0; // 12 AM is 0 hours in 24-hour format
-    }
-
-    if (timeString.endsWith("PM")) {
-    hours += 12; // add 12 hours to convert to 24-hour format
-    }
-
-    // Create a new Date object with the date and time parts
-    const date = new Date(`${dateString} ${hours}:${minutes}`);
-    date.toISOString
-
-	// set the temp variables
-	let tmp = {
-        name: eventName,
-        description: description,
-        date: dateTime,
-        time: dateTime,
-        location: location,
-        contactPhone: phone,
-        contactEmail: email
-    };
-
-	// set values as a JSON string
-	let jsonPayload = JSON.stringify(tmp);
-    let url = urlBase + '/CreatePublicEvent.' + extension;
-
-	let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-	try {
+function createRSOClub(btn, name)
+{
+    const createEventButton = document.getElementById(btn);
+    createEventButton.addEventListener("click", (event) => 
+    {
+        event.preventDefault();
+        const name = document.getElementById('rso-club-name').value;
+        const email_ending = localStorage.getItem("email_ending");
+        const user_id = localStorage.getItem("email");
+        console.log(user_id);
+        const leader = document.getElementById('leader').value;
+        const email1 = document.getElementById('member1').value;
+        const email2 = document.getElementById('member2').value;
+        const email3 = document.getElementById('member3').value;
+        const email4 = document.getElementById('member4').value;
+        console.log(name)
+        console.log(leader)
+        console.log(email1)
+        console.log(email2)
+        console.log(email3)
+        console.log(email4)
+        const xhr = new XMLHttpRequest();
+        const url = "/API/CreateRso.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function ()
-		{
-			// check state of API
-            if (this.readyState != 4)
-			{
-                return;
+        {
+            if (xhr.readyState === 4 && xhr.status === 200)
+            {
+                console.log(xhr.responseText);
             }
-
-            if (this.status == 409)
-			{
-                return;
+            else
+            {
+                document.getElementById("createRSOClubResult").innerHTML = JSON.parse(xhr.responseText).error;
             }
+        };
+        let tmp = {name:name,email_ending:email_ending,user_id:user_id,admin_email:leader,
+            email1:email1,email2:email2,email3:email3,email4:email4};
+        xhr.send(JSON.stringify(tmp));
+        
+        document.getElementById('rso-club-name').value = "";
+        markers = null;
+    });
+} // end createRSOClub function
 
-			// if no error retrieve values
-            if (this.status == 200)
-			{
-				document.getElementById("firstName").value = "";
-				document.getElementById("lastName").value = "";
-				document.getElementById("register-username").value = "";
-				document.getElementById("register-password").value = "";
+function createPublicEvent(id, btn, name, time, description)
+{
+    const input = document.getElementById(id);
+    const searchBox = new google.maps.places.Autocomplete(input);
 
-				saveCookie();
+
+    const createEventButton = document.getElementById(btn);
+    createEventButton.addEventListener("click", (event) => 
+    {
+        event.preventDefault();
+        const name = document.getElementById('public-event-name').value;
+        const email_ending = localStorage.getItem("email_ending");
+        const user_id = localStorage.getItem("email");
+        console.log(user_id);
+        const description = document.getElementById('public-event-description').value;
+        const time = document.getElementById('public-event-date-time').value;
+        const contactPhone = document.getElementById('public-event-phone').value;
+        const contactEmail = document.getElementById('public-event-email').value;
+        const location = searchBox.getPlace().name;
+        const longitude = searchBox.getPlace().geometry.location.lng();
+        const latitude = searchBox.getPlace().geometry.location.lat();
+        console.log(name)
+        console.log(time)
+        console.log(description)
+        console.log(location)
+        console.log(longitude)
+        console.log(latitude)
+        const xhr = new XMLHttpRequest();
+        const url = "/API/CreatePublicEvent.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function ()
+        {
+            if (xhr.readyState === 4 && xhr.status === 200)
+            {
+                console.log(xhr.responseText);
             }
-        }; // end onreadystatechange
+            else
+            {
+                document.getElementById("createPublicEventResult").innerHTML = JSON.parse(xhr.responseText).error;
+            }
+        };
+        let tmp = {name:name,email_ending:email_ending,user_id:user_id,description:description,
+            time:time,contactPhone:contactPhone,contactEmail:contactEmail,
+            location:location,longitude:longitude,latitude:latitude};
+        xhr.send(JSON.stringify(tmp));
+        
+        document.getElementById('public-event-name').value = "";
+        document.getElementById('public-event-date-time').value = "";
+        document.getElementById('public-event-description').value = "";
+        markers = null;
+    });
+} // end createPublicEvent function
 
-		// send everything to server
-        xhr.send(jsonPayload);
-		
-    } // end try
-	catch (err)
-	{
-        document.getElementById("registerResult").innerHTML = err.message;
-    } // end catch
+function createPrivateEvent(id, btn, name, time, description)
+{
+    const input = document.getElementById(id);
+    const searchBox = new google.maps.places.Autocomplete(input);
 
-} // end of doRegister function
+
+    const createEventButton = document.getElementById(btn);
+    createEventButton.addEventListener("click", (event) => 
+    {
+        event.preventDefault();
+        const name = document.getElementById('private-event-name').value;
+        const email_ending = localStorage.getItem("email_ending");
+        const user_id = localStorage.getItem("email");
+        console.log(user_id);
+        const description = document.getElementById('private-event-description').value;
+        const time = document.getElementById('private-event-date-time').value;
+        const contactPhone = document.getElementById('private-event-phone').value;
+        const contactEmail = document.getElementById('private-event-email').value;
+        const location = searchBox.getPlace().name;
+        const longitude = searchBox.getPlace().geometry.location.lng();
+        const latitude = searchBox.getPlace().geometry.location.lat();
+        console.log(name)
+        console.log(time)
+        console.log(description)
+        console.log(location)
+        console.log(longitude)
+        console.log(latitude)
+        const xhr = new XMLHttpRequest();
+        const url = "/API/CreatePrivateEvent.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function ()
+        {
+            if (xhr.readyState === 4 && xhr.status === 200)
+            {
+                console.log(xhr.responseText);
+            }
+            else
+            {
+                document.getElementById("createPrivateEventResult").innerHTML = JSON.parse(xhr.responseText).error;
+            }
+        };
+        let tmp = {name:name,email_ending:email_ending,user_id:user_id,description:description,
+            time:time,contactPhone:contactPhone,contactEmail:contactEmail,
+            location:location,longitude:longitude,latitude:latitude};
+        xhr.send(JSON.stringify(tmp));
+        
+        document.getElementById('private-event-name').value = "";
+        document.getElementById('private-event-date-time').value = "";
+        document.getElementById('private-event-description').value = "";
+        markers = null;
+    });
+} // end createPrivateEvent function

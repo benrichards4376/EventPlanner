@@ -73,31 +73,32 @@
         <!-- PRIVATE EVENT ------------------------------------------------------------>
         <div class="createDiv" id="private-event-div">
             <span class="create-title" id="private-event-title">Create Private Event</span>
-            <form onsubmit="createPrivateEvent" id="private-event"  method="GET">
-                <label for="name">Name:</label><br>
-                <input type="text" id="private-event-name" placeholder="Name" required><br>
-                <br>
-                <label for="time">Time:</label><br>
-                <input type="datetime-local" id="private-event-time" required><br>
-                <br>
-                <label for="description">Description:</label><br>
-                <textarea id="private-event-description" cols="70" rows="5" required></textarea><br>
-                <br>
-                <label for="location">Location:</label><br>
-                <input id="private_map" class="controls" type="text" placeholder="Enter a location"><br>
-                <br>
-                <label for="phone">Phone:</label><br>
-                <input type="text" id="private-event-phone" placeholder="Phone" required><br>
-                <br>
-                <label for="email">Email:</label><br>
-                <input type="text" id="private-event-email" placeholder="Email" required><br>
-                <br>
-                <button type="button" id="private-event-button" class="buttons" onclick="createPrivateEvent();">Create Event</button>
-            </form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="private-event-name" placeholder="Name" required><br>
+            <br>
+            <label for="time">Time:</label><br>
+            <input type="datetime-local" id="private-event-time" required><br>
+            <br>
+            <label for="description">Description:</label><br>
+            <textarea id="private-event-description" cols="70" rows="5" required></textarea><br>
+            <br>
+            <label for="location">Location:</label><br>
+            <input id="private_map" class="controls" type="text" placeholder="Enter a location"><br>
+            <br>
+            <label for="phone">Phone:</label><br>
+            <input type="text" id="private-event-phone" placeholder="Phone" required><br>
+            <br>
+            <label for="email">Email:</label><br>
+            <input type="text" id="private-event-email" placeholder="Email" required><br>
+            <br>
+            <button type="button" id="private-event-button" class="buttons">Create Event</button>
+            <span id="createPrivateEventResult"></span>
+            <div id="map"></div>
         </div>
+
         <script>
             window.addEventListener("load", function() {
-                initMap("private_map", "private-event-button", "private-event-name", "private-event-time", "private-event-description");
+                createPrivateEvent("private_map", "private-event-button", "private-event-name", "private-event-time", "private-event-description");
             });
         </script>     
 
