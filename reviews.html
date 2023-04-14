@@ -7,29 +7,19 @@
     </head>
     <body>
 
-        <!-- STUDENT HEADER ----------------------------------------------------------->
-        <div class="header" id="studentHeader">
+        <!-- HEADER ------------------------------------------------------------------->
+        <div class="header">
 
             <!-- EVENTS BUTTON -->
             <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
-          
-            <!-- CREATE DROPDOWN -->
+
+            <!-- STUDENT CREATE DROPDOWN -->
             <select onchange="moveToCreate(this.value)" class="create-dropdown" id="student-create-dropdown">
                 <option selected disabled hidden>Create</option>
                 <option value="create-rso-club">RSO Club</option>
             </select>
-          
-            <!-- JOIN BUTTON -->
-            <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
-        </div>
 
-        <!-- ADMIN HEADER ------------------------------------------------------------->
-        <div class="header" id="adminHeader">
-
-            <!-- EVENTS BUTTON -->
-            <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
-
-            <!-- CREATE DROPDOWN -->
+            <!-- ADMIN CREATE DROPDOWN -->
             <select onchange="moveToCreate(this.value)" class="create-dropdown" id="admin-create-dropdown">
                 <option selected disabled hidden>Create</option>
                 <option value="create-rso-club">RSO Club</option>
@@ -40,30 +30,40 @@
 
             <!-- JOIN BUTTON -->
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
+
+            <!-- APPROVE BUTTON -->
+            <button class="approve-button" onclick="window.location.href = 'approve.html';">Approve</button>
+
+            <!-- LOGOUT BUTTON -->
+            <button class="logout-button" onclick="doLogout()">Logout</button>
+
         </div>
 
-        <!-- SUPER ADMIN HEADER ------------------------------------------------------->
-        <div class="header" id="superHeader">
+        <script>
+            let studentCreate = document.getElementById("student-create-dropdown");
+            let adminCreate = document.getElementById("admin-create-dropdown");
+            let approve = document.getElementById("approve-button");
 
-            <!-- EVENTS  DROPDOWN -->
-            <select class="events-dropdown" id="super-events-dropdown" onchange="window.location.href = value;">
-                <option selected disabled hidden>Events</option>
-                <option value="events.html">View</option>
-                <option value="approve.html">Approve</option>
-            </select>
-
-            <!-- CREATE DROPDOWN -->
-            <select onchange="moveToCreate(this.value)" class="create-dropdown" id="super-create-dropdown">
-                <option selected disabled hidden>Create</option>
-                <option value="create-rso-club">RSO Club</option>
-                <option value="create-rso-event">RSO Event</option>
-                <option value="create-public-event">Public Event</option>
-                <option value="create-private-event">Private Event</option>
-            </select>
-
-            <!-- JOIN BUTTON -->
-            <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
-        </div>
+            let role = getCookie("role");
+            if (role === "student")
+            {
+                studentCreate.style.visibility = "visible";
+                adminCreate.style.visibility = "hidden";
+                approve.style.visibility = "hidden";
+            }
+            if (role === "admin")
+            {
+                studentCreate.style.visibility = "hidden";
+                adminCreate.style.visibility = "visible";
+                approve.style.visibility = "hidden";
+            }
+            if (role === "super")
+            {
+                studentCreate.style.visibility = "hidden";
+                adminCreate.style.visibility = "visible";
+                approve.style.visibility = "visible";
+            }
+        </script>
 
         <!-- REVIEWS SECTION ---------------------------------------------------------->
         <div id="reviewsDiv">

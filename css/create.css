@@ -7,33 +7,8 @@ body
 }
 
 /* HEADER ***************************************************************/
-#studentHeader
+.header
 {
-    visibility: hidden;
-    position: absolute;
-    top: 0%;
-    width: 100%;
-    padding: 20px;
-    height: 5vh;
-    width: 100%;
-    background-color: black;
-}
-
-#adminHeader
-{
-    visibility: visible;
-    position: absolute;
-    top: 0%;
-    width: 100%;
-    padding: 20px;
-    height: 5vh;
-    width: 100%;
-    background-color: black;
-}
-
-#superHeader
-{
-    visibility: hidden;
     position: absolute;
     top: 0%;
     width: 100%;
@@ -45,22 +20,6 @@ body
 
 .events-button
 {
-    visibility: visible;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    font-size: 20px;
-    height: 100%;
-    width: 20%;
-    font-family: 'Ubuntu', sans-serif;
-    color: white;
-    background-color: black;
-    border: none;
-}
-
-.events-dropdown
-{
-    visibility: hidden;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -88,11 +47,50 @@ body
     border: none;
 }
 
+#student-create-dropdown
+{
+    visibility: visible;
+}
+
+#admin-create-dropdown
+{
+    visibility: hidden;
+}
+
 .join-button
 {
     position: absolute;
     top: 0%;
     left: 40%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+.approve-button
+{
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    left: 60%;
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+.logout-button
+{
+    position: absolute;
+    top: 0%;
+    left: 80%;
     font-size: 20px;
     height: 100%;
     width: 20%;
@@ -174,36 +172,6 @@ textarea
     background-color: black;
 }
 
-/* RSO CLUB *************************************************************/
-#rso-club-div
-{
-    visibility: visible;
-}
-
-/* RSO EVENT ************************************************************/
-
-#rso-event-div
-{
-    visibility: visible;
-    height: 85vh;
-}
-
-/* PUBLIC EVENT *********************************************************/
-
-#public-event-div
-{
-    visibility: visible;
-    height: 75vh;
-}
-
-/* PRIVATE EVENT ********************************************************/
-
-#private-event-div
-{
-    visibility: visible;
-    height: 75vh;
-}
-
 /* BUTTON HOVER *********************************************************/
 .events-button:hover
 {
@@ -224,6 +192,18 @@ textarea
 }
 
 .join-button:hover
+{
+    color: black;
+    background-color: white;
+}
+
+.approve-button:hover
+{
+    color: black;
+    background-color: white;
+}
+
+.logout-button:hover
 {
     color: black;
     background-color: white;
