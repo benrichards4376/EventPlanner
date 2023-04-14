@@ -16,6 +16,25 @@ function createPublicEvent(){
     let phone = document.getElementById("public-event-phone").value;
     let email = document.getElementById("public-event-email").value;
 
+    // split dateTime into date & time
+    const [dateString, timeString] = dateTimeString.split(" ");
+
+    // Convert the time to 24-hour format
+    const timeParts = timeString.split(":");
+    let hours = parseInt(timeParts[0]);
+    const minutes = parseInt(timeParts[1]);
+
+    if (hours === 12) {
+    hours = 0; // 12 AM is 0 hours in 24-hour format
+    }
+
+    if (timeString.endsWith("PM")) {
+    hours += 12; // add 12 hours to convert to 24-hour format
+    }
+
+    // Create a new Date object with the date and time parts
+    const date = new Date(`${dateString} ${hours}:${minutes}`);
+    date.toISOString
 
 	// set the temp variables
 	let tmp = {
@@ -30,7 +49,7 @@ function createPublicEvent(){
 
 	// set values as a JSON string
 	let jsonPayload = JSON.stringify(tmp);
-    let url = urlBase + '/Register.' + extension;
+    let url = urlBase + '/CreatePublicEvent.' + extension;
 
 	let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -59,7 +78,6 @@ function createPublicEvent(){
 				document.getElementById("register-password").value = "";
 
 				saveCookie();
-				moveTologin();
             }
         }; // end onreadystatechange
 

@@ -14,12 +14,10 @@
             <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
           
             <!-- CREATE DROPDOWN -->
-            <form onclick="moveToCreate()" id="stduent-create" method="GET">
-                <select class="create-dropdown" id="student-create-dropdown">
-                    <option selected disabled hidden>Create</option>
-                    <option value="create-rso-club">RSO Club</option>
-                </select>
-            </form>
+            <select onchange="moveToCreate(this.value)" class="create-dropdown" id="student-create-dropdown">
+                <option selected disabled hidden>Create</option>
+                <option value="create-rso-club">RSO Club</option>
+            </select>
           
             <!-- JOIN BUTTON -->
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
@@ -32,20 +30,18 @@
             <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
 
             <!-- CREATE DROPDOWN -->
-            <form onclick="moveToCreate()" id="admin-create" method="GET">
-                <select class="create-dropdown" id="admin-create-dropdown">
-                    <option selected disabled hidden>Create</option>
-                    <option value="create-rso-club">RSO Club</option>
-                    <option value="create-rso-event">RSO Event</option>
-                    <option value="create-pulic-event">Public Event</option>
-                    <option value="create-private-event">Private Event</option>
-                </select>
-            </form>
+            <select onchange="moveToCreate(this.value)" class="create-dropdown" id="admin-create-dropdown">
+                <option selected disabled hidden>Create</option>
+                <option value="create-rso-club">RSO Club</option>
+                <option value="create-rso-event">RSO Event</option>
+                <option value="create-public-event">Public Event</option>
+                <option value="create-private-event">Private Event</option>
+            </select>
 
             <!-- JOIN BUTTON -->
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
         </div>
-        
+
         <!-- SUPER ADMIN HEADER ------------------------------------------------------->
         <div class="header" id="superHeader">
 
@@ -57,15 +53,13 @@
             </select>
 
             <!-- CREATE DROPDOWN -->
-            <form onclick="moveToCreate()" id="super-create" method="GET">
-                <select class="create-dropdown" id="super-create-dropdown">
-                    <option selected disabled hidden>Create</option>
-                    <option value="create-rso-club">RSO Club</option>
-                    <option value="create-rso-event">RSO Event</option>
-                    <option value="create-pulic-event">Public Event</option>
-                    <option value="create-private-event">Private Event</option>
-                </select>
-            </form>
+            <select onchange="moveToCreate(this.value)" class="create-dropdown" id="super-create-dropdown">
+                <option selected disabled hidden>Create</option>
+                <option value="create-rso-club">RSO Club</option>
+                <option value="create-rso-event">RSO Event</option>
+                <option value="create-public-event">Public Event</option>
+                <option value="create-private-event">Private Event</option>
+            </select>
 
             <!-- JOIN BUTTON -->
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
