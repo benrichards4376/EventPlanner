@@ -14,6 +14,7 @@
         <div id="loginDiv">
             <form onsubmit="doLogin()" id="login"  method="GET">
                 <span id="inner-title">Login</span><br>
+                <span id="loginResult"></span>
                 <label for="loginName" class="loginLabel">Email:</label><br>
                 <input type="text" id="loginName" class="loginInput" placeholder="Email"/><br>
                 <br>
@@ -22,7 +23,6 @@
                 <br>
                 <button type="button" id="loginButton" class="buttons" onclick="doLogin();">LOGIN</button>
                 <button type="button" id="registerButton1" class="buttons" onclick="moveToRegister();">REGISTER</button>
-                <span id="loginResult"></span>
             </form>
         </div>
         

@@ -1,10 +1,25 @@
 const urlBase = 'http://first-web.xyz/API';
 const extension = 'php';
 
-let email = "";
-let firstName = "";
-let lastName = "";
-let email_ending = "";
+function moveToCreate(category)
+{
+	if (category == "create-rso-club")
+    {
+        window.location.href = "rso-club.html";
+    }
+    if (category == "create-rso-event")
+    {
+        window.location.href = "rso-event.html";
+    }
+    if (category == "create-public-event")
+    {
+        window.location.href = "public-event.html";
+    }
+    if (category == "create-private-event")
+    {
+        window.location.href = "private-event.html";
+    }
+} // end moveToCreate function
 
 function createPublicEvent(){
 

@@ -34,37 +34,40 @@
             <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
 
             <!-- APPROVE BUTTON -->
-            <button class="approve-button" onclick="window.location.href = 'approve.html';">Approve</button>
+            <button class="approve-button" id="approve-buttons" onclick="window.location.href = 'approve.html';">Approve</button>
 
             <!-- LOGOUT BUTTON -->
             <button class="logout-button" onclick="doLogout()">Logout</button>
 
         </div>
 
+        <!-- ROLE RESTRICTIONS -->
         <script>
-            let studentCreate = document.getElementById("student-create-dropdown");
-            let adminCreate = document.getElementById("admin-create-dropdown");
-            let approve = document.getElementById("approve-button");
+            window.addEventListener("load", function() {
+                let studentCreate = document.getElementById("student-create-dropdown");
+                let adminCreate = document.getElementById("admin-create-dropdown");
+                let approve = document.getElementById("approve-buttons");
 
-            let role = localStorage.getItem("role");
-            if (role === "student")
-            {
-                studentCreate.style.visibility = "visible";
-                adminCreate.style.visibility = "hidden";
-                approve.style.visibility = "hidden";
-            }
-            if (role === "admin")
-            {
-                studentCreate.style.visibility = "hidden";
-                adminCreate.style.visibility = "visible";
-                approve.style.visibility = "hidden";
-            }
-            if (role === "super")
-            {
-                studentCreate.style.visibility = "hidden";
-                adminCreate.style.visibility = "visible";
-                approve.style.visibility = "visible";
-            }
+                let role = localStorage.getItem("role");
+                if (role === "student")
+                {
+                    studentCreate.style.visibility = "visible";
+                    adminCreate.style.visibility = "hidden";
+                    approve.style.visibility = "hidden";
+                }
+                if (role === "admin")
+                {
+                    studentCreate.style.visibility = "hidden";
+                    adminCreate.style.visibility = "visible";
+                    approve.style.visibility = "hidden";
+                }
+                if (role === "super")
+                {
+                    studentCreate.style.visibility = "hidden";
+                    adminCreate.style.visibility = "visible";
+                    approve.style.visibility = "visible";
+                }
+            });
         </script>
         
         <!-- PUBLIC EVENT ------------------------------------------------------------->

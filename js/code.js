@@ -68,7 +68,8 @@ function doLogin()
 
 } // end function doLogin
 
-function doRegister(){
+function doRegister()
+{
 
 	// get the incoming values
 	let firstName = document.getElementById("firstName").value;
