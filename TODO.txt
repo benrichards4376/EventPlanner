@@ -1,0 +1,20 @@
+TODO List:
+
+[ ] ApproveEvents
+[ ] CreatePost
+[/] CreatePrivateEvent
+[X] CreatePublicEvent
+[/] CreateRSOClub
+[ ] CreateRSOEvent
+[ ] CreateStudent (register?)
+[ ] DeletePost
+[ ] EditPost
+[ ] JoinRSO
+[ ] LeaveRSO
+[X] Login
+[ ] SearchRSO
+[ ] ViewAdminRSO
+[ ] ViewApprovalEvents
+[ ] ViewEvents
+[ ] ViewMyRSO
+[ ] ViewPosts
