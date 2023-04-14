@@ -45,7 +45,6 @@ body
 
 .events-button
 {
-    visibility: hidden;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -60,7 +59,6 @@ body
 
 .events-dropdown
 {
-    visibility: visible;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -91,17 +89,17 @@ body
 
 #student-create-dropdown
 {
-    visibility: hidden;
+    visibility: visible;
 }
 
 #admin-create-dropdown
 {
-    visibility: visible;
+    visibility: hidden;
 }
 
 #super-create-dropdown
 {
-    visibility: visible;
+    visibility: hidden;
 }
 
 .join-button

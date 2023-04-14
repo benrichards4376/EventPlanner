@@ -177,14 +177,14 @@ textarea
 /* RSO CLUB *************************************************************/
 #rso-club-div
 {
-    visibility: hidden;
+    visibility: visible;
 }
 
 /* RSO EVENT ************************************************************/
 
 #rso-event-div
 {
-    visibility: hidden;
+    visibility: visible;
     height: 85vh;
 }
 
@@ -200,7 +200,7 @@ textarea
 
 #private-event-div
 {
-    visibility: hidden;
+    visibility: visible;
     height: 75vh;
 }
 

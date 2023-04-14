@@ -149,14 +149,14 @@ function saveCookie()
 	let minutes = 20;
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",email=" + email + ",university=" + email_ending + ";expires=" + date.toGMTString();
+	document.cookie = "firstName=" + firstName + "; expires=" + date.toGMTString();
 } // end of saveCookie function
 
 function readCookie()
 {
 	userId = -1;
 	let data = document.cookie;
-	let splits = data.split(",");
+	let splits = data.split("; ");
 	for(var i = 0; i < splits.length; i++)
 	{
 		let thisOne = splits[i].trim();
