@@ -5,12 +5,14 @@ let email = "";
 let firstName = "";
 let lastName = "";
 let email_ending = "";
+let role="";
 
 function doLogin()
 {
 	email = "";
 	firstName = "";
 	lastName = "";
+	role = "";
 
 	// get the incoming values
 	let login = document.getElementById("loginName").value;
@@ -39,7 +41,8 @@ function doLogin()
 				let jsonObject = JSON.parse(xhr.responseText);
 				console.log(xhr.responseText);
 				email = jsonObject.email;
-				email_ending = jsonObject.email_ending;
+				email_ending = jsonObject.university;
+				role = jsonObject.role;
 				if (email == "")
 				{
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
@@ -72,6 +75,7 @@ function doRegister(){
 	let lastName = document.getElementById("lastName").value;
 	let login = document.getElementById("userName").value;
 	let password = document.getElementById("password").value;
+	role = "student";
 
 	// get results from register & check for special characters
 	if(hasSpecialChar(login)){
@@ -146,14 +150,11 @@ function doRegister(){
 
 function saveCookie()
 {
-    let minutes = 20;
-    let date = new Date();
-    date.setTime(date.getTime()+(minutes*60*1000));
-    document.cookie = "firstName=" + firstName + "; expires=" + date.toGMTString() + "path=/";
-    document.cookie = "lastName=" + lastName + "; expires=" + date.toGMTString() + "path=/";
-    document.cookie = "email=" + email + "; expires=" + date.toGMTString() + "path=/";
-    document.cookie = "university=" + email_ending + "; expires=" + date.toGMTString() + "path=/";
-    document.cookie = "role=" + role + "; expires=" + date.toGMTString() + "path=/";
+	localStorage.setItem("firstName", firstName);
+	localStorage.setItem("lastName", lastName);
+	localStorage.setItem("email", email);
+	localStorage.setItem("email_ending", email_ending);
+	localStorage.setItem("role", role);
 } // end of saveCookie function
 
 function getCookie(name)

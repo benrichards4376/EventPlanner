@@ -93,7 +93,7 @@ Events
     (event_id int NOT NULL AUTO_INCREMENT,
      name varchar(30) NOT NULL DEFAULT '',
      uni_id varchar(50) NOT NULL,
-     admin_id int NOT NULL,
+     admin_id varchar(50) NOT NULL,
      category varchar(20) NOT NULL DEFAULT "private",
      approved boolean NOT NULL DEFAULT FALSE,
      description varchar(200),

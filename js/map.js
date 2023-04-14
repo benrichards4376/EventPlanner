@@ -9,21 +9,25 @@ function initMap(id, btn, name, time, description)
     createEventButton.addEventListener("click", (event) => 
     {
         event.preventDefault();
-
-        const name = document.getElementById(name).value;
-        const time = document.getElementById(time).value;
-        const description = document.getElementById(description).value;
-        const locationName = searchBox.getPlace().name;
+        const name = document.getElementById('public-event-name').value;
+        const email_ending = localStorage.getItem("email_ending");
+        const user_id = localStorage.getItem("email");
+        console.log(user_id);
+        const description = document.getElementById('public-event-description').value;
+        const time = document.getElementById('public-event-date-time').value;
+        const contactPhone = document.getElementById('public-event-phone').value;
+        const contactEmail = document.getElementById('public-event-email').value;
+        const location = searchBox.getPlace().name;
         const longitude = searchBox.getPlace().geometry.location.lng();
         const latitude = searchBox.getPlace().geometry.location.lat();
         console.log(name)
         console.log(time)
         console.log(description)
-        console.log(locationName)
+        console.log(location)
         console.log(longitude)
         console.log(latitude)
         const xhr = new XMLHttpRequest();
-        const url = "create_event.php";
+        const url = "/API/CreatePublicEvent.php";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function ()
@@ -32,26 +36,19 @@ function initMap(id, btn, name, time, description)
             {
                 console.log(xhr.responseText);
             }
+            else
+            {
+                document.getElementById("createPublicEventResult").innerHTML = JSON.parse(xhr.responseText).error;
+            }
         };
-        xhr.send(
-            "name=" +
-            name +
-            "&time=" +
-            time +
-            "&description=" +
-            description +
-            "&location_name=" +
-            locationName +
-            "&longitude=" +
-            longitude +
-            "&latitude=" +
-            latitude
-        );
+        let tmp = {name:name,email_ending:email_ending,user_id:user_id,description:description,
+            time:time,contactPhone:contactPhone,contactEmail:contactEmail,
+            location:location,longitude:longitude,latitude:latitude};
+        xhr.send(JSON.stringify(tmp));
         
-        document.getElementById(name).value = "";
-        document.getElementById(time).value = "";
-        document.getElementById(description).value = "";
-        document.getElementById(id).value = "";
+        document.getElementById('public-event-name').value = "";
+        document.getElementById('public-event-date-time').value = "";
+        document.getElementById('public-event-description').value = "";
         markers = null;
     });
 } // end function initMap
