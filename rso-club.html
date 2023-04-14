@@ -46,7 +46,7 @@
             let adminCreate = document.getElementById("admin-create-dropdown");
             let approve = document.getElementById("approve-button");
 
-            let role = getCookie("role");
+            let role = localStorage.getItem("role");
             if (role === "student")
             {
                 studentCreate.style.visibility = "visible";
