@@ -87,32 +87,36 @@ function viewPosts()
     const xhr = new XMLHttpRequest();
     const url = "/API/ViewPosts.php";
     xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-    try {
-        xhr.onreadystatechange = function ()
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
         {
-            if (xhr.readyState == 4 && xhr.status == 200)
+            let response = JSON.parse(xhr.responseText);
+            if (response.error)
             {
-                let jsonObject = JSON.parse(xhr.responseText);
-                if (jsonObject.error)
-                {
-                    console.log(jsonObject.error);
-                    return;
-                }
-				console.log(jsonObject);
-				const reviewsDiv = document.getElementById("reviewsDiv");
-				console.log(reviewsDiv);
-				let html = "";
-				for(let i = 0; i < jsonObject.results.length; i++){
-					html += '<div class="thisReview" id="'+ jsonObject.results[i].ID + 'Name">'+ jsonObject.results[i].name +'</div>';
-                    html += '<div class="thisReview" id="'+ jsonObject.results[i].ID + 'Com">'+ jsonObject.results[i].comment +'</div> </div>';
-				}
-				reviewsDiv.innerHTML = html;
+                console.log(xhr.responseText);
+                return;
             }
-        };
-        xhr.send(jsonPayload);
-    } catch (err) {
-        console.log(err.message);
-    }
+
+            const reviewsContainer = document.getElementById('reviewsDiv');
+            for (let i = 0; i < response.data.length; i++)
+            {
+                const reviewsDiv = document.createElement('div');
+                reviewsDiv.className = 'thisReview';
+                reviewsDiv.innerHTML = `<div class="reviewInfo">User: ${response[i].user}</div>
+                                    <div class="reviewInfo">Comment: ${response[i].comment}</div>
+                                    <div class="reviewInfo">Rating: ${response[i].rating}</div>
+                                    <button class="button" id="edit-button" onclick="editPost(${response[i].post_id})">Edit</button>
+                                    <button class="button" id="delete-button" onclick="deletePost(${response[i].post_id})">Delete</button>`
+                reviewsContainer.appendChild(reviewsDiv);
+            }
+        }
+        else
+        {
+            console.log("No events currently available");
+        }
+    };
+    xhr.send(JSON.stringify(tmp));
 } // end viewPosts function
