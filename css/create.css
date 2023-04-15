@@ -17,7 +17,24 @@ body
     width: 100%;
     background-color: black;
 }
-
+#createPublicEventResult
+{
+    position: relative;
+    font-size: 50px;
+    color:red;
+}
+#createPrivateEventResult
+{
+    position: relative;
+    font-size: 50px;
+    color:red;
+}
+#createRSOClubResult
+{
+    position: relative;
+    font-size: 50px;
+    color:red;
+}
 .events-button
 {
     position: absolute;
@@ -126,10 +143,11 @@ body
     border-radius: 10px;
 }
 
-label
+.createDiv label
 {
     position: relative;
     top: 5vh;
+    text-align: left;
 }
 
 input[type=text]

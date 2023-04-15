@@ -68,6 +68,11 @@ function doLogin()
 
 } // end function doLogin
 
+function moveToRegister()
+{
+	document.getElementById("loginDiv").style.visibility = "hidden";
+	document.getElementById("registerDiv").style.visibility = "visible";
+}
 function doRegister()
 {
 
