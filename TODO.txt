@@ -2,10 +2,10 @@ TODO List:
 
 [ ] ApproveEvents
 [/] CreatePost
-[/] CreatePrivateEvent
+[X] CreatePrivateEvent
 [X] CreatePublicEvent
-[/] CreateRSOClub
-[ ] CreateRSOEvent
+[X] CreateRSOClub
+[X] CreateRSOEvent
 [X] CreateStudent (register?)
 [/] DeletePost
 [ ] EditPost
