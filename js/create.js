@@ -1,5 +1,3 @@
-const urlBase = 'http://first-web.xyz/API';
-const extension = 'php';
 
 function moveToCreate(category)
 {
