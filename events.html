@@ -72,13 +72,18 @@
         </script>
         
         <!-- EVENTS SECTION ----------------------------------------------------------->
-        <div id="eventDiv">
-            <span id="event-title">Events Page</span>
-
+        <span id="event-title">Events Page</span>
+        <div class="event-nav">
+            <div id="eventDiv">
+                <span></span>
+            </div>
+            <div id="navDiv">
+                <span id="nav-title"></span>
+            </div>
         </div>
         <script>
             window.addEventListener("load", function() {
-                getEvents();
+                getEvents(1, 10);
             });
         </script> 
     </body>

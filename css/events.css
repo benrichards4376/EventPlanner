@@ -197,3 +197,8 @@ body
     color: white;
     background-color: rgb(51, 153, 255);
 }
+.event-nav
+{
+    position: absolute;
+    align-items: center;
+}

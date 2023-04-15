@@ -104,7 +104,7 @@ function doRegister()
 
 	// set values as a JSON string
 	let jsonPayload = JSON.stringify(tmp);
-    let url = urlBase + '/Register.' + extension;
+    let url = urlBase + '/CreateStudentAccount.' + extension;
 
 	let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
