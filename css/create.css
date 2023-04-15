@@ -35,6 +35,12 @@ body
     font-size: 50px;
     color:red;
 }
+#createRSOEventResult
+{
+    position: relative;
+    font-size: 50px;
+    color:red;
+}
 .events-button
 {
     position: absolute;
@@ -147,7 +153,7 @@ body
 {
     position: absolute;
     top: 20vh;
-    height: 90vh;
+    height: 65vh;
     width: 75vw;
     left: 10vw;
     background-color: white;
@@ -155,6 +161,7 @@ body
     text-align: left;
     padding: 10px;
     border-radius: 10px;
+    overflow: auto;
 }
 
 #public-event-div,
