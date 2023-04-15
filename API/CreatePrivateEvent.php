@@ -32,7 +32,7 @@ error_reporting(E_ALL);
         $currentDateTime = new DateTime();
         
         // Check if the event is in the future or in the past
-        if ($currentDateTime > $dateTimeObject)
+        if ($currentDateTime > $formattedDateTime)
         {
             returnWithError("Event date and time must be in the future");
             return;
