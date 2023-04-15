@@ -13,9 +13,8 @@ TODO List:
 [ ] LeaveRSO
 [X] Login
 [ ] SearchRSO
-[ ] ViewAdminRSO
 [ ] ViewApprovalEvents
-[ ] ViewEvents
+[X] ViewEvents
 [ ] ViewMyRSO
 [/] ViewPosts
 
