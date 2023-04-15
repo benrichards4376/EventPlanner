@@ -17,11 +17,7 @@ error_reporting(E_ALL);
 		$uni_id = mysqli_real_escape_string($conn, $inData["email_ending"]);
 		$admin_id = mysqli_real_escape_string($conn, $inData["user_id"]);
 		$description = mysqli_real_escape_string($conn, $inData["description"]);
-        $date = mysqli_real_escape_string($conn, $inData["date"]);
-        $time = mysqli_real_escape_string($conn, $inData["time"]);
-        $new_time = $time . ':00';
-        $dateTimeString = $date . ' ' . $new_time;
-        $dateTimeObject = DateTime::createFromFormat('m/d/Y H:i:s', $dateTimeString);
+        $dateTimeObject = new DateTime(mysqli_real_escape_string($conn, $inData["time"]));
         $formattedDateTime = $dateTimeObject->format('Y-m-d H:i:s');
         $contactPhone = mysqli_real_escape_string($conn, $inData["contactPhone"]);
         $contactEmail = mysqli_real_escape_string($conn, $inData["contactEmail"]);
@@ -30,6 +26,7 @@ error_reporting(E_ALL);
         $latitude = mysqli_real_escape_string($conn, $inData["latitude"]);
         // Get the current date and time as a DateTime object
         $currentDateTime = new DateTime();
+        $currentDateTime = $currentDateTime->format('Y-m-d H:i:s');
         
         // Check if the event is in the future or in the past
         if ($currentDateTime > $formattedDateTime)
