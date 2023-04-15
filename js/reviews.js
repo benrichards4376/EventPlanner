@@ -1,56 +1,6 @@
 const urlBase = 'http://first-web.xyz/API';
 const extension = 'php';
 
-function hello()
-{
-    const createEventButton = document.getElementById(btn);
-    createEventButton.addEventListener("click", (event) => 
-    {
-        event.preventDefault();
-        const name = document.getElementById('private-event-name').value;
-        const email_ending = localStorage.getItem("email_ending");
-        const user_id = localStorage.getItem("email");
-        console.log(user_id);
-        const description = document.getElementById('private-event-description').value;
-        const time = document.getElementById('private-event-date-time').value;
-        const contactPhone = document.getElementById('private-event-phone').value;
-        const contactEmail = document.getElementById('private-event-email').value;
-        const location = searchBox.getPlace().name;
-        const longitude = searchBox.getPlace().geometry.location.lng();
-        const latitude = searchBox.getPlace().geometry.location.lat();
-        console.log(name)
-        console.log(time)
-        console.log(description)
-        console.log(location)
-        console.log(longitude)
-        console.log(latitude)
-        const xhr = new XMLHttpRequest();
-        const url = "/API/CreatePrivateEvent.php";
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function ()
-        {
-            if (xhr.readyState === 4 && xhr.status === 200)
-            {
-                console.log(xhr.responseText);
-            }
-            else
-            {
-                document.getElementById("createPrivateEventResult").innerHTML = JSON.parse(xhr.responseText).error;
-            }
-        };
-        let tmp = {name:name,email_ending:email_ending,user_id:user_id,description:description,
-            time:time,contactPhone:contactPhone,contactEmail:contactEmail,
-            location:location,longitude:longitude,latitude:latitude};
-        xhr.send(JSON.stringify(tmp));
-        
-        document.getElementById('private-event-name').value = "";
-        document.getElementById('private-event-date-time').value = "";
-        document.getElementById('private-event-description').value = "";
-        markers = null;
-    });
-} // end hello function
-
 function createPost()
 {
     // get the incoming values
@@ -63,7 +13,7 @@ function createPost()
 	let jsonPayload = JSON.stringify(tmp);
 
     const xhr = new XMLHttpRequest();
-    const url = "/API/createPost.php";
+    const url = "/API/CreatePost.php";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 

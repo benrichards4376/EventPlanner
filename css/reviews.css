@@ -118,7 +118,7 @@ body
     visibility: visible;
     position: relative;
     top: 30vh;
-    height: 10vh;
+    height: 18vh;
     width: 80vw;
     left: 10vw;
     background-color: white;
@@ -132,6 +132,34 @@ body
 {
     font-size: 20px;
     font-weight: bold;
+}
+
+#delete-button
+{
+    position: absolute;
+    font-size: 20px;
+    bottom: 2vh;
+    right: 5vh;
+    height: 4vh;
+    width: 150px;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+#edit-button
+{
+    position: absolute;
+    font-size: 20px;
+    bottom: 2vh;
+    left: 5vh;
+    height: 4vh;
+    width: 150px;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
 }
 
 /* WRITE REVIEW *********************************************************/

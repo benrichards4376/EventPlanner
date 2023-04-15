@@ -78,7 +78,7 @@
                 <textarea id="review-comment" cols="70" rows="3" placeholder="Write a review..." required></textarea>
 
                 <!-- POST BUTTON -->
-                <button class="button" id="post-button" onclick="createReview()">Post</button>
+                <button class="button" id="post-button" onclick="createPost()">Post</button>
             </div>
 
             <!-- VIEW REVIEWS -->
@@ -86,6 +86,8 @@
                 <div class="reviewInfo" id="reviewUser">User</div>
                 <span id="reviewEventId"></span>
                 <div class="reviewInfo" id="reviewCom">Comment</div>
+                <button class="button" id="delete-button" onclick="deletePost()">Delete</button>
+                <button class="button" id="edit-button" onclick="editPost()">Edit</button>
             </div>
         </div>
 
