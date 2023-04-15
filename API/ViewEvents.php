@@ -20,7 +20,7 @@ error_reporting(E_ALL);
         $rso = array();
 		try
         {
-            $stmt = $conn->prepare("SELECT * FROM Events WHERE category = 'public'");
+            $stmt = $conn->prepare("SELECT * FROM Events WHERE (category = 'public' AND approved = TRUE)");
 			if(!$stmt->execute())
             {
 				throw new Exception($stmt->error);
