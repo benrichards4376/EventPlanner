@@ -70,7 +70,6 @@ function doLogin()
 
 function doRegister()
 {
-
 	// get the incoming values
 	let firstName = document.getElementById("firstName").value;
 	let lastName = document.getElementById("lastName").value;
@@ -134,7 +133,7 @@ function doRegister()
 				document.getElementById("register-password").value = "";
 
 				saveCookie();
-				moveTologin();
+				moveToLogin();
             }
         }; // end onreadystatechange
 
@@ -148,6 +147,24 @@ function doRegister()
     } // end catch
 
 } // end of doRegister function
+
+function moveToLogin()
+{
+	let loginDiv = document.getElementById("loginDiv");
+	let registerDiv = document.getElementById("registerDiv");
+
+	loginDiv.style.visibility = "visible";
+	registerDiv.style.visibility = "hidden";
+}
+
+function moveToRegister()
+{
+	let loginDiv = document.getElementById("loginDiv");
+	let registerDiv = document.getElementById("registerDiv");
+
+	loginDiv.style.visibility = "hidden";
+	registerDiv.style.visibility = "visible";
+}
 
 function saveCookie()
 {
