@@ -36,12 +36,12 @@ function createRSOClub(btn, name)
         const email2 = document.getElementById('member2').value;
         const email3 = document.getElementById('member3').value;
         const email4 = document.getElementById('member4').value;
-        console.log(name)
-        console.log(leader)
-        console.log(email1)
-        console.log(email2)
-        console.log(email3)
-        console.log(email4)
+        console.log(name);
+        console.log(leader);
+        console.log(email1);
+        console.log(email2);
+        console.log(email3);
+        console.log(email4);
         const xhr = new XMLHttpRequest();
         const url = "/API/CreateRso.php";
         xhr.open("POST", url, true);
@@ -71,7 +71,6 @@ function createPublicEvent(id, btn, name, time, description)
     const input = document.getElementById(id);
     const searchBox = new google.maps.places.Autocomplete(input);
 
-
     const createEventButton = document.getElementById(btn);
     createEventButton.addEventListener("click", (event) => 
     {
@@ -87,12 +86,12 @@ function createPublicEvent(id, btn, name, time, description)
         const location = searchBox.getPlace().name;
         const longitude = searchBox.getPlace().geometry.location.lng();
         const latitude = searchBox.getPlace().geometry.location.lat();
-        console.log(name)
-        console.log(time)
-        console.log(description)
-        console.log(location)
-        console.log(longitude)
-        console.log(latitude)
+        console.log(name);
+        console.log(time);
+        console.log(description);
+        console.log(location);
+        console.log(longitude);
+        console.log(latitude);
         const xhr = new XMLHttpRequest();
         const url = "/API/CreatePublicEvent.php";
         xhr.open("POST", url, true);
@@ -125,7 +124,6 @@ function createPrivateEvent(id, btn, name, time, description)
     const input = document.getElementById(id);
     const searchBox = new google.maps.places.Autocomplete(input);
 
-
     const createEventButton = document.getElementById(btn);
     createEventButton.addEventListener("click", (event) => 
     {
@@ -141,12 +139,12 @@ function createPrivateEvent(id, btn, name, time, description)
         const location = searchBox.getPlace().name;
         const longitude = searchBox.getPlace().geometry.location.lng();
         const latitude = searchBox.getPlace().geometry.location.lat();
-        console.log(name)
-        console.log(time)
-        console.log(description)
-        console.log(location)
-        console.log(longitude)
-        console.log(latitude)
+        console.log(name);
+        console.log(time);
+        console.log(description);
+        console.log(location);
+        console.log(longitude);
+        console.log(latitude);
         const xhr = new XMLHttpRequest();
         const url = "/API/CreatePrivateEvent.php";
         xhr.open("POST", url, true);
