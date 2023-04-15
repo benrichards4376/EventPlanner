@@ -120,7 +120,7 @@ body
 /* CREATE BOX ***********************************************************/
 .create-title
 {
-    position: relative;
+    position: absolute;
     top: 2vh;
     font-size: 30px;
     width: 90%;
@@ -129,7 +129,7 @@ body
     color: black;
 }
 
-.createDiv
+#rso-club-div
 {
     position: absolute;
     top: 20vh;
@@ -143,17 +143,45 @@ body
     border-radius: 10px;
 }
 
-.createDiv label
+#rso-event-div
+{
+    position: absolute;
+    top: 20vh;
+    height: 90vh;
+    width: 75vw;
+    left: 10vw;
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#public-event-div,
+#private-event-div
+{
+    position: absolute;
+    top: 20vh;
+    height: 80vh;
+    width: 75vw;
+    left: 10vw;
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+label
 {
     position: relative;
-    top: 5vh;
-    text-align: left;
+    top: 8vh;
 }
 
 input[type=text]
 {
     position: relative;
-    top: 5vh;
+    top: 8vh;
     height: 4vh;
     width: 50vw;
     border-radius: 5px;
@@ -162,7 +190,7 @@ input[type=text]
 input[type=datetime-local]
 {
     position: relative;
-    top: 5vh;
+    top: 8vh;
     height: 4vh;
     width: 50vw;
     border-radius: 5px;
@@ -171,7 +199,7 @@ input[type=datetime-local]
 textarea
 {
     position: relative;
-    top: 5vh;
+    top: 8vh;
     width: 50vw;
     border-radius: 5px;
 }
