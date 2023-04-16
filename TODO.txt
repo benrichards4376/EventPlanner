@@ -1,13 +1,13 @@
 TODO List:
 
 [ ] ApproveEvents
-[/] CreatePost
+[X] CreatePost
 [X] CreatePrivateEvent
 [X] CreatePublicEvent
 [X] CreateRSOClub
 [X] CreateRSOEvent
 [X] CreateStudent (register?)
-[/] DeletePost
+[X] DeletePost
 [ ] EditPost
 [ ] JoinRSO
 [ ] LeaveRSO
