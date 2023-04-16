@@ -236,6 +236,18 @@ input[type=number]
     color: white;
     background-color: black;
 }
+.edit-form {
+    background-color: white;
+    height: 200px;
+    position: relative;
+    margin-top: 30%;
+    
+}
+.cancel-button
+{
+   position: inherit;
+   left: 20%;
+}
 
 /* BUTTON HOVER *********************************************************/
 .events-button:hover

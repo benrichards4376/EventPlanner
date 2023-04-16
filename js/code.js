@@ -1,5 +1,4 @@
-const urlBase = 'http://first-web.xyz/API';
-const extension = 'php';
+
 
 let email = "";
 let firstName = "";
@@ -9,6 +8,8 @@ let role="";
 
 function doLogin()
 {
+	const urlBase = 'http://first-web.xyz/API';
+	const extension = 'php';
 	email = "";
 	firstName = "";
 	lastName = "";
@@ -70,6 +71,8 @@ function doLogin()
 
 function doRegister()
 {
+	const urlBase = 'http://first-web.xyz/API';
+	const extension = 'php';
 	// get the incoming values
 	let firstName = document.getElementById("firstName").value;
 	let lastName = document.getElementById("lastName").value;
