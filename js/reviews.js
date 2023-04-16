@@ -7,6 +7,7 @@ function createPost()
 	let userId = document.getElementById("reviewUser").value;
 	let eventId = document.getElementById("reviewEventId").value;
 	let comment = document.getElementById("reviewCom").value;
+    let rating = document.getElementById("")
 
 	// set the temp variables
 	let tmp = {user_id:userId, event_id:eventId, comment:comment};

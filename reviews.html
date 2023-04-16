@@ -75,7 +75,13 @@
 
             <!-- WRITE REVIEW -->
             <div id="writeReview">
+                <span id="write-title">Write a Review</span>
+                <label for="comment" id="comment-label">Comment:</label><br>
                 <textarea id="review-comment" cols="70" rows="3" placeholder="Write a review..." required></textarea>
+                <br>
+                <label for="rating" id="rating-label">Rating:</label><br>
+                <input type="number" id="review-rating" required><br>
+                <br>
 
                 <!-- POST BUTTON -->
                 <button class="button" id="post-button" onclick="createPost()">Post</button>
@@ -86,8 +92,10 @@
                 <div class="reviewInfo" id="reviewUser">User</div>
                 <span id="reviewEventId"></span>
                 <div class="reviewInfo" id="reviewCom">Comment</div>
-                <button class="button" id="delete-button" onclick="deletePost()">Delete</button>
+                <div class="reviewInfo" id="reviewRating">Rating</div>
+
                 <button class="button" id="edit-button" onclick="editPost()">Edit</button>
+                <button class="button" id="delete-button" onclick="deletePost()">Delete</button>
             </div>
         </div>
 
