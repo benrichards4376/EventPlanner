@@ -8,7 +8,7 @@ TODO List:
 [X] CreateRSOEvent
 [X] CreateStudent (register?)
 [X] DeletePost
-[ ] EditPost
+[/] EditPost
 [ ] JoinRSO
 [ ] LeaveRSO
 [X] Login
