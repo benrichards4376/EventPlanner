@@ -4,13 +4,13 @@ const extension = 'php';
 function createPost()
 {
     // get the incoming values
-	let userId = document.getElementById("reviewUser").value;
-	let eventId = document.getElementById("reviewEventId").value;
+	let user_Id = document.getElementById("reviewUser").value;
+	let event_Id = document.getElementById("reviewEventId").value;
 	let comment = document.getElementById("reviewCom").value;
-    let rating = document.getElementById("")
+    let rating = document.getElementById("reviewRating").value;
 
 	// set the temp variables
-	let tmp = {user_id:userId, event_id:eventId, comment:comment};
+	let tmp = {user_id:user_Id, event_id:event_Id, comment:comment, rating:rating};
 	let jsonPayload = JSON.stringify(tmp);
 
     const xhr = new XMLHttpRequest();
@@ -38,6 +38,7 @@ function createPost()
                 document.getElementById("reviewUser").value = "";
 	            document.getElementById("reviewEventId").value = "";
 	            document.getElementById("reviewCom").value = "";
+                document.getElementById("reviewRating").value = "";
             }
         }; // end onreadystatechange
 
