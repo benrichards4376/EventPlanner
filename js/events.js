@@ -45,4 +45,4 @@ function getEvents()
     let tmp = {user_id: localStorage.getItem("email"), university:localStorage.getItem("email_ending")};
     xhr.send(JSON.stringify(tmp));
     
-}
+} // end getEvents function

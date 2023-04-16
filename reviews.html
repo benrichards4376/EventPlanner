@@ -69,7 +69,7 @@
             });
         </script>
 
-        <!-- REVIEWS SECTION ---------------------------------------------------------->
+        <!-- REVIEWS SECTION ----------------------------------------------------------->
         <div id="reviewsDiv">
             <span id="reviews-title">Reviews Page</span>
 
@@ -86,17 +86,13 @@
                 <!-- POST BUTTON -->
                 <button class="button" id="post-button" onclick="createPost()">Post</button>
             </div>
-
-            <!-- VIEW REVIEWS -->
-            <div class="thisReview">
-                <div class="reviewInfo" id="reviewUser">User</div>
-                <div class="reviewInfo" id="reviewCom">Comment</div>
-                <div class="reviewInfo" id="reviewRating">Rating</div>
-
-                <button class="button" id="edit-button" onclick="editPost()">Edit</button>
-                <button class="button" id="delete-button" onclick="deletePost()">Delete</button>
-            </div>
         </div>
+
+        <script>
+            window.addEventListener("load", function() {
+                getEvents();
+            });
+        </script> 
 
     </body>
 </html>
