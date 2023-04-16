@@ -38,25 +38,26 @@ function getEvents(page, limit)
                 eventsContainer.appendChild(eventDiv);
             }
         
-        const numPages = Math.ceil(response.length / limit);
-        const navContainer = document.getElementById("navDiv");
-        navContainer.innerHTML = ""; // clear previous content
-        for (let i = 1; i <= numPages; i++) {
-            const button = document.createElement("button");
-            button.classList.add("page-btn");
-            button.innerText = i;
-            if (i === page)
-            {
-                button.classList.add("active");
+            const numPages = Math.ceil(response.length / limit);
+            const navContainer = document.getElementById("navDiv");
+            navContainer.innerHTML = ""; // clear previous content
+            for (let i = 1; i <= numPages; i++) {
+                const button = document.createElement("button");
+                button.classList.add("page-btn");
+                button.innerText = i;
+                if (i === page)
+                {
+                    button.classList.add("active");
+                }
+                else
+                {
+                    button.addEventListener("click", function()
+                    {
+                    getEvents(i, limit);
+                    });
+                }
+                navContainer.appendChild(button);
             }
-            else
-            {
-                button.addEventListener("click", function() {
-                getEvents(i, limit);
-            });
-            }
-            navContainer.appendChild(button);
-        }
         if (response.error)
         {
             console.log(xhr.responseText);
