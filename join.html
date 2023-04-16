@@ -3,6 +3,7 @@
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
         <script type="text/javascript" src="js/create.js"></script>
+        <script type="text/javascript" src="js/join.js"></script>
         <link href="css/join.css" rel="stylesheet">	
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
@@ -73,24 +74,21 @@
         <div class="joinDiv">
             <span id="join-title">Join RSO Club</span>
 
-            <form onclick="searchEvent()" id="search-bar">
+            <form id="search-bar">
                 <input type="text" placeholder="Search..." id="search-club-result">
-                <button type="submit" id="search-button">Search</button>
+                <button type="submit" id="search-button" onclick="searchRSO()">Search</button>
             </form>
 
             <div id="joinDiv">
                 <span></span>
             </div>
-            <div class="thisRSO">
-
-                <div class="RSOInfo" id="RSOName">Name</div>
-                <div class="RSOInfo" id="RSOAdmin">Leader</div>
-
-                <!-- JOIN BUTTON -->
-                <button id="join-rso-button" onclick="joinRSO()">Join</button>
-            </div>
 
         </div>
+        <script>
+            window.addEventListener("load", function() {
+                searchRSO();
+            });
+        </script>
 
     </body>
 </html>
