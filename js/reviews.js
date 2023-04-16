@@ -6,13 +6,13 @@ const event_id = urlParams.get('event_id');
 function createPost()
 {
     // get the incoming values
-	let user_Id = document.getElementById("reviewUser").value;
+	let user_id = localStorage.getItem("email");
 	
-	let comment = document.getElementById("reviewCom").value;
-    let rating = document.getElementById("reviewRating").value;
+	let comment = document.getElementById("review-comment").value;
+    let rating = document.getElementById("review-rating").value;
 
 	// set the temp variables
-	let tmp = {user_id:user_Id, event_id:event_Id, comment:comment, rating:rating};
+	let tmp = {user_id:user_id, event_id:event_id, comment:comment, rating:rating};
 	let jsonPayload = JSON.stringify(tmp);
 
     const xhr = new XMLHttpRequest();
@@ -37,10 +37,8 @@ function createPost()
 			// if no error retrieve values
             if (this.status == 200)
 			{
-                document.getElementById("reviewUser").value = "";
-	            document.getElementById("reviewEventId").value = "";
-	            document.getElementById("reviewCom").value = "";
-                document.getElementById("reviewRating").value = "";
+	            document.getElementById("review-comment").value = "";
+                document.getElementById("review-rating").value = "";;
             }
         }; // end onreadystatechange
 
@@ -51,12 +49,14 @@ function createPost()
 	catch (err)
 	{
         console.log(err);
+        document.getElementById("create-result").innerHTML = err;
     } // end catch
 } // end createPost function
 
-function deletePost()
+function deletePost(post_id)
 {
-	let tmp = {user_id:userId, post_id:postId};
+    let user_id = localStorage.getItem("email");
+	let tmp = {user_id:user_id, post_id:post_id};
     let jsonPayload = JSON.stringify(tmp);
 
 	const xhr = new XMLHttpRequest();
@@ -76,6 +76,7 @@ function deletePost()
 	}
 	catch(err){
 		console.log(err);
+        document.getElementById("delete-result").innerHTML = err;
 	}
 } // end deletePost function
 
@@ -88,7 +89,6 @@ function viewPosts()
     const url = "/API/ViewPosts.php";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
     xhr.onreadystatechange = function()
     {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
@@ -105,7 +105,7 @@ function viewPosts()
             {
                 const reviewsDiv = document.createElement('div');
                 reviewsDiv.className = 'thisReview';
-                reviewsDiv.innerHTML = `<div class="reviewInfo">User: ${response[i].user}</div>
+                reviewsDiv.innerHTML = `<div class="reviewInfo">User: ${response[i].student_id}</div>
                                     <div class="reviewInfo">Comment: ${response[i].comment}</div>
                                     <div class="reviewInfo">Rating: ${response[i].rating}</div>
                                     <button class="button" id="edit-button" onclick="editPost(${response[i].post_id})">Edit</button>
@@ -115,7 +115,7 @@ function viewPosts()
         }
         else
         {
-            console.log("No events currently available");
+            console.log("No Posts currently available");
         }
     };
     xhr.send(JSON.stringify(tmp));
