@@ -68,11 +68,6 @@ function doLogin()
 
 } // end function doLogin
 
-function moveToRegister()
-{
-	document.getElementById("loginDiv").style.visibility = "hidden";
-	document.getElementById("registerDiv").style.visibility = "visible";
-}
 function doRegister()
 {
 	// get the incoming values
@@ -155,20 +150,14 @@ function doRegister()
 
 function moveToLogin()
 {
-	let loginDiv = document.getElementById("loginDiv");
-	let registerDiv = document.getElementById("registerDiv");
-
-	loginDiv.style.visibility = "visible";
-	registerDiv.style.visibility = "hidden";
+	document.getElementById("loginDiv").style.visibility = "visible";
+	document.getElementById("registerDiv").style.visibility = "hidden";
 }
 
 function moveToRegister()
 {
-	let loginDiv = document.getElementById("loginDiv");
-	let registerDiv = document.getElementById("registerDiv");
-
-	loginDiv.style.visibility = "hidden";
-	registerDiv.style.visibility = "visible";
+	document.getElementById("loginDiv").style.visibility = "hidden";
+	document.getElementById("registerDiv").style.visibility = "visible";
 }
 
 function saveCookie()
