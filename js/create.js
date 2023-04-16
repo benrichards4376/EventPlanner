@@ -63,7 +63,7 @@ function createRSOClub(btn, name)
     });
 } // end createRSOClub function
 
-function createPublicEvent(id, btn, name, time, description)
+function createPublicEvent(id, btn)
 {
     const input = document.getElementById(id);
     const searchBox = new google.maps.places.Autocomplete(input);
@@ -116,7 +116,7 @@ function createPublicEvent(id, btn, name, time, description)
     });
 } // end createPublicEvent function
 
-function createPrivateEvent(id, btn, name, time, description)
+function createPrivateEvent(id, btn)
 {
     const input = document.getElementById(id);
     const searchBox = new google.maps.places.Autocomplete(input);
@@ -124,6 +124,7 @@ function createPrivateEvent(id, btn, name, time, description)
     const createEventButton = document.getElementById(btn);
     createEventButton.addEventListener("click", (event) => 
     {
+
         event.preventDefault();
         const name = document.getElementById('private-event-name').value;
         const email_ending = localStorage.getItem("email_ending");
@@ -168,3 +169,57 @@ function createPrivateEvent(id, btn, name, time, description)
         markers = null;
     });
 } // end createPrivateEvent function
+
+function createRSOEvent(id, btn)
+{
+    const input = document.getElementById(id);
+    const searchBox = new google.maps.places.Autocomplete(input);
+
+    const createEventButton = document.getElementById(btn);
+    createEventButton.addEventListener("click", (event) => 
+    {
+        event.preventDefault();
+        const name = document.getElementById('rso-event-name').value;
+        const rso_name = document.getElementById('rso-club').value;
+        const email_ending = localStorage.getItem("email_ending");
+        const user_id = localStorage.getItem("email");
+        console.log(user_id);
+        const description = document.getElementById('rso-event-description').value;
+        const time = document.getElementById('rso-event-date-time').value;
+        const contactPhone = document.getElementById('rso-event-phone').value;
+        const contactEmail = document.getElementById('rso-event-email').value;
+        const location = searchBox.getPlace().name;
+        const longitude = searchBox.getPlace().geometry.location.lng();
+        const latitude = searchBox.getPlace().geometry.location.lat();
+        console.log(name);
+        console.log(time);
+        console.log(description);
+        console.log(location);
+        console.log(longitude);
+        console.log(latitude);
+        const xhr = new XMLHttpRequest();
+        const url = "/API/CreateRsoEvent.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function ()
+        {
+            if (xhr.readyState === 4 && xhr.status === 200)
+            {
+                console.log(xhr.responseText);
+            }
+            else
+            {
+                document.getElementById("createRSOEventResult").innerHTML = JSON.parse(xhr.responseText).error;
+            }
+        };
+        let tmp = {name:name,email_ending:email_ending,event_rso:rso_name,user_id:user_id,description:description,
+            time:time,contactPhone:contactPhone,contactEmail:contactEmail,
+            location:location,longitude:longitude,latitude:latitude};
+        xhr.send(JSON.stringify(tmp));
+        
+        document.getElementById('rso-event-name').value = "";
+        document.getElementById('rso-event-date-time').value = "";
+        document.getElementById('rso-event-description').value = "";
+        markers = null;
+    });
+}

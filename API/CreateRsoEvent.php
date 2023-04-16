@@ -76,7 +76,7 @@ error_reporting(E_ALL);
 				
                 $stmt = $conn->prepare("INSERT INTO Events (name, uni_id, admin_id, category, description, time, contact_phone, contact_email, location, longitude, latitude, approved)
                                         VALUES (?, ?, ?, 'rso', ?, ?, ?, ?, ?, ?, ?, TRUE)");
-                $stmt->bind_param("ssssssss", $name, $uni_id, $admin_id, $description, $formattedDateTime, $contactPhone, $contactEmail, $location, $longitude, $latitude);
+                $stmt->bind_param("ssssssssss", $name, $uni_id, $admin_id, $description, $formattedDateTime, $contactPhone, $contactEmail, $location, $longitude, $latitude);
                 if(!$stmt->execute())
                 {
                     throw new Exception($stmt->error);

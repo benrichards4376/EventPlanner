@@ -1,7 +1,6 @@
 <html>
     <head>
         <script type="text/javascript" src="js/md5.js"></script>
-        <script type="text/javascript" src="js/map.js" defer></script>
         <script type="text/javascript" src="js/create.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBZYNvOkenwpXai6IUlxcLNPlDq0KpOKQ&libraries=places"></script>
         <link href="css/create.css" rel="stylesheet">	
@@ -73,28 +72,33 @@
         <!-- RSO EVENT ---------------------------------------------------------------->
         <div class="createDiv" id="rso-event-div">
             <span class="create-title" id="rso-event-title">Create RSO Event</span>
-            <label for="name">Name:</label><br>
-            <input type="text" id="rso-event-name" placeholder="Name" required><br>
-            <br>
-            <label for="rso">RSO:</label><br>
-            <input type="text" id="rso-club" placeholder="RSO Name" required><br>
-            <br>
-            <label for="rso-event-time">Time:</label><br>
-            <input type="datetime-local" id="time" required><br>
-            <br>
-            <label for="description">Description:</label><br>
-            <textarea id="rso-event-description" cols="70" rows="5" required></textarea><br>
-            <br>
-            <label for="location">Location:</label><br>
-            <input id="rso_map" class="controls" type="text" placeholder="Enter a location"><br>
-            <br>
-            <label for="phone">Phone:</label><br>
-            <input type="text" id="rso-event-phone" placeholder="Phone" required><br>
-            <br>
-            <label for="email">Email:</label><br>
-            <input type="text" id="rso-event-email" placeholder="Email" required><br>
-            <br>
-            <span id="createRSOEventResult"></span>
+                <form onsubmit="createRSOEvent" id="rso-event"  method="GET">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="rso-event-name" placeholder="Name" required><br>
+                    <br>
+                    <label for="rso">RSO:</label><br>
+                    <input type="text" id="rso-club" placeholder="RSO Name" required><br>
+                    <br>
+                    <label for="rso-event-time">Time:</label><br>
+                    <input type="datetime-local" id="rso-event-date-time" required><br>
+                    <br>
+                    <label for="description">Description:</label><br>
+                    <textarea id="rso-event-description" cols="70" rows="5" required></textarea><br>
+                    <br>
+                    <label for="location">Location:</label><br>
+                    <input id="rso_map" class="controls" type="text" placeholder="Enter a location"><br>
+                    <br>
+                    <label for="phone">Phone:</label><br>
+                    <input type="text" id="rso-event-phone" placeholder="Phone" required><br>
+                    <br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" id="rso-event-email" placeholder="Email" required><br>
+                    <br>
+                    <button type="button" id="rso-event-button" class="buttons">Create Event</button>
+                    <span id="createRSOEventResult"></span>
+                </form>
+                
+            <div id="map"></div>
         </div>
 
         <!-- CREATE EVENT BUTTON -->
