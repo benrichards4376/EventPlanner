@@ -1,4 +1,4 @@
-function getEvents() {
+function getEventsFromUCF() {
   fetch('https://events.ucf.edu/this-month/feed.json')
     .then(response => response.json())
     .then(data => {

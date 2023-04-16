@@ -1,8 +1,13 @@
+const urlBase = 'http://first-web.xyz/API';
+const extension = 'php';
+const urlParams = new URLSearchParams(window.location.search);
+const event_id = urlParams.get('event_id');
+
 function createPost()
 {
     // get the incoming values
 	let user_Id = document.getElementById("reviewUser").value;
-	let event_Id = document.getElementById("reviewEventId").value;
+	
 	let comment = document.getElementById("reviewCom").value;
     let rating = document.getElementById("reviewRating").value;
 
@@ -76,10 +81,8 @@ function deletePost()
 
 function viewPosts()
 {
-    // get the event_id
-    const urlParams = new URLSearchParams(window.location.search);
-    const event_id = urlParams.get('event_id');
-    let tmp = {event_id:event_id};
+	let tmp = {event_id:event_id};
+    let jsonPayload = JSON.stringify(tmp);
 
     const xhr = new XMLHttpRequest();
     const url = "/API/ViewPosts.php";

@@ -118,7 +118,7 @@ body
     visibility: visible;
     position: relative;
     top: 30vh;
-    height: 35vh;
+    height: 25vh;
     width: 80vw;
     left: 10vw;
     background-color: white;
@@ -126,6 +126,8 @@ body
     text-align: left;
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: auto;
 }
 
 #eventName
@@ -139,7 +141,7 @@ body
     font-style: italic;
 }
 
-#reviews-button
+.reviews-button
 {
     position: absolute;
     bottom: 1vh;
@@ -190,7 +192,7 @@ body
     background-color: white;
 }
 
-#reviews-button:hover
+.reviews-button:hover
 {
     color: white;
     background-color: rgb(51, 153, 255);
