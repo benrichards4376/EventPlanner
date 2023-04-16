@@ -1,4 +1,4 @@
-function getEvents(page, limit)
+function viewEvents(page, limit)
 {
     const xhr = new XMLHttpRequest();
     const url = "/API/ViewEvents.php";
@@ -53,7 +53,7 @@ function getEvents(page, limit)
                 {
                     button.addEventListener("click", function()
                     {
-                    getEvents(i, limit);
+                    viewEvents(i, limit);
                     });
                 }
                 navContainer.appendChild(button);
@@ -68,4 +68,4 @@ function getEvents(page, limit)
     let tmp = {user_id: localStorage.getItem("email"), university:localStorage.getItem("email_ending")};
     xhr.send(JSON.stringify(tmp));
     
-} // end getEvents function
+} // end viewEvents function
