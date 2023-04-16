@@ -112,12 +112,47 @@ body
     color: white;
 }
 
+/* NAVIGATION ***********************************************************/
+.event-nav
+{
+    height: 0%;
+    width: 0%;
+    margin: 0;
+}
+
+#eventDiv
+{
+    height: 0%;
+    width: 0%;
+    margin: 0;
+}
+
+#navDiv
+{
+    position: absolute;
+    top: 15vh;
+    height: 5vh;
+    width: 40vw;
+    right: 8vw;
+    text-align: right;
+    margin: 0;
+}
+
+.page-btn
+{
+    height: 40px;
+    width: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+}
+
 /* EVENTS ***************************************************************/
 .thisEvent
 {
     visibility: visible;
     position: relative;
-    top: 30vh;
+    top: 25vh;
     height: 25vh;
     width: 80vw;
     left: 10vw;
@@ -186,19 +221,14 @@ body
     background-color: white;
 }
 
-#search-button:hover
+.page-btn:hover
 {
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: rgb(51, 153, 255);
 }
 
 .reviews-button:hover
 {
     color: white;
     background-color: rgb(51, 153, 255);
-}
-.event-nav
-{
-    position: absolute;
-    align-items: center;
 }

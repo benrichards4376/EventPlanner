@@ -1,7 +1,8 @@
 <html>
     <head>
         <script type="text/javascript" src="js/md5.js"></script>
-        <script type="text/javascript" src="js/create.js"></script>
+        <script type="text/javascript" src="js/create.js" defer></script>
+        <script type="text/javascript" src="js/code.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBZYNvOkenwpXai6IUlxcLNPlDq0KpOKQ&libraries=places"></script>
         <link href="css/create.css" rel="stylesheet">	
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -94,8 +95,8 @@
                     <label for="email">Email:</label><br>
                     <input type="text" id="rso-event-email" placeholder="Email" required><br>
                     <br>
-                    <button type="button" id="rso-event-button" class="buttons">Create Event</button>
                     <span id="createRSOEventResult"></span>
+                    <div id="map"></div>
                 </form>
                 
             <div id="map"></div>
