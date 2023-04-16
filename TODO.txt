@@ -16,7 +16,7 @@ TODO List:
 [ ] ViewApprovalEvents
 [X] ViewEvents
 [ ] ViewMyRSO
-[/] ViewPosts
+[X] ViewPosts
 
 / = needs testing
 X = completed & working
