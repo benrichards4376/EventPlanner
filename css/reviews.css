@@ -169,6 +169,7 @@ body
 /* WRITE REVIEWS ********************************************************/
 #writeReview
 {
+    visibility: visible;
     position: absolute;
     top: 15vh;
     height: 15vh;
@@ -192,13 +193,13 @@ body
     color: black;
 }
 
-#comment-label
+label[for=comment]
 {
     position: absolute;
     top: 5vh;
 }
 
-#rating-label
+label[for=rating]
 {
     position: absolute;
     top: 5vh;
@@ -236,17 +237,60 @@ input[type=number]
     color: white;
     background-color: black;
 }
-.edit-form {
-    background-color: white;
-    height: 200px;
-    position: relative;
-    margin-top: 30%;
-    
-}
-.cancel-button
+
+/* EDIT REVIEW **********************************************************/
+#editReview
 {
-   position: inherit;
-   left: 20%;
+    visibility: hidden;
+    position: absolute;
+    top: 15vh;
+    height: 15vh;
+    width: 80vw;
+    left: 10vw;
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#edit-title
+{
+    position: absolute;
+    top: 1vh;
+    font-size: 20px;
+    width: 90%;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+}
+
+#save-button
+{
+    position: absolute;
+    font-size: 20px;
+    top: 8vh;
+    left: 65vw;
+    height: 4vh;
+    width: 100px;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+#cancel-button
+{
+    position: absolute;
+    font-size: 20px;
+    top: 8vh;
+    left: 65vw;
+    height: 4vh;
+    width: 100px;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
 }
 
 /* BUTTON HOVER *********************************************************/

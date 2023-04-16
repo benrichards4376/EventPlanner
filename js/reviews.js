@@ -8,8 +8,8 @@ function createPost()
     // get the incoming values
 	let user_id = localStorage.getItem("email");
 	
-	let comment = document.getElementById("review-comment").value;
-    let rating = document.getElementById("review-rating").value;
+	let comment = document.getElementById("write-comment").value;
+    let rating = document.getElementById("write-rating").value;
 
 	// set the temp variables
 	let tmp = {user_id:user_id, event_id:event_id, comment:comment, rating:rating};
@@ -32,8 +32,8 @@ function createPost()
 			// if no error retrieve values
             if (this.status == 200)
 			{
-	            document.getElementById("review-comment").value = "";
-                document.getElementById("review-rating").value = "";
+	            document.getElementById("write-comment").value = "";
+                document.getElementById("write-rating").value = "";
                 location.reload();
             }
             else
@@ -92,14 +92,16 @@ async function deletePost(post_id) {
     }
 }
 
-async function editPost(post_id, comment, rating) {
+async function editPost(post_id, comment, rating) 
+{
     console.log(post_id);
     let user_id = localStorage.getItem("email");
     let tmp = {user_id: user_id, post_id: post_id, comment: comment, rating: rating};
     let jsonPayload = JSON.stringify(tmp);
     let canDeleteResponse = await canDelete(jsonPayload);
 
-    if (canDeleteResponse === "true") {
+    if (canDeleteResponse === "true") 
+    {
         const xhr = new XMLHttpRequest();
         const url = "/API/EditPost.php";
         xhr.open("POST", url, true);
@@ -109,6 +111,11 @@ async function editPost(post_id, comment, rating) {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     viewPosts();
+
+                    // switch back visibility
+                    document.getElementById("writeReview").style.visibility = "visible";
+	                document.getElementById("editReview").style.visibility = "hidden";
+
                     location.reload();
                 }
                 else
@@ -130,8 +137,11 @@ async function editPost(post_id, comment, rating) {
         document.getElementById("edit-result").innerHTML = err;
     }
 }
-function canDelete(jsonPayload) {
-    return new Promise((resolve, reject) => {
+
+function canDelete(jsonPayload) 
+{
+    return new Promise((resolve, reject) => 
+    {
         const xhr = new XMLHttpRequest();
         const url = "/API/CanDelete.php";
         xhr.open("POST", url, true);
@@ -196,68 +206,37 @@ function viewPosts()
     xhr.send(JSON.stringify(tmp));
 } // end viewPosts function
 
-function showEditForm(post_id, comment, rating)
-{
-    // Create form element
-    const form = document.createElement('form');
-    form.className = "edit-form";
-  
-    // Create comment input
-    const commentLabel = document.createElement('label');
-    commentLabel.innerText = `Comment:`;
-    const commentInput = document.createElement('textarea');
-    commentInput.name = 'comment';
-    commentInput.value = comment;
-    form.appendChild(commentLabel);
-    form.appendChild(commentInput);
-  
-    // Create rating input
-    const ratingLabel = document.createElement('label');
-    ratingLabel.innerText = 'Rating:';
-    const ratingInput = document.createElement('input');
-    ratingInput.type = 'number';
-    ratingInput.name = 'rating';
-    ratingInput.value = rating;
-    ratingInput.min = '1';
-    ratingInput.max = '5';
-    form.appendChild(ratingLabel);
-    form.appendChild(ratingInput);
-  
-    // Create submit button
-    const submitButton = document.createElement('button');
-    submitButton.type = 'submit';
-    submitButton.innerText = 'Save';
-    form.appendChild(submitButton);
-  
-    // Create cancel button
-    const cancelButton = document.createElement('button');
-    cancelButton.type = 'button';
-    cancelButton.innerText = 'Cancel';
-    cancelButton.addEventListener('click', () => {
-      // Remove the form from the review div
-      const reviewDiv = document.getElementById(`post-${post_id}`);
-      reviewDiv.removeChild(form);
+function showEditForm(post_id, comment, rating) {
+
+    document.getElementById("writeReview").style.visibility = "hidden";
+	document.getElementById("editReview").style.visibility = "visible";
+
+    const div = document.getElementById('editReview');
+    
+    const comment = div.getElementById('edit-comment').value;
+    const rating = div.getElementById('edit-rating').value;
+    
+    const cancelButton = div.getElementById('cancel-button');
+    cancelButton.addEventListener('click', () => 
+    {
+        const reviewDiv = document.getElementById(`post-${post_id}`);
+        reviewDiv.removeChild(div);
     });
-    form.appendChild(cancelButton);
-  
-    // Add form to review div
-    const reviewDiv = document.getElementById(`post-${post_id}`);
-    reviewDiv.appendChild(form);
-  
-    // Handle form submission
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-  
-      // Get form data
-      const formData = new FormData(form);
-      const comment = formData.get('comment');
-      const rating = formData.get('rating');
-  
-      // Call editPost() with updated review data
-      editPost(post_id, comment, rating);
-  
-      // Remove the form from the review div
-      reviewDiv.removeChild(form);
+    
+    div.addEventListener('submit', event => 
+    {
+        event.preventDefault();
+
+        const divData = new FormData(div);
+        const comment = divData.get('comment');
+        const rating = divData.get('rating');
+        
+        // Call editPost() with updated review data
+        editPost(post_id, comment, rating);
+        
+        // remove the div created
+        const reviewDiv = document.getElementById(`post-${post_id}`);
+        reviewDiv.removeChild(div);
     });
-  }
+}
   

@@ -77,19 +77,37 @@
             <!-- WRITE REVIEW -->
             <div id="writeReview">
                 <span id="write-title">Write a Review</span>
-                <label for="comment" id="comment-label">Comment:</label><br>
-                <textarea id="review-comment" cols="70" rows="3" placeholder="Write a review..." required></textarea>
+                <label for="comment" id="write-comment-label">Comment:</label><br>
+                <textarea id="write-comment" cols="70" rows="3" placeholder="Write a review..." required></textarea>
                 <br>
-                <label for="rating" id="rating-label">Rating:</label><br>
-                <input type="number" id="review-rating" min="1" max="5" required><br>
+                <label for="rating" id="write-rating-label">Rating:</label><br>
+                <input type="number" id="write-rating" min="1" max="5" required><br>
                 <br>
+                <span id="create-result"></span>
 
                 <!-- POST BUTTON -->
                 <button class="button" id="post-button" onclick="createPost()">Post</button>
             </div>
+
+            <!-- EDIT REVIEW -->
+            <div id="editReview">
+                <span id="edit-title">Edit a Review</span>
+                <label for="comment" id="edit-comment-label">Comment:</label><br>
+                <textarea id="edit-comment" cols="70" rows="3" placeholder="Edit the review..." required></textarea>
+                <br>
+                <label for="rating" id="edit-rating-label">Rating:</label><br>
+                <input type="number" id="edit-rating" min="1" max="5" required><br>
+                <br>
+                <span id="edit-result"></span>
+
+                <!-- SAVE BUTTON -->
+                <button class="button" id="save-button" onclick="editPost()">Save</button>
+
+                <!-- CANCEL BUTTON -->
+                <button class="button" id="cancel-button" onclick="editPost()">Cancel</button>
+            </div>
+
             <span id="delete-result"></span>
-            <span id="create-result"></span>
-            <span id="edit-result"></span>
         </div>
 
         <script>
