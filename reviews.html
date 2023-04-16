@@ -86,13 +86,16 @@
                 <!-- POST BUTTON -->
                 <button class="button" id="post-button" onclick="createPost()">Post</button>
             </div>
+            <span id="delete-result"></span>
+            <span id="create-result"></span>
+            <span id="edit-result"></span>
         </div>
 
         <script>
             window.addEventListener("load", function() {
-                getEvents();
+                viewPosts();
             });
-        </script> 
+        </script>
 
     </body>
 </html>
