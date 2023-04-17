@@ -4,7 +4,7 @@ const extension = 'php';
 
 function searchMyRSO() {
     
-    const user_id = localStorage.getItem("user_id")
+    const user_id = localStorage.getItem("email")
     let searchInput = document.getElementById("search-club-result").value;
     if (searchInput === "")
         searchInput = localStorage.getItem("email_ending");
@@ -21,7 +21,7 @@ function searchMyRSO() {
             console.log(JSON.parse(xhr.responseText));
             let response = JSON.parse(xhr.responseText);
 
-            const joinContainer = document.getElementById('joinDiv');
+            const joinContainer = document.getElementById('leaveDiv');
             for (let i = 0; i < response.length; i++)
             {
                 const joinDiv = document.createElement('div');
