@@ -113,6 +113,18 @@ body
     color: white;
 }
 
+#leave-title
+{
+    position: absolute;
+    top: 15vh;
+    left: 10vw;
+    font-size: 30px;
+    width: 90%;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+
 /* SEARCH ***************************************************************/
 #search-bar
 {
