@@ -1,0 +1,7 @@
+.error
+{
+    position: absolute;
+    top: 15%;
+    color: red;
+    font-size: 30px;
+}
