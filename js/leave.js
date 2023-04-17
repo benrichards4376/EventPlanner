@@ -42,8 +42,6 @@ function searchMyRSO() {
 
 function leaveRSO(rso_name, user_id)
 {
-    const urlBase = 'http://first-web.xyz/API';
-    const extension = 'php';
     const xhr = new XMLHttpRequest();
     const url = "/API/LeaveRso.php";
     xhr.open("POST", url, true);
@@ -54,7 +52,7 @@ function leaveRSO(rso_name, user_id)
     {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
         {
-            let response = JSON.parse(xhr.responseText);
+            console.log(JSON.parse(xhr.responseText));
 
         }
         else 
