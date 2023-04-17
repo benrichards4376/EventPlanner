@@ -42,6 +42,7 @@ function searchMyRSO() {
     let tmp = {user_id:user_id};
     xhr.send(JSON.stringify(tmp));
 }
+
 function leaveRSO(rso_name, user_id)
 {
     const xhr = new XMLHttpRequest();

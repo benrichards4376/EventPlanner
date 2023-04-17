@@ -3,6 +3,7 @@
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
         <script type="text/javascript" src="js/create.js"></script>
+        <script type="text/javascript" src="js/join.js"></script>
         <link href="css/approve.css" rel="stylesheet">	
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
@@ -30,7 +31,11 @@
             </select>
 
             <!-- JOIN BUTTON -->
-            <button class="join-button" onclick="window.location.href = 'join.html';">Join RSO</button>
+            <select onchange="moveToJoin(this.value)" class="join-dropdown">
+                <option selected disabled hidden>Create</option>
+                <option value="join-rso">Join RSO</option>
+                <option value="leave-rso">Leave RSO</option>
+            </select>
 
             <!-- APPROVE BUTTON -->
             <button class="approve-button" id="approve-buttons" onclick="window.location.href = 'approve.html';">Approve</button>
