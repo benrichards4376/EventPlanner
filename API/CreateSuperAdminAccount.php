@@ -34,7 +34,7 @@ error_reporting(E_ALL);
 				$result = $stmt->get_result();
 				if ($result->num_rows != 0)
 				{
-					returnWithError("University already has Super Admin");
+					throw new Exception("University already has Super Admin");
 					$stmt->close();
 					$conn->close();
 					return;

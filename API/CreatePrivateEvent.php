@@ -49,7 +49,7 @@ error_reporting(E_ALL);
                 $row = $result->fetch_assoc();
                 if ($result->num_rows != 0)
                 {
-                    returnWithError('Location ' . $location . ' is already being used by ' . $row['name'] . ' at the time ' . $dateTimeString);
+                    throw new Exception('Location ' . $location . ' is already being used by ' . $row['name'] . ' at the time ' . $dateTimeString);
                     $stmt->close();
 					$conn->close();
                     return;
