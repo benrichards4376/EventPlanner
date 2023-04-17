@@ -32,6 +32,7 @@ error_reporting(E_ALL);
         // Check if the event is in the future or in the past
         if ($currentDateTime > $dateTimeObject)
         {
+            http_response_code(400);
             returnWithError("Event date and time must be in the future");
             return;
         }
@@ -50,6 +51,7 @@ error_reporting(E_ALL);
                 $row = $result->fetch_assoc();
                 if ($result->num_rows == 0)
                 {
+                    http_response_code(400);
                     throw new Exception("Only the admin of " . $event_rso . " can make an RSO event for them");
                     $stmt->close();
 					$conn->close();
@@ -68,6 +70,7 @@ error_reporting(E_ALL);
                 $row = $result->fetch_assoc();
                 if ($result->num_rows != 0)
                 {
+                    http_response_code(400);
                     throw new Exception('Location ' . $location . ' is already being used by ' . $row['name'] . ' at the time ' . $dateTimeString);
                     $stmt->close();
 					$conn->close();

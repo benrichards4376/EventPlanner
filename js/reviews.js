@@ -25,28 +25,27 @@ function createPost()
 		{
 
 			// if no error retrieve values
-            if (xhr.readyState === XMLHttpRequest.DONE && this.status == 200)
+            if (this.readyState === XMLHttpRequest.DONE && xhr.status === 200)
 			{
 	            document.getElementById("write-comment").value = "";
                 document.getElementById("write-rating").value = "";
-                location.reload();
+                document.getElementById("create-result").innerHTML = "Comment added";
+                setTimeout(() => {location.reload();}, 500);
             }
             else
             {
-                document.getElementById("create-result").innerHTML = JSON.parse(xhr.responseText);
-                console.error(JSON.parse(xhr.responseText));
+                console.log(JSON.parse(xhr.responseText).error);
+                document.getElementById("create-result").innerHTML = JSON.parse(xhr.responseText).error;
+                setTimeout(() => {location.reload();}, 2000);
             }
         }; // end onreadystatechange
-
+        
 		// send everything to server
         xhr.send(jsonPayload);
-        
 		
     } // end try
 	catch (err)
 	{
-        console.log(err);
-        document.getElementById("create-result").innerHTML = err;
     } // end catch
 } // end createPost function
 

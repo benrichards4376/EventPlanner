@@ -23,6 +23,7 @@ error_reporting(E_ALL);
 			$stmt->bind_param("is", $post_id, $student_id);
 			if(!$stmt->execute())
             {
+				
 				throw new Exception($stmt->error);
 			}
             else
