@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <script type="text/javascript" src="js/code.js"></script>
+        <script type="text/javascript" src="js/create.js"></script>
+        <script type="text/javascript" src="js/join.js"></script>
+        <script type="text/javascript" src="js/reviews.js"></script>
+        <link href="css/reviews.css" rel="stylesheet">	
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- HEADER ------------------------------------------------------------------->
+        <div class="header">
+
+            <!-- EVENTS BUTTON -->
+            <button class="events-button" onclick="window.location.href = 'events.html';">Events</button>
+
+            <!-- STUDENT CREATE DROPDOWN -->
+            <select onchange="moveToCreate(this.value)" class="create-dropdown" id="student-create-dropdown">
+                <option selected disabled hidden>Create</option>
+                <option value="create-rso-club">RSO Club</option>
+            </select>
+
+            <!-- ADMIN CREATE DROPDOWN -->
+            <select onchange="moveToCreate(this.value)" class="create-dropdown" id="admin-create-dropdown">
+                <option selected disabled hidden>Create</option>
+                <option value="create-rso-club">RSO Club</option>
+                <option value="create-rso-event">RSO Event</option>
+                <option value="create-public-event">Public Event</option>
+                <option value="create-private-event">Private Event</option>
+            </select>
+
+            <!-- JOIN DROPDOWN -->
+            <select onchange="moveToJoin(this.value)" class="join-dropdown">
+                <option selected disabled hidden>Join</option>
+                <option value="join-rso">Join RSO</option>
+                <option value="leave-rso">Leave RSO</option>
+            </select>
+
+            <!-- APPROVE BUTTON -->
+            <button class="approve-button" id="approve-buttons" onclick="window.location.href = 'approve.html';">Approve</button>
+
+            <!-- LOGOUT BUTTON -->
+            <button class="logout-button" onclick="doLogout()">Logout</button>
+
+        </div>
+
+        <!-- ROLE RESTRICTIONS -->
+        <script>
+            window.addEventListener("load", function() {
+                let studentCreate = document.getElementById("student-create-dropdown");
+                let adminCreate = document.getElementById("admin-create-dropdown");
+                let approve = document.getElementById("approve-buttons");
+
+                let role = localStorage.getItem("role");
+                if (role === "student")
+                {
+                    studentCreate.style.visibility = "visible";
+                    adminCreate.style.visibility = "hidden";
+                    approve.style.visibility = "hidden";
+                }
+                if (role === "admin")
+                {
+                    studentCreate.style.visibility = "hidden";
+                    adminCreate.style.visibility = "visible";
+                    approve.style.visibility = "hidden";
+                }
+                if (role === "super")
+                {
+                    studentCreate.style.visibility = "hidden";
+                    adminCreate.style.visibility = "visible";
+                    approve.style.visibility = "visible";
+                }
+            });
+        </script>
+
+        <!-- REVIEWS SECTION ----------------------------------------------------------->
+        <div id="reviewsDiv">
+            <span id="reviews-title">Reviews Page</span>
+
+            <!-- WRITE REVIEW -->
+            <div id="editReview">
+                <span id="edit-title">Edit a Review</span>
+                <label for="comment" id="edit-comment-label">Comment:</label><br>
+                <textarea id="edit-comment" cols="70" rows="3" placeholder="Edit the review..." required></textarea>
+                <br>
+                <label for="rating" id="edit-rating-label">Rating:</label><br>
+                <input type="number" id="edit-rating" min="1" max="5" required><br>
+                <br>
+                <span id="edit-result"></span>
+
+                <!-- SAVE BUTTON -->
+                <button class="button" id="save-button">Save</button>
+
+                <!-- CANCEL BUTTON -->
+                <button class="button" id="cancel-button">Cancel</button>
+            </div>
+
+        </div>
+
+        <script>
+            window.addEventListener("load", function() {
+                viewPosts();
+            });
+        </script>
+
+    </body>
+</html>
