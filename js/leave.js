@@ -1,13 +1,10 @@
-const urlBase = 'http://first-web.xyz/API';
-const extension = 'php';
+
 
 
 function searchMyRSO() {
-    
+    const urlBase = 'http://first-web.xyz/API';
+    const extension = 'php';
     const user_id = localStorage.getItem("email")
-    let searchInput = document.getElementById("search-club-result").value;
-    if (searchInput === "")
-        searchInput = localStorage.getItem("email_ending");
     const xhr = new XMLHttpRequest();
     const url = "/API/ViewMyRso.php";
     xhr.open("POST", url, true);
@@ -21,16 +18,16 @@ function searchMyRSO() {
             console.log(JSON.parse(xhr.responseText));
             let response = JSON.parse(xhr.responseText);
 
-            const joinContainer = document.getElementById('leaveDiv');
+            const leaveContainer = document.getElementById('leaveDiv');
             for (let i = 0; i < response.length; i++)
             {
-                const joinDiv = document.createElement('div');
-                joinDiv.className = 'thisRSO';
-                joinDiv.innerHTML = `<div class="reviewInfo">Name: ${response[i].name}</div>
+                const leaveDiv = document.createElement('div');
+                leaveDiv.className = 'thisRSO';
+                leaveDiv.innerHTML = `<div class="reviewInfo">Name: ${response[i].name}</div>
                                     <div class="reviewInfo">Leader: ${response[i].admin_id}</div>
                                     <div class="reviewInfo">Active: ${(response[i].active == 1) ? "YES" : "NO"}</div>
-                                    <button id="join-rso-button" onclick="leaveRSO('${response[i].name}', '${user_id}')">Leave</button>`
-                joinContainer.appendChild(joinDiv);
+                                    <button id="leave-rso-button" onclick="leaveRSO('${response[i].name}', '${user_id}')">Leave</button>`
+                leaveContainer.appendChild(leaveDiv);
             }
         }
         else 
@@ -45,6 +42,8 @@ function searchMyRSO() {
 
 function leaveRSO(rso_name, user_id)
 {
+    const urlBase = 'http://first-web.xyz/API';
+    const extension = 'php';
     const xhr = new XMLHttpRequest();
     const url = "/API/LeaveRso.php";
     xhr.open("POST", url, true);
