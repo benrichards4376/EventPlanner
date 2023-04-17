@@ -23,14 +23,9 @@ function createPost()
 	try {
         xhr.onreadystatechange = function ()
 		{
-			// check state of API
-            if (this.readyState != 4)
-			{
-                return;
-            }
 
 			// if no error retrieve values
-            if (this.status == 200)
+            if (xhr.readyState === XMLHttpRequest.DONE && this.status == 200)
 			{
 	            document.getElementById("write-comment").value = "";
                 document.getElementById("write-rating").value = "";
@@ -38,7 +33,8 @@ function createPost()
             }
             else
             {
-                console.log(JSON.parse(xhr.responseText).error);
+                document.getElementById("create-result").innerHTML = JSON.parse(xhr.responseText);
+                console.error(JSON.parse(xhr.responseText));
             }
         }; // end onreadystatechange
 
