@@ -169,7 +169,7 @@ body
 /* WRITE REVIEWS ********************************************************/
 #writeReview
 {
-    visibility: visible;
+    visibility: hidden;
     position: absolute;
     top: 15vh;
     height: 15vh;

@@ -217,6 +217,7 @@ function showEditForm(post_id)
 
     <!-- CANCEL BUTTON -->
     <button class="button" id="cancel-button">Cancel</button>`;
+
     reviewDiv.appendChild(div);
     document.getElementById("save-button").addEventListener("click", () => {
         editPost(post_id, document.getElementById("edit-comment").value, document.getElementById("edit-rating").value);
