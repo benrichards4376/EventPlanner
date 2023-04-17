@@ -239,7 +239,7 @@ input[type=number]
 }
 
 /* EDIT REVIEW **********************************************************/
-#editReview
+.editReview
 {
     visibility: visible;
     position: absolute;

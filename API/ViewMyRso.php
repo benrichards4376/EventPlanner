@@ -37,7 +37,22 @@ error_reporting(E_ALL);
             $data = array();
             while ($row = $result->fetch_assoc())
             {
-                $data[] = $row;
+                $rso = $row["rso_name"];
+				$new_stmt = $conn->prepare("SELECT * FROM RSO WHERE name = ?");
+				$new_stmt->bind_param("s", $rso);
+				if(!$new_stmt->execute())
+				{
+					throw new Exception($new_stmt->error);
+				}
+				else
+				{
+					$new_result = $new_stmt->get_result();
+					while ($new_row = $new_result->fetch_assoc())
+					{
+						$data[] = $new_row;
+					}
+					
+				}
             }
             $json = json_encode($data);
             sendResultInfoAsJson($json);

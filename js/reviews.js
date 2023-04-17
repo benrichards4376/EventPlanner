@@ -201,7 +201,7 @@ function showEditForm(post_id)
     const reviewDiv = document.getElementById(`post-${post_id}`);
     // Create form element
     const div = document.createElement('div');
-    div.className = "edit-review";
+    div.className = "editReview";
     div.innerHTML = `
     <span id="edit-title">Edit a Review</span>
     <label for="comment" id="edit-comment-label">Comment:</label><br>

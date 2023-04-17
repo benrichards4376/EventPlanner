@@ -2,13 +2,14 @@ const urlBase = 'http://first-web.xyz/API';
 const extension = 'php';
 
 
-function searchRSO() {
+function searchMyRSO() {
     
+    const user_id = localStorage.getItem("user_id")
     let searchInput = document.getElementById("search-club-result").value;
     if (searchInput === "")
         searchInput = localStorage.getItem("email_ending");
     const xhr = new XMLHttpRequest();
-    const url = "/API/SearchRso.php";
+    const url = "/API/ViewMyRso.php";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     
@@ -28,7 +29,7 @@ function searchRSO() {
                 joinDiv.innerHTML = `<div class="reviewInfo">Name: ${response[i].name}</div>
                                     <div class="reviewInfo">Leader: ${response[i].admin_id}</div>
                                     <div class="reviewInfo">Active: ${(response[i].active == 1) ? "YES" : "NO"}</div>
-                                    <button id="join-rso-button" onclick="joinRSO('${response[i].name}')">Join</button>`
+                                    <button id="join-rso-button" onclick="leaveRSO('${response[i].name}', '${user_id}')">Leave</button>`
                 joinContainer.appendChild(joinDiv);
             }
         }
@@ -38,15 +39,13 @@ function searchRSO() {
         }
     };
 
-    let tmp = {university:searchInput};
+    let tmp = {user_id:user_id};
     xhr.send(JSON.stringify(tmp));
 }
-function joinRSO(rso_name)
+function leaveRSO(rso_name, user_id)
 {
-    let user_id = localStorage.getItem("email");
-    let university_name = localStorage.getItem("university_name");
     const xhr = new XMLHttpRequest();
-    const url = "/API/JoinRso.php";
+    const url = "/API/LeaveRso.php";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     
@@ -64,6 +63,6 @@ function joinRSO(rso_name)
         }
     };
 
-    let tmp = {rso_name:rso_name, user_id:user_id, university_name:university_name};
+    let tmp = {rso_name:rso_name, user_id:user_id};
     xhr.send(JSON.stringify(tmp));
 }
