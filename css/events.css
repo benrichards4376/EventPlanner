@@ -71,20 +71,6 @@ body
     border: none;
 }
 
-.leave-button
-{
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    font-size: 20px;
-    height: 100%;
-    width: 20%;
-    font-family: 'Ubuntu', sans-serif;
-    color: white;
-    background-color: black;
-    border: none;
-}
-
 .approve-button
 {
     visibility: hidden;
