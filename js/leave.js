@@ -29,7 +29,7 @@ function searchMyRSO() {
         }
         else 
         {
-            console.error("Error searching RSOs: " + xhr.responseText);
+            console.error("Error searching RSOs: " + JSON.parse(xhr.responseText).error);
         }
     };
 

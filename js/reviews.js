@@ -72,6 +72,7 @@ async function deletePost(post_id) {
                 else
                 {
                     console.log(JSON.parse(xhr.responseText).error);
+                    document.getElementById("delete-result").innerHTML = JSON.parse(xhr.responseText).error;
                 }
             };
             xhr.send(jsonPayload);
@@ -86,6 +87,7 @@ async function deletePost(post_id) {
         let err = "Error: You can only delete posts you have made";
         console.log(err);
         document.getElementById("delete-result").innerHTML = err;
+        setTimeout(() => {location.reload();}, 2000);
     }
 }
 

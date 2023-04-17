@@ -102,6 +102,8 @@ function createPublicEvent(id, btn)
             else
             {
                 document.getElementById("createPublicEventResult").innerHTML = JSON.parse(xhr.responseText).error;
+                console.error(xhr.responseText);
+                setTimeout(() => {location.reload();}, 2000);
             }
         };
         let tmp = {name:name,email_ending:email_ending,user_id:user_id,description:description,
@@ -156,6 +158,8 @@ function createPrivateEvent(id, btn)
             else
             {
                 document.getElementById("createPrivateEventResult").innerHTML = JSON.parse(xhr.responseText).error;
+                console.error(xhr.responseText);
+                setTimeout(() => {location.reload();}, 2000);
             }
         };
         let tmp = {name:name,email_ending:email_ending,user_id:user_id,description:description,
@@ -210,6 +214,8 @@ function createRSOEvent(id, btn)
             else
             {
                 document.getElementById("createRSOEventResult").innerHTML = JSON.parse(xhr.responseText).error;
+                console.error(xhr.responseText);
+                setTimeout(() => {location.reload();}, 2000);
             }
         };
         let tmp = {name:name,email_ending:email_ending,event_rso:rso_name,user_id:user_id,description:description,

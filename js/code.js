@@ -59,6 +59,12 @@ function doLogin()
 
 				window.location.href = "events.html";
 			}
+			else
+			{
+				document.getElementById("loginResult").innerHTML = JSON.parse(xhr.responseText).error;
+                console.error(xhr.responseText);
+                setTimeout(() => {location.reload();}, 2000);
+			}
 		}; // end onreadystatechange
 
 		// send everything to server
