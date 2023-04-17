@@ -1,4 +1,3 @@
-
 const urlParams = new URLSearchParams(window.location.search);
 const event_id = urlParams.get('event_id');
 
