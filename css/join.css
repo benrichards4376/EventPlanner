@@ -57,7 +57,7 @@ body
     visibility: hidden;
 }
 
-.join-button
+.join-dropdown
 {
     position: absolute;
     top: 0%;
@@ -68,6 +68,7 @@ body
     font-family: 'Ubuntu', sans-serif;
     color: white;
     background-color: black;
+    text-align: center;
     border: none;
 }
 
@@ -101,6 +102,18 @@ body
 }
 
 #join-title
+{
+    position: absolute;
+    top: 15vh;
+    left: 10vw;
+    font-size: 30px;
+    width: 90%;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+
+#leave-title
 {
     position: absolute;
     top: 15vh;
@@ -146,7 +159,7 @@ body
     visibility: visible;
     position: relative;
     top: 30vh;
-    height: 25vh;
+    height: 15vh;
     width: 80vw;
     left: 10vw;
     background-color: white;
@@ -154,6 +167,7 @@ body
     text-align: left;
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 #RSOName
@@ -195,7 +209,7 @@ body
     background-color: white;
 }
 
-.join-button:hover
+.join-dropdown:hover
 {
     color: black;
     background-color: white;

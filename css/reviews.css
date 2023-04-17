@@ -57,7 +57,7 @@ body
     visibility: hidden;
 }
 
-.join-button
+.join-dropdown
 {
     position: absolute;
     top: 0%;
@@ -68,6 +68,7 @@ body
     font-family: 'Ubuntu', sans-serif;
     color: white;
     background-color: black;
+    text-align: center;
     border: none;
 }
 
@@ -115,10 +116,64 @@ body
 /* REVIEWS **************************************************************/
 .thisReview
 {
-    visibility: visible;
     position: relative;
-    top: 30vh;
-    height: 10vh;
+    top: 45vh;
+    height: 18vh;
+    width: 80vw;
+    left: 10vw;
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#reviewUser
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#reviewCom
+{
+    font-style: italic;
+}
+
+#delete-button
+{
+    position: absolute;
+    font-size: 20px;
+    bottom: 2vh;
+    right: 5vh;
+    height: 4vh;
+    width: 150px;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+#edit-button
+{
+    position: absolute;
+    font-size: 20px;
+    bottom: 2vh;
+    left: 5vh;
+    height: 4vh;
+    width: 150px;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+/* WRITE REVIEWS ********************************************************/
+#writeReview
+{
+    position: absolute;
+    top: 25vh;
+    height: 15vh;
     width: 80vw;
     left: 10vw;
     background-color: white;
@@ -128,25 +183,45 @@ body
     border-radius: 5px;
 }
 
-#reviewName
+#write-title
 {
+    position: absolute;
+    top: 1vh;
     font-size: 20px;
-    font-weight: bold;
+    width: 90%;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
 }
 
-/* WRITE REVIEW *********************************************************/
-#writeReview
+label[for=comment]
 {
-    position: relative;
-    top: 25vh;
-    left: 10vw;
-    height: 7vh;
+    position: absolute;
+    top: 5vh;
 }
 
-#review-comment
+label[for=rating]
 {
-    height: 8vh;
-    width: 60vw;
+    position: absolute;
+    top: 5vh;
+    left: 55vw;
+}
+
+textarea
+{
+    position: absolute;
+    top: 8vh;
+    width: 50vw;
+    border-radius: 5px;
+}
+
+input[type=number]
+{
+    position: absolute;
+    top: 8vh;
+    left: 55vw;
+    height: 4vh;
+    width: 7vw;
     border-radius: 5px;
 }
 
@@ -154,8 +229,64 @@ body
 {
     position: absolute;
     font-size: 20px;
+    top: 8vh;
+    left: 65vw;
     height: 4vh;
-    width: 150px;
+    width: 100px;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+/* EDIT REVIEW **********************************************************/
+.editReview
+{
+    position: relative;
+    top: 25vh;
+    left: 0vw;
+    height: 15vh;
+    width: 80vw;
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#edit-title
+{
+    position: absolute;
+    top: 1vh;
+    font-size: 20px;
+    width: 90%;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+}
+
+#save-button
+{
+    position: absolute;
+    font-size: 20px;
+    top: 8vh;
+    left: 65vw;
+    height: 4vh;
+    width: 100px;
+    border-radius: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+#cancel-button
+{
+    position: absolute;
+    font-size: 20px;
+    top: 8vh;
+    left: 73vw;
+    height: 4vh;
+    width: 100px;
     border-radius: 25px;
     font-family: 'Ubuntu', sans-serif;
     color: white;
@@ -181,7 +312,7 @@ body
     background-color: white;
 }
 
-.join-button:hover
+.join-dropdown:hover
 {
     color: black;
     background-color: white;
@@ -200,6 +331,18 @@ body
 }
 
 #post-button:hover
+{
+    color: white;
+    background-color: rgb(51, 153, 255);
+}
+
+#edit-button:hover
+{
+    color: white;
+    background-color: rgb(51, 153, 255);
+}
+
+#delete-button:hover
 {
     color: white;
     background-color: rgb(51, 153, 255);

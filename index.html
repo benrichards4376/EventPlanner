@@ -12,42 +12,35 @@
 
         <!-- LOGIN PAGE --------------------------------------------------------------->
         <div id="loginDiv">
-            <form onsubmit="doLogin()" id="login"  method="GET">
-                <span id="inner-title">Login</span><br>
-                <span id="loginResult"></span>
-                <label for="loginName" class="loginLabel">Email:</label><br>
-                <input type="text" id="loginName" class="loginInput" placeholder="Email"/><br>
-                <br>
-                <label for="loginPassword" class="loginLabel">Password:</label><br>
-                <input type="password" id="loginPassword" class="loginInput" placeholder="Password"/><br>
-                <br>
-                <button type="button" id="loginButton" class="buttons" onclick="doLogin();">LOGIN</button>
-                <button type="button" id="registerButton1" class="buttons" onclick="moveToRegister();">REGISTER</button>
-            </form>
+            <span id="inner-title">Login</span><br>
+            <span id="loginResult"></span>
+            <label for="loginName" class="loginLabel">Email:</label><br>
+            <input type="text" id="loginName" class="loginInput" placeholder="Email"/><br>
+            <br>
+            <label for="loginPassword" class="loginLabel">Password:</label><br>
+            <input type="password" id="loginPassword" class="loginInput" placeholder="Password"/><br>
+            <br>
+            <button type="button" id="loginButton" class="buttons" onclick="doLogin();">LOGIN</button>
+            <button type="button" id="registerButton1" class="buttons" onclick="moveToRegister();">REGISTER</button>
         </div>
         
         <!-- REGISTER PAGE ------------------------------------------------------------>
         <div id="registerDiv">
-            <form onsubmit="doRegister()" id="register"  method="GET">
-                <span id="register-title">Register</span>
-                <label for="firstName" class="registerLabel">First Name</label><br>
-                <input type="text" id="firstName" class="registerInput" placeholder="First Name"><br>
-                <br>
-                <label for="lastName" class="registerLabel">Last Name</label><br>
-                <input type="text" id="lastName" class="registerInput" placeholder="Last Name"/><br>
-                <br>
-                <label for="userName" class="registerLabel">Username</label><br>
-                <input type="text" id="userName" class="registerInput" placeholder="Username"/><br>
-                <br>
-                <label for="password" class="registerLabel">Password</label><br>
-                <input type="text" id="password" class="registerInput" placeholder="Password"/><br>
-                <br>
-                <label for="email" class="registerLabel">Email</label><br>
-                <input type="text" id="email" class="registerInput" placeholder="Email" /><br>
-                <br>
-                <button type="button" id="registerButton2" class="buttons" onclick="doRegister();">REGISTER</button>
-                <span id="registerResult"></span>
-            </form>
+            <span id="register-title">Register</span>
+            <label for="firstName" class="registerLabel">First Name</label><br>
+            <input type="text" id="firstName" class="registerInput" placeholder="First Name"><br>
+            <br>
+            <label for="lastName" class="registerLabel">Last Name</label><br>
+            <input type="text" id="lastName" class="registerInput" placeholder="Last Name"/><br>
+            <br>
+            <label for="email" class="registerLabel">Email</label><br>
+            <input type="text" id="email" class="registerInput" placeholder="Email" /><br>
+            <br>
+            <label for="password" class="registerLabel">Password</label><br>
+            <input type="text" id="password" class="registerInput" placeholder="Password"/><br>
+            <br>
+            <button type="button" id="registerButton2" class="buttons" onclick="doRegister();">REGISTER</button>
+            <span id="registerResult"></span>
         </div>
 
     </body>

@@ -1,14 +1,16 @@
-const urlBase = 'http://first-web.xyz/API';
-const extension = 'php';
+
 
 let email = "";
 let firstName = "";
 let lastName = "";
 let email_ending = "";
 let role="";
+let university_name = "";
 
 function doLogin()
 {
+	const urlBase = 'http://first-web.xyz/API';
+	const extension = 'php';
 	email = "";
 	firstName = "";
 	lastName = "";
@@ -43,6 +45,7 @@ function doLogin()
 				email = jsonObject.email;
 				email_ending = jsonObject.university;
 				role = jsonObject.role;
+				university_name = jsonObject.university_name;
 				if (email == "")
 				{
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
@@ -70,42 +73,26 @@ function doLogin()
 
 function doRegister()
 {
-
+	const urlBase = 'http://first-web.xyz/API';
+	const extension = 'php';
 	// get the incoming values
 	let firstName = document.getElementById("firstName").value;
 	let lastName = document.getElementById("lastName").value;
-	let login = document.getElementById("userName").value;
+	let login = document.getElementById("email").value;
 	let password = document.getElementById("password").value;
 	role = "student";
 
-	// get results from register & check for special characters
-	if(hasSpecialChar(login)){
-		document.getElementById("registerResult").innerHTML = "ERROR: YOU CAN'T HAVE SPECIAL CHARACTERS IN YOUR USERNAME";
-		return;
-	}
-	else if(hasSpecialChar(firstName)){
-		document.getElementById("registerResult").innerHTML = "ERROR: YOU CAN'T HAVE SPECIAL CHARACTERS IN YOUR FIRST NAME";
-		return;
-	}
-	else if(hasSpecialChar(lastName)){
-		document.getElementById("registerResult").innerHTML = "ERROR: YOU CAN'T HAVE SPECIAL CHARACTER IN YOUR LAST NAME";
-		return;
-	}
-	else{
-		document.getElementById("registerResult").innerHTML = "";
-	}
-
 	// set the temp variables
 	let tmp = {
-        FirstName: firstName,
-        LastName: lastName,
-        Login: login,
-        Password: password
+        first_name: firstName,
+        last_name: lastName,
+        email: login,
+        password: password
     };
 
 	// set values as a JSON string
 	let jsonPayload = JSON.stringify(tmp);
-    let url = urlBase + '/Register.' + extension;
+    let url = urlBase + '/CreateStudentAccount.' + extension;
 
 	let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -130,11 +117,11 @@ function doRegister()
 			{
 				document.getElementById("firstName").value = "";
 				document.getElementById("lastName").value = "";
-				document.getElementById("register-username").value = "";
-				document.getElementById("register-password").value = "";
+				document.getElementById("email").value = "";
+				document.getElementById("password").value = "";
 
 				saveCookie();
-				moveTologin();
+				moveToLogin();
             }
         }; // end onreadystatechange
 
@@ -149,6 +136,18 @@ function doRegister()
 
 } // end of doRegister function
 
+function moveToLogin()
+{
+	document.getElementById("loginDiv").style.visibility = "visible";
+	document.getElementById("registerDiv").style.visibility = "hidden";
+}
+
+function moveToRegister()
+{
+	document.getElementById("loginDiv").style.visibility = "hidden";
+	document.getElementById("registerDiv").style.visibility = "visible";
+}
+
 function saveCookie()
 {
 	localStorage.setItem("firstName", firstName);
@@ -156,6 +155,7 @@ function saveCookie()
 	localStorage.setItem("email", email);
 	localStorage.setItem("email_ending", email_ending);
 	localStorage.setItem("role", role);
+	localStorage.setItem("university_name", university_name);
 } // end of saveCookie function
 
 function getCookie(name)

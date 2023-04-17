@@ -1,10 +1,11 @@
 <html>
     <head>
+        <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
         <script type="text/javascript" src="js/create.js"></script>
         <script type="text/javascript" src="js/join.js"></script>
-        <script type="text/javascript" src="js/reviews.js"></script>
-        <link href="css/reviews.css" rel="stylesheet">	
+        <script type="text/javascript" src="js/leave.js"></script>
+        <link href="css/join.css" rel="stylesheet">	
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
     <body>
@@ -73,32 +74,19 @@
                 }
             });
         </script>
+        
+        <!-- JOIN SECTION ------------------------------------------------------------->
+        <div class="leaveDiv">
+            <span id="leave-title">Leave RSO Club</span>
 
-        <!-- REVIEWS SECTION ----------------------------------------------------------->
-        <div id="reviewsDiv">
-            <span id="reviews-title">Reviews Page</span>
-
-            <!-- WRITE REVIEW -->
-            <div id="writeReview">
-                <span id="write-title">Write a Review</span>
-                <label for="comment" id="write-comment-label">Comment:</label><br>
-                <textarea id="write-comment" cols="70" rows="3" placeholder="Write a review..." required></textarea>
-                <br>
-                <label for="rating" id="write-rating-label">Rating:</label><br>
-                <input type="number" id="write-rating" min="1" max="5" required><br>
-                <br>
-                <span id="create-result"></span>
-
-                <!-- POST BUTTON -->
-                <button class="button" id="post-button" onclick="createPost()">Post</button>
+            <div id="leaveDiv">
+                <span></span>
             </div>
 
-            <span id="delete-result"></span>
         </div>
-
         <script>
             window.addEventListener("load", function() {
-                viewPosts();
+                searchMyRSO();
             });
         </script>
 
