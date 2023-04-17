@@ -203,19 +203,16 @@ function viewPosts()
             console.log("No Posts currently available");
         }
     };
-    xhr.send(JSON.stringify(tmp));
+    xhr.send(JSON.stringify(jsonPayload));
 } // end viewPosts function
 
-function showEditForm(post_id, comment, rating) {
+function showEditForm(post_id) {
 
     document.getElementById("writeReview").style.visibility = "hidden";
 	document.getElementById("editReview").style.visibility = "visible";
 
     const div = document.getElementById('editReview');
-    
-    const comment = div.getElementById('edit-comment').value;
-    const rating = div.getElementById('edit-rating').value;
-    
+        
     const cancelButton = div.getElementById('cancel-button');
     cancelButton.addEventListener('click', () => 
     {
@@ -228,8 +225,8 @@ function showEditForm(post_id, comment, rating) {
         event.preventDefault();
 
         const divData = new FormData(div);
-        const comment = divData.get('comment');
-        const rating = divData.get('rating');
+        let comment = divData.get('comment');
+        let rating = divData.get('rating');
         
         // Call editPost() with updated review data
         editPost(post_id, comment, rating);
