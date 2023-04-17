@@ -222,8 +222,9 @@ function showEditForm(post_id, comment, rating) {
         const reviewDiv = document.getElementById(`post-${post_id}`);
         reviewDiv.removeChild(div);
     });
-    
-    div.addEventListener('submit', event => 
+
+    const saveButton = div.getElementById('save-button');
+    saveButton.addEventListener('click', event => 
     {
         event.preventDefault();
 
