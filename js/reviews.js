@@ -92,16 +92,14 @@ async function deletePost(post_id) {
     }
 }
 
-async function editPost(post_id, comment, rating) 
-{
+async function editPost(post_id, comment, rating) {
     console.log(post_id);
     let user_id = localStorage.getItem("email");
     let tmp = {user_id: user_id, post_id: post_id, comment: comment, rating: rating};
     let jsonPayload = JSON.stringify(tmp);
     let canDeleteResponse = await canDelete(jsonPayload);
 
-    if (canDeleteResponse === "true") 
-    {
+    if (canDeleteResponse === "true") {
         const xhr = new XMLHttpRequest();
         const url = "/API/EditPost.php";
         xhr.open("POST", url, true);
@@ -111,11 +109,6 @@ async function editPost(post_id, comment, rating)
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     viewPosts();
-
-                    // switch back visibility
-                    document.getElementById("writeReview").style.visibility = "visible";
-	                document.getElementById("editReview").style.visibility = "hidden";
-
                     location.reload();
                 }
                 else
@@ -137,11 +130,8 @@ async function editPost(post_id, comment, rating)
         document.getElementById("edit-result").innerHTML = err;
     }
 }
-
-function canDelete(jsonPayload) 
-{
-    return new Promise((resolve, reject) => 
-    {
+function canDelete(jsonPayload) {
+    return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         const url = "/API/CanDelete.php";
         xhr.open("POST", url, true);
@@ -203,37 +193,40 @@ function viewPosts()
             console.log("No Posts currently available");
         }
     };
-    xhr.send(JSON.stringify(jsonPayload));
+    xhr.send(JSON.stringify(tmp));
 } // end viewPosts function
 
-function showEditForm(post_id) {
+function showEditForm(post_id)
+{
+    const reviewDiv = document.getElementById(`post-${post_id}`);
+    // Create form element
+    const div = document.createElement('div');
+    div.className = "edit-review";
+    div.innerHTML = `
+    <span id="edit-title">Edit a Review</span>
+    <label for="comment" id="edit-comment-label">Comment:</label><br>
+    <textarea id="edit-comment" cols="70" rows="3" placeholder="Edit the review..." required></textarea>
+    <br>
+    <label for="rating" id="edit-rating-label">Rating:</label><br>
+    <input type="number" id="edit-rating" min="1" max="5" required><br>
+    <br>
+    <span id="edit-result"></span>
 
-    document.getElementById("writeReview").style.visibility = "hidden";
-	document.getElementById("editReview").style.visibility = "visible";
+    <!-- SAVE BUTTON -->
+    <button class="button" id="save-button">Save</button>
 
-    const div = document.getElementById('editReview');
-        
-    const cancelButton = div.getElementById('cancel-button');
-    cancelButton.addEventListener('click', () => 
-    {
-        const reviewDiv = document.getElementById(`post-${post_id}`);
+    <!-- CANCEL BUTTON -->
+    <button class="button" id="cancel-button">Cancel</button>`;
+    reviewDiv.appendChild(div);
+    document.getElementById("save-button").addEventListener("click", () => {
+        editPost(post_id, document.getElementById("edit-comment").value, document.getElementById("edit-rating").value);
         reviewDiv.removeChild(div);
-    });
-    
-    div.addEventListener('submit', event => 
-    {
-        event.preventDefault();
+    })
 
-        const divData = new FormData(div);
-        let comment = divData.get('comment');
-        let rating = divData.get('rating');
-        
-        // Call editPost() with updated review data
-        editPost(post_id, comment, rating);
-        
-        // remove the div created
-        const reviewDiv = document.getElementById(`post-${post_id}`);
+    document.getElementById("cancel-button").addEventListener("click", () => {
         reviewDiv.removeChild(div);
-    });
-}
+    })
+
+
+  }
   
