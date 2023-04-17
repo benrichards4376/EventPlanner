@@ -89,6 +89,11 @@
 
         <script>
             window.addEventListener("load", function() {
+                if (localStorage.getItem("role") !== "super")
+                {
+                    console.error("You do not have permissions to access this page");
+                    window.location.href = 'events.html';
+                }
                 viewApprovableEvents(1, 10);
             });
         </script>
