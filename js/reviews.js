@@ -1,10 +1,11 @@
-const urlBase = 'http://first-web.xyz/API';
-const extension = 'php';
+
 const urlParams = new URLSearchParams(window.location.search);
 const event_id = urlParams.get('event_id');
 
 function createPost()
 {
+    const urlBase = 'http://first-web.xyz/API';
+    const extension = 'php';
     // get the incoming values
 	let user_id = localStorage.getItem("email");
 	
@@ -55,6 +56,8 @@ function createPost()
 } // end createPost function
 
 async function deletePost(post_id) {
+    const urlBase = 'http://first-web.xyz/API';
+    const extension = 'php';
     console.log(post_id);
     let user_id = localStorage.getItem("email");
     let tmp = { user_id: user_id, post_id: post_id };
@@ -93,6 +96,8 @@ async function deletePost(post_id) {
 }
 
 async function editPost(post_id, comment, rating) {
+    const urlBase = 'http://first-web.xyz/API';
+    const extension = 'php';
     console.log(post_id);
     let user_id = localStorage.getItem("email");
     let tmp = {user_id: user_id, post_id: post_id, comment: comment, rating: rating};
@@ -131,6 +136,8 @@ async function editPost(post_id, comment, rating) {
     }
 }
 function canDelete(jsonPayload) {
+    const urlBase = 'http://first-web.xyz/API';
+    const extension = 'php';
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         const url = "/API/CanDelete.php";
@@ -156,6 +163,8 @@ function canDelete(jsonPayload) {
 
 function viewPosts()
 {
+    const urlBase = 'http://first-web.xyz/API';
+    const extension = 'php';
 	let tmp = {event_id:event_id};
     let jsonPayload = JSON.stringify(tmp);
 
@@ -198,6 +207,7 @@ function viewPosts()
 
 function showEditForm(post_id)
 {
+    
     const reviewDiv = document.getElementById(`post-${post_id}`);
     // Create form element
     const div = document.createElement('div');

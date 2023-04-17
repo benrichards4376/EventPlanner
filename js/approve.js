@@ -11,22 +11,22 @@ function viewApprovableEvents(page, limit)
         {
             let response = JSON.parse(xhr.responseText)
             console.log(xhr.responseText);
-            const eventsContainer = document.getElementById('eventDiv');
+            const approveContainer = document.getElementById('approveDiv');
             if (response.length === 0)
             {
-                const eventDiv = document.createElement('div');
-                eventDiv.innerHTML = `<h1>There are no Events at this time</h1>`
-                eventsContainer.appendChild(eventDiv);
+                const approveTempDiv = document.createElement('div');
+                approveTempDiv.innerHTML = `<h1>There are no Events at this time</h1>`
+                approveContainer.appendChild(approveTempDiv);
                 return;
             }
-            eventsContainer.innerHTML = ""; // clear previous content
+            approveContainer.innerHTML = ""; // clear previous content
             let start = (page - 1) * limit;
             let end = start + limit;
             for (let i = start; i < Math.min(end, response.length); i++)
             {
-                const eventDiv = document.createElement('div');
-                eventDiv.className = 'thisEvent';
-                eventDiv.innerHTML = `<div class="eventInfo" id="eventName">Name: ${response[i].name}</div>
+                let approveTempDiv = document.createElement('div');
+                approveTempDiv.className = 'thisEvent';
+                approveTempDiv.innerHTML = `<div class="eventInfo" id="eventName">Name: ${response[i].name}</div>
                                     <div class="eventInfo">Description: ${response[i].description}</div>
                                     <div class="eventInfo">Date/Time: ${response[i].time}</div>
                                     <div class="eventInfo">Location: ${response[i].location}</div>
@@ -34,8 +34,8 @@ function viewApprovableEvents(page, limit)
                                     <div class="eventInfo">Latitude: ${response[i].latitude}</div>
                                     <div class="eventInfo">Phone: ${response[i].contactPhone}</div>
                                     <div class="eventInfo">Email: ${response[i].contactEmail}</div>
-                                    <button class="approve-button" id="approve-button ${i}" onclick="approveEvent(${response[i].event_id})">Approve</button>`
-                eventsContainer.appendChild(eventDiv);
+                                    <button class="reviews-button" id="reviews-button ${i}" onclick="approveEvent(${response[i].event_id})">Approve</button>`
+                approveContainer.appendChild(approveTempDiv);
             }
         
             const numPages = Math.ceil(response.length / limit);
