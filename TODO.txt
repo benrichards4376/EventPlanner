@@ -1,23 +1,22 @@
 TODO List:
 
 [ ] ApproveEvents
-[/] CreatePost
-[/] CreatePrivateEvent
+[X] CreatePost
+[X] CreatePrivateEvent
 [X] CreatePublicEvent
-[/] CreateRSOClub
-[ ] CreateRSOEvent
+[X] CreateRSOClub
+[X] CreateRSOEvent
 [X] CreateStudent (register?)
-[/] DeletePost
-[ ] EditPost
+[X] DeletePost
+[/] EditPost
 [ ] JoinRSO
 [ ] LeaveRSO
 [X] Login
 [ ] SearchRSO
-[ ] ViewAdminRSO
 [ ] ViewApprovalEvents
-[ ] ViewEvents
+[X] ViewEvents
 [ ] ViewMyRSO
-[/] ViewPosts
+[X] ViewPosts
 
 / = needs testing
 X = completed & working
