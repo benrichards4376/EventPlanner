@@ -57,7 +57,7 @@ body
     visibility: visible;
 }
 
-.join-button
+.join-dropdown
 {
     position: absolute;
     top: 0%;
@@ -68,6 +68,7 @@ body
     font-family: 'Ubuntu', sans-serif;
     color: white;
     background-color: black;
+    text-align: center;
     border: none;
 }
 
@@ -203,7 +204,7 @@ body
     background-color: white;
 }
 
-.join-button:hover
+.join-dropdown:hover
 {
     color: black;
     background-color: white;

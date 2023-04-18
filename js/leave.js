@@ -1,9 +1,8 @@
 const urlBase = 'http://first-web.xyz/API';
 const extension = 'php';
 
-
-function searchMyRSO() {
-    
+function searchMyRSO()
+{    
     const user_id = localStorage.getItem("user_id")
     let searchInput = document.getElementById("search-club-result").value;
     if (searchInput === "")
@@ -42,6 +41,7 @@ function searchMyRSO() {
     let tmp = {user_id:user_id};
     xhr.send(JSON.stringify(tmp));
 }
+
 function leaveRSO(rso_name, user_id)
 {
     const xhr = new XMLHttpRequest();

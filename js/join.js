@@ -1,9 +1,20 @@
 const urlBase = 'http://first-web.xyz/API';
 const extension = 'php';
 
+function moveToJoin(category)
+{
+	if (category == "join-rso")
+    {
+        window.location.href = "join.html";
+    }
+    if (category == "leave-rso")
+    {
+        window.location.href = "leave.html";
+    }
+} // end moveToCreate function
 
-function searchRSO() {
-    
+function searchRSO()
+{
     let searchInput = document.getElementById("search-club-result").value;
     if (searchInput === "")
         searchInput = localStorage.getItem("email_ending");
@@ -41,6 +52,7 @@ function searchRSO() {
     let tmp = {university:searchInput};
     xhr.send(JSON.stringify(tmp));
 }
+
 function joinRSO(rso_name)
 {
     let user_id = localStorage.getItem("email");
