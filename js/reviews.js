@@ -227,7 +227,5 @@ function showEditForm(post_id)
     document.getElementById("cancel-button").addEventListener("click", () => {
         reviewDiv.removeChild(div);
     })
-
-
-  }
+}
   
