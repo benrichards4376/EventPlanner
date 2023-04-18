@@ -14,7 +14,6 @@
         <!-- LOGIN PAGE --------------------------------------------------------------->
         <div id="loginDiv">
             <span id="inner-title">Login</span><br>
-            <span id="loginResult"></span>
             <label for="loginName" class="loginLabel">Email:</label><br>
             <input type="text" id="loginName" class="loginInput" placeholder="Email"/><br>
             <br>
@@ -24,6 +23,7 @@
             <button type="button" id="loginButton" class="buttons" onclick="doLogin();">LOGIN</button>
             <button type="button" id="registerButton1" class="buttons" onclick="moveToRegister();">REGISTER</button>
         </div>
+        <span id="loginResult" class="error"></span>
         
         <!-- REGISTER PAGE ------------------------------------------------------------>
         <div id="registerDiv">

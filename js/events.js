@@ -29,11 +29,13 @@ function viewEvents(page, limit)
                 eventDiv.innerHTML = `<div class="eventInfo" id="eventName">Name: ${response[i].name}</div>
                                     <div class="eventInfo">Description: ${response[i].description}</div>
                                     <div class="eventInfo">Date/Time: ${response[i].time}</div>
+                                    <div class="eventInfo">Category: ${response[i].category}</div>
+                                    <div class="eventInfo">University: ${response[i].uni_id}</div>
                                     <div class="eventInfo">Location: ${response[i].location}</div>
                                     <div class="eventInfo">Longitude: ${response[i].longitude}</div>
                                     <div class="eventInfo">Latitude: ${response[i].latitude}</div>
-                                    <div class="eventInfo">Phone: ${response[i].contactPhone}</div>
-                                    <div class="eventInfo">Email: ${response[i].contactEmail}</div>
+                                    <div class="eventInfo">Phone: ${response[i].contact_phone}</div>
+                                    <div class="eventInfo">Email: ${response[i].contact_email}</div>
                                     <button class="reviews-button" id="reviews-button ${i}" onclick="window.location.href = 'reviews.html?event_id=${response[i].event_id}';">Reviews</button>`
                 eventsContainer.appendChild(eventDiv);
             }

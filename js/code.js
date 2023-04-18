@@ -61,9 +61,9 @@ function doLogin()
 			}
 			else
 			{
-				document.getElementById("loginResult").innerHTML = JSON.parse(xhr.responseText).error;
-                console.error(xhr.responseText);
-                setTimeout(() => {location.reload();}, 2000);
+				document.getElementById("loginResult").innerHTML = "<header>Invalid username/password combination</header>";
+                console.log("Invalid username/password combination");
+                // setTimeout(() => {location.reload();}, 2000);
 			}
 		}; // end onreadystatechange
 
