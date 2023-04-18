@@ -145,13 +145,13 @@ input[type=number]
 }
 
 /* EDIT REVIEW **********************************************************/
-.editReview
+#editReview
 {
-    position: relative;
+    position: absolute;
     top: 25vh;
-    left: 0vw;
     height: 15vh;
     width: 80vw;
+    left: 10vw;
     background-color: white;
     color: black;
     text-align: left;

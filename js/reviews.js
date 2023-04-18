@@ -94,14 +94,13 @@ async function editPost(post_id, comment, rating) {
     const urlBase = 'http://first-web.xyz/API';
     const extension = 'php';
 
-    window.location.href = "editReview.html";
     console.log(post_id);
     let user_id = localStorage.getItem("email");
     let tmp = {user_id: user_id, post_id: post_id, comment: comment, rating: rating};
-    let jsonPayload = JSON.stringify(tmp);
     let canDeleteResponse = await canDelete(jsonPayload);
 
     if (canDeleteResponse === "true") {
+
         const xhr = new XMLHttpRequest();
         const url = "/API/EditPost.php";
         xhr.open("POST", url, true);
@@ -118,8 +117,7 @@ async function editPost(post_id, comment, rating) {
                     console.log(JSON.parse(xhr.responseText).error);
                 }
             };
-            xhr.send(jsonPayload);
-            
+            xhr.send(JSON.stringify(tmp));           
         }
         catch (err) {
             console.log(err);
@@ -132,6 +130,55 @@ async function editPost(post_id, comment, rating) {
         document.getElementById("edit-result").innerHTML = err;
     }
 }
+
+function moveToEdit(post_id, comment, rating) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const event_id = urlParams.get('event_id');
+
+    // Redirect to editReview.html page with query parameters
+    window.location.href = "editReview.html?event_id=${event_id}&post_id=${post_id}&comment=${encodeURIComponent(comment)}&rating=${rating}";
+}
+
+function savePost() {
+    // Get query parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const event_id = urlParams.get('event_id');
+    const post_id = urlParams.get('post_id');
+    const comment = urlParams.get('comment');
+    const rating = urlParams.get('rating');
+
+    // Update comment and rating
+    const newComment = document.getElementById('new-comment').value;
+    const newRating = document.getElementById('new-rating').value;
+
+    // Send PUT request to update post
+    const xhr = new XMLHttpRequest();
+    xhr.open('PUT', `http://first-web.xyz/API/post/${post_id}`, true);
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Redirect to original page
+            window.location.href = "reviews.html?event_id=${event_id}";
+        } else {
+            console.error('Failed to update post:', xhr.statusText);
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Failed to update post:', xhr.statusText);
+    };
+    xhr.send(JSON.stringify({ comment: newComment, rating: newRating }));
+}
+
+function cancelEdit() {
+    // Redirect to original page
+    const urlParams = new URLSearchParams(window.location.search);
+    const event_id = urlParams.get('event_id');
+    window.location.href = `original-page.html?event_id=${event_id}`;
+}
+
+
+
+
 function canDelete(jsonPayload) {
     const urlBase = 'http://first-web.xyz/API';
     const extension = 'php';
@@ -189,7 +236,7 @@ function viewPosts()
                 reviewsDiv.innerHTML = `<div class="reviewInfo">User: ${response[i].student_id}</div>
                                     <div class="reviewInfo">Comment: ${response[i].comment}</div>
                                     <div class="reviewInfo">Rating: ${response[i].rating}</div>
-                                    <button class="button" id="edit-button" onclick="editPost(${response[i].post_id}, '${response[i].comment}', ${response[i].rating})">Edit</button>
+                                    <button class="button" id="edit-button" onclick="moveToEdit(${response[i].post_id}, '${response[i].comment}', ${response[i].rating})">Edit</button>
                                     <button class="button" id="delete-button" onclick="deletePost(${response[i].post_id})">Delete</button>`
                 reviewsContainer.appendChild(reviewsDiv);
             }
