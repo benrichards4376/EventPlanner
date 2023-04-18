@@ -2,6 +2,7 @@
     <head>
         <script type="text/javascript" src="js/md5.js"></script>
         <script type="text/javascript" src="js/code.js"></script>
+        <script type="text/javascript" src="js/approve.js"></script>
         <script type="text/javascript" src="js/create.js"></script>
         <script type="text/javascript" src="js/join.js"></script>
         <link href="css/approve.css" rel="stylesheet">	
@@ -74,25 +75,28 @@
             });
         </script>
         
-        <!-- EVENTS SECTION ----------------------------------------------------------->
-        <div id="approveDiv">
+
+        <div id="approveEventsDiv">
             <span id="approve-title">Approve Events</span>
 
-            <div class="thisEvent">
-
-                <div class="eventInfo" id="eventName">Name</div>
-                <div class="eventInfo" id="eventCat">Category</div>
-                <div class="eventInfo" id="eventTime">Time</div>
-                <div class="eventInfo" id="eventLong">Longitude</div>
-                <div class="eventInfo" id="eventLat">Latitude</div>
-                <div class="eventInfo" id="eventEmail">Email</div>
-                <div class="eventInfo" id="eventPhone">Phone</div>
-                <div class="eventInfo" id="eventDesc">Description</div>
-
-                <!-- APPROVAL BUTTON -->
-                <button class="button" id="approve-button" onclick="approveEvent()">Approve</button>
+            <div id="approveDiv">
+                <span></span>
+            </div>
+            <div id="navDiv">
+                <span id="nav-title"></span>
             </div>
         </div>
+
+        <script>
+            window.addEventListener("load", function() {
+                if (localStorage.getItem("role") !== "super")
+                {
+                    console.error("You do not have permissions to access this page");
+                    window.location.href = 'events.html';
+                }
+                viewApprovableEvents(1, 10);
+            });
+        </script>
 
     </body>
 </html>
