@@ -1,10 +1,10 @@
-const urlBase = 'http://first-web.xyz/API';
-const extension = 'php';
 const urlParams = new URLSearchParams(window.location.search);
 const event_id = urlParams.get('event_id');
 
 function createPost()
 {
+    const urlBase = 'http://first-web.xyz/API';
+    const extension = 'php';
     // get the incoming values
 	let user_id = localStorage.getItem("email");
 	
