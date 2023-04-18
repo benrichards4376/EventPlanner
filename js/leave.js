@@ -1,6 +1,3 @@
-
-
-
 function searchMyRSO() {
     const urlBase = 'http://first-web.xyz/API';
     const extension = 'php';
