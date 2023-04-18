@@ -59,6 +59,12 @@ function doLogin()
 
 				window.location.href = "events.html";
 			}
+			else
+			{
+				document.getElementById("loginResult").innerHTML = "<header>Invalid username/password combination</header>";
+                console.log("Invalid username/password combination");
+                // setTimeout(() => {location.reload();}, 2000);
+			}
 		}; // end onreadystatechange
 
 		// send everything to server
@@ -180,4 +186,10 @@ function doLogout()
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 } // end function doLogout
+
+function showErrors(error)
+{
+	localStorage.removeItem('error');
+	location.reload();
+}
 

@@ -28,7 +28,8 @@ error_reporting(E_ALL);
                 $result = $stmt->get_result();
                 if ($result->num_rows == 0)
                 {
-                    returnWithError("There are no posts for this event");
+					http_response_code(400);
+                    throw new Exception("There are no posts for this event");
                     $stmt->close();
 					$conn->close();
                     return;

@@ -1,11 +1,10 @@
 <html>
     <head>
-        <script type="text/javascript" src="js/md5.js"></script>
-        <script type="text/javascript" src="js/create.js" defer></script>
         <script type="text/javascript" src="js/code.js"></script>
+        <script type="text/javascript" src="js/create.js"></script>
         <script type="text/javascript" src="js/join.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBZYNvOkenwpXai6IUlxcLNPlDq0KpOKQ&libraries=places"></script>
-        <link href="css/create.css" rel="stylesheet">	
+        <script type="text/javascript" src="js/edit.js"></script>
+        <link href="css/reviews.css" rel="stylesheet">
         <link href="css/all.css" rel="stylesheet">	
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
@@ -75,41 +74,30 @@
                 }
             });
         </script>
-        
-        <!-- PUBLIC EVENT ------------------------------------------------------------->
-        <div class="createDiv" id="public-event-div">
-            <span class="create-title" id="public-event-title">Create Public Event</span>
-            <label for="name">Name:</label><br>
-            <input type="text" id="public-event-name" placeholder="Name" required><br>
-            <br>
-            <label for="time">Date & Time:</label><br>
-            <input type="datetime-local" id="public-event-date-time" required><br>
-            <br>
-            <label for="description">Description:</label><br>
-            <textarea id="public-event-description" cols="70" rows="5" required></textarea><br>
-            <br>
-            <label for="location">Location:</label><br>
-            <input id="public_map" class="controls" type="text" placeholder="Enter a location"><br>
-            <br>
-            <label for="phone">Phone:</label><br>
-            <input type="text" id="public-event-phone" placeholder="Phone" required><br>
-            <br>
-            <label for="email">Email:</label><br>
-            <input type="text" id="public-event-email" placeholder="Email" required><br>
-            <br>
-            <span id="createPublicEventResult"></span>
-            <br><br><br><br><br><br>
-            <div id="map"></div>
-        </div>
 
-        <!-- CREATE EVENT BUTTON -->
-        <button type="button" id="public-event-button" class="buttons">Request Event</button>
-        
-        <script>
-            window.addEventListener("load", function() {
-                createPublicEvent("public_map", "public-event-button");
-            });
-        </script>     
+        <!-- REVIEWS SECTION ----------------------------------------------------------->
+        <div id="editDiv">
+            <span id="reviews-title">Edit Reviews Page</span>
+
+            <!-- WRITE REVIEW -->
+            <div id="editReview">
+                <span id="edit-title">Edit a Review</span>
+                <label for="comment" id="edit-comment-label">Comment:</label><br>
+                <textarea id="edit-comment" cols="70" rows="3" placeholder="Edit the review..." required></textarea>
+                <br>
+                <label for="rating" id="edit-rating-label">Rating:</label><br>
+                <input type="number" id="edit-rating" min="1" max="5" required><br>
+                <br>
+                
+                <!-- SAVE BUTTON -->
+                <button class="button" id="save-button" onclick="editPost();">Save</button>
+                
+                <!-- CANCEL BUTTON -->
+                <button class="button" id="cancel-button" onclick="moveToReview()">Cancel</button>
+            </div>
+
+        </div>
+        <span class="error" id="edit-result"></span>
 
     </body>
 </html>

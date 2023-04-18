@@ -84,12 +84,13 @@ function approveEvent(event_id)
             let response = JSON.parse(xhr.responseText)
             console.log(xhr.responseText);
             
-        if (response.error)
-        {
-            console.error(xhr.responseText);
-            return;
         }
-    }
+        else
+        {
+            document.getElementById("approveResult").innerHTML = JSON.parse(xhr.responseText).error;
+            console.error(xhr.responseText);
+            setTimeout(() => {location.reload();}, 2000);
+        }
     };
     let tmp = {event_id:event_id};
     xhr.send(JSON.stringify(tmp));

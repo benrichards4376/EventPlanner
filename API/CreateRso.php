@@ -36,6 +36,7 @@ error_reporting(E_ALL);
 				$result = $stmt->get_result();
 				if ($result->num_rows != 0)
 				{
+					http_response_code(400);
 					returnWithError("RSO already exists with that name");
 					return;
 				}
@@ -53,7 +54,8 @@ error_reporting(E_ALL);
 					$result = $stmt->get_result();
 					if ($result->num_rows == 0)
 					{
-						returnWithError('No student exists with email ' . $emails[$i]);
+						http_response_code(400);
+						throw new Exception('No student exists with email ' . $emails[$i]);
 						$stmt->close();
 						$conn->close();
 						return;
@@ -61,7 +63,8 @@ error_reporting(E_ALL);
 					$row = $result->fetch_assoc();
 					if ($row['university'] != $temp_domain)
 					{
-						returnWithError('Students in the RSO must be from the same university');
+						http_response_code(400);
+						throw new Exception('Students in the RSO must be from the same university');
 						return;
 					}
 					$temp_domain = $row['university'];

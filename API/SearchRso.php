@@ -28,7 +28,8 @@ error_reporting(E_ALL);
                 $result = $stmt->get_result();
                 if ($result->num_rows == 0)
                 {
-                    returnWithError("There are no RSOs in your university");
+					http_response_code(400);
+                    throw new Exception("There are no RSOs in your university");
                     $stmt->close();
 					$conn->close();
                     return;

@@ -25,7 +25,8 @@
 		}
 		else
 		{
-			returnWithError("No Records Found");
+			http_response_code(400);
+			throw new Exception("No Records Found");
 		}
 
 		$stmt->close();

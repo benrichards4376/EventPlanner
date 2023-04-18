@@ -65,14 +65,11 @@ function joinRSO(rso_name)
     // Define the onreadystatechange callback function
     xhr.onreadystatechange = function()
     {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
-        {
-            let response = JSON.parse(xhr.responseText);
-
-        }
-        else 
+        if (xhr.readyState !== XMLHttpRequest.DONE || xhr.status === 200)
         {
             console.error(xhr.responseText);
+            document.getElementById("joinResult").innerHTML = JSON.parse(xhr.responseText).error;
+            setTimeout(() => {location.reload();}, 2000);
         }
     };
 

@@ -28,7 +28,8 @@ error_reporting(E_ALL);
                 $result = $stmt->get_result();
                 if ($result->num_rows == 0)
                 {
-                    returnWithError("There are no events needing approval at this time");
+					http_response_code(400);
+                    throw new Exception("There are no events needing approval at this time");
                     $stmt->close();
 					$conn->close();
                     return;

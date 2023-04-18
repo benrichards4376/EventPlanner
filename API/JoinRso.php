@@ -30,10 +30,8 @@ error_reporting(E_ALL);
 				$row = $result->fetch_assoc();
 				if ($student_uni != $row['university_name'])
 				{
-					returnWithError("You must be a student of " . $row['university_name'] . " to join this RSO");
-					$stmt->close();
-					$conn->close();
-					return;
+					http_response_code(400);
+					throw new Exception("You must be a student of " . $row['university_name'] . " to join this RSO");
 				}
 			}
 			$stmt = $conn->prepare("SELECT * FROM Student_RSOS WHERE (rso_name = ? AND student_id = ?)");
@@ -48,7 +46,8 @@ error_reporting(E_ALL);
 				$row = $result->fetch_assoc();
 				if ($result->num_rows != 0)
 				{
-					returnWithError("You are already a member of " . $rso_name);
+					http_response_code(400);
+					throw new Exception("You are already a member of " . $rso_name);
 					$stmt->close();
 					$conn->close();
 					return;
