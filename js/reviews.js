@@ -97,6 +97,8 @@ async function deletePost(post_id) {
 async function editPost(post_id, comment, rating) {
     const urlBase = 'http://first-web.xyz/API';
     const extension = 'php';
+
+    window.location.href = "editReview.html";
     console.log(post_id);
     let user_id = localStorage.getItem("email");
     let tmp = {user_id: user_id, post_id: post_id, comment: comment, rating: rating};
@@ -191,7 +193,7 @@ function viewPosts()
                 reviewsDiv.innerHTML = `<div class="reviewInfo">User: ${response[i].student_id}</div>
                                     <div class="reviewInfo">Comment: ${response[i].comment}</div>
                                     <div class="reviewInfo">Rating: ${response[i].rating}</div>
-                                    <button class="button" id="edit-button" onclick="showEditForm(${response[i].post_id}, '${response[i].comment}', ${response[i].rating})">Edit</button>
+                                    <button class="button" id="edit-button" onclick="editPost(${response[i].post_id}, '${response[i].comment}', ${response[i].rating})">Edit</button>
                                     <button class="button" id="delete-button" onclick="deletePost(${response[i].post_id})">Delete</button>`
                 reviewsContainer.appendChild(reviewsDiv);
             }

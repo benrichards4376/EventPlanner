@@ -7,101 +7,6 @@ body
     overflow-x: hidden;
 }
 
-/* HEADER ***************************************************************/
-.header
-{
-    position: absolute;
-    top: 0%;
-    width: 100%;
-    padding: 20px;
-    height: 5vh;
-    width: 100%;
-    background-color: black;
-}
-
-.events-button
-{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    font-size: 20px;
-    height: 100%;
-    width: 20%;
-    font-family: 'Ubuntu', sans-serif;
-    color: white;
-    background-color: black;
-    border: none;
-}
-
-.create-dropdown
-{
-    position: absolute;
-    top: 0%;
-    left: 20%;
-    font-size: 20px;
-    height: 100%;
-    width: 20%;
-    font-family: 'Ubuntu', sans-serif;
-    color: white;
-    background-color: black;
-    text-align: center;
-    border: none;
-}
-
-#student-create-dropdown
-{
-    visibility: visible;
-}
-
-#admin-create-dropdown
-{
-    visibility: hidden;
-}
-
-.join-dropdown
-{
-    position: absolute;
-    top: 0%;
-    left: 40%;
-    font-size: 20px;
-    height: 100%;
-    width: 20%;
-    font-family: 'Ubuntu', sans-serif;
-    color: white;
-    background-color: black;
-    text-align: center;
-    border: none;
-}
-
-.approve-button
-{
-    visibility: hidden;
-    position: absolute;
-    top: 0%;
-    left: 60%;
-    font-size: 20px;
-    height: 100%;
-    width: 20%;
-    font-family: 'Ubuntu', sans-serif;
-    color: white;
-    background-color: black;
-    border: none;
-}
-
-.logout-button
-{
-    position: absolute;
-    top: 0%;
-    left: 80%;
-    font-size: 20px;
-    height: 100%;
-    width: 20%;
-    font-family: 'Ubuntu', sans-serif;
-    color: white;
-    background-color: black;
-    border: none;
-}
-
 /* CREATE BOX ***********************************************************/
 .create-title
 {
@@ -192,38 +97,6 @@ textarea
     border-radius: 5px;
 }
 
-#createRSOClubResult
-{
-    position: relative;
-    bottom: 10vh;
-    font-size: 20px;
-    color:red;
-}
-
-#createRSOEventResult
-{
-    position: relative;
-    bottom: 10vh;
-    font-size: 20px;
-    color:red;
-}
-
-#createPublicEventResult
-{
-    position: relative;
-    bottom: 10vh;
-    font-size: 20px;
-    color:red;
-}
-
-#createPrivateEventResult
-{
-    position: relative;
-    bottom: 10vh;
-    font-size: 20px;
-    color:red;
-}
-
 .buttons
 {
     position: absolute;
@@ -239,42 +112,6 @@ textarea
 }
 
 /* BUTTON HOVER *********************************************************/
-.events-button:hover
-{
-    color: black;
-    background-color: white;
-}
-
-.events-dropdown:hover
-{
-    color: black;
-    background-color: white;
-}
-
-.create-dropdown:hover
-{
-    color: black;
-    background-color: white;
-}
-
-.join-dropdown:hover
-{
-    color: black;
-    background-color: white;
-}
-
-.approve-button:hover
-{
-    color: black;
-    background-color: white;
-}
-
-.logout-button:hover
-{
-    color: black;
-    background-color: white;
-}
-
 #search-button:hover
 {
     color: black;
