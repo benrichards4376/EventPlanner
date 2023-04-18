@@ -91,53 +91,12 @@ async function deletePost(post_id) {
     }
 }
 
-async function editPost(post_id, comment, rating) {
-    const urlBase = 'http://first-web.xyz/API';
-    const extension = 'php';
-
-    console.log(post_id);
-    let user_id = localStorage.getItem("email");
-    let tmp = {user_id: user_id, post_id: post_id, comment: comment, rating: rating};
-    let canDeleteResponse = await canDelete(jsonPayload);
-
-    if (canDeleteResponse === "true") {
-
-        const xhr = new XMLHttpRequest();
-        const url = "/API/EditPost.php";
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-        try {
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    viewPosts();
-                    location.reload();
-                }
-                else
-                {
-                    console.log(JSON.parse(xhr.responseText).error);
-                }
-            };
-            xhr.send(JSON.stringify(tmp));           
-        }
-        catch (err) {
-            console.log(err);
-            document.getElementById("delete-result").innerHTML = err;
-        }
-    }
-    else {
-        let err = "Error: You can only edit posts you have made";
-        console.log(err);
-        document.getElementById("edit-result").innerHTML = err;
-    }
-}
-
-function moveToEdit(post_id, comment, rating) {
+function moveToEdit(post_id) {
     const urlParams = new URLSearchParams(window.location.search);
     const event_id = urlParams.get('event_id');
 
     // Redirect to editReview.html page with query parameters
-    window.location.href = "editReview.html?event_id=${event_id}&post_id=${post_id}&comment=${encodeURIComponent(comment)}&rating=${rating}";
+    window.location.href = `editReview.html?post_id=${post_id}&event_id=${event_id}`;
 }
 
 function savePost() {
@@ -159,7 +118,7 @@ function savePost() {
     xhr.onload = function() {
         if (xhr.status === 200) {
             // Redirect to original page
-            window.location.href = "reviews.html?event_id=${event_id}";
+            window.location.href = `reviews.html?event_id=${event_id}`;
         } else {
             console.error('Failed to update post:', xhr.statusText);
         }
@@ -174,7 +133,7 @@ function cancelEdit() {
     // Redirect to original page
     const urlParams = new URLSearchParams(window.location.search);
     const event_id = urlParams.get('event_id');
-    window.location.href = `original-page.html?event_id=${event_id}`;
+    window.location.href = `reviews.html?event_id=${event_id}`;
 }
 
 
@@ -237,7 +196,7 @@ function viewPosts()
                 reviewsDiv.innerHTML = `<div class="reviewInfo">User: ${response[i].student_id}</div>
                                     <div class="reviewInfo">Comment: ${response[i].comment}</div>
                                     <div class="reviewInfo">Rating: ${response[i].rating}</div>
-                                    <button class="button" id="edit-button" onclick="moveToEdit(${response[i].post_id}, '${response[i].comment}', ${response[i].rating})">Edit</button>
+                                    <button class="button" id="edit-button" onclick="window.location.href = 'editReview.html?post_id=${response[i].post_id}&event_id=${event_id}';">Edit</button>
                                     <button class="button" id="delete-button" onclick="deletePost(${response[i].post_id})">Delete</button>`
                 reviewsContainer.appendChild(reviewsDiv);
             }

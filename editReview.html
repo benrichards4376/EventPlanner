@@ -3,7 +3,7 @@
         <script type="text/javascript" src="js/code.js"></script>
         <script type="text/javascript" src="js/create.js"></script>
         <script type="text/javascript" src="js/join.js"></script>
-        <script type="text/javascript" src="js/reviews.js"></script>
+        <script type="text/javascript" src="js/edit.js"></script>
         <link href="css/reviews.css" rel="stylesheet">
         <link href="css/all.css" rel="stylesheet">	
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -76,7 +76,7 @@
         </script>
 
         <!-- REVIEWS SECTION ----------------------------------------------------------->
-        <div id="reviewsDiv">
+        <div id="editDiv">
             <span id="reviews-title">Edit Reviews Page</span>
 
             <!-- WRITE REVIEW -->
@@ -88,22 +88,16 @@
                 <label for="rating" id="edit-rating-label">Rating:</label><br>
                 <input type="number" id="edit-rating" min="1" max="5" required><br>
                 <br>
-                <span id="edit-result"></span>
-
+                
                 <!-- SAVE BUTTON -->
-                <button class="button" id="save-button">Save</button>
-
+                <button class="button" id="save-button" onclick="editPost();">Save</button>
+                
                 <!-- CANCEL BUTTON -->
-                <button class="button" id="cancel-button">Cancel</button>
+                <button class="button" id="cancel-button" onclick="moveToReview()">Cancel</button>
             </div>
 
         </div>
-
-        <script>
-            window.addEventListener("load", function() {
-                viewPosts();
-            });
-        </script>
+        <span class="error" id="edit-result"></span>
 
     </body>
 </html>
