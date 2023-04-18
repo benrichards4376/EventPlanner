@@ -239,7 +239,7 @@ input[type=number]
 }
 
 /* EDIT REVIEW **********************************************************/
-#editReview
+.editReview
 {
     position: relative;
     top: 25vh;
