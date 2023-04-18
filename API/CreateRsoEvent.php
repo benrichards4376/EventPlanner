@@ -30,7 +30,7 @@ error_reporting(E_ALL);
         $currentDateTime = $currentDateTime->format('Y-m-d H:i:s');
         
         // Check if the event is in the future or in the past
-        if ($currentDateTime > $dateTimeObject)
+        if ($currentDateTime > $formattedDateTime)
         {
             http_response_code(400);
             returnWithError("Event date and time must be in the future");
