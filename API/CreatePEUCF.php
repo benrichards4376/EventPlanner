@@ -48,10 +48,7 @@
                 $row = $result->fetch_assoc();
                 if ($result->num_rows != 0)
                 {
-                    returnWithError('Location ' . $location . ' is already being used by ' . $row['name'] . ' at the time ' . $dateTimeString);
-                    $stmt->close();
-					$conn->close();
-                    return;
+                    throw new Exception('Location ' . $location . ' is already being used by ' . $row['name'] . ' at the time ' . $dateTimeString);
                 }
 				$stmt->close();
                 $stmt = $conn->prepare("INSERT INTO Events (name, uni_id, admin_id, category, description, time, contact_phone, contact_email, location, longitude, latitude, approved)

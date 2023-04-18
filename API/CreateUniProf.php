@@ -34,7 +34,7 @@ error_reporting(E_ALL);
 
 				if ($result->num_rows != 0)
 				{
-					returnWithError("Cannot Create Profile (University Profile Already Exists)");
+					throw new Exception("Cannot Create Profile (University Profile Already Exists)");
 					$stmt->close();
 					$conn->close();
 					return;

@@ -181,3 +181,9 @@ function doLogout()
 	window.location.href = "index.html";
 } // end function doLogout
 
+function showErrors(error)
+{
+	localStorage.removeItem('error');
+	location.reload();
+}
+

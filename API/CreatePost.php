@@ -33,10 +33,7 @@ error_reporting(E_ALL);
                 $result = $stmt->get_result();
                 if ($result->num_rows != 0)
                 {
-                    returnWithError("You have already given a comment and rating on this event");
-                    $stmt->close();
-					$conn->close();
-                    return;
+                    throw new Exception("You have already given a comment and rating on this event");
                 }
             }
             $stmt = $conn->prepare("INSERT INTO Posts (student_id, event_id, comment, rating, date)
