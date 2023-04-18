@@ -36,6 +36,24 @@ error_reporting(E_ALL);
 					return;
 				}
 			}
+			$stmt = $conn->prepare("SELECT * FROM Student_RSOS WHERE (rso_name = ? AND student_id = ?)");
+			$stmt->bind_param("ss", $rso_name, $student_id);
+			if(!$stmt->execute())
+            {
+				throw new Exception($stmt->error);
+			}
+			else
+			{
+				$result = $stmt->get_result();
+				$row = $result->fetch_assoc();
+				if ($result->num_rows != 0)
+				{
+					returnWithError("You are already a member of " . $rso_name);
+					$stmt->close();
+					$conn->close();
+					return;
+				}
+			}
 			$stmt = $conn->prepare("INSERT INTO Student_RSOS (rso_name, student_id) VALUES (?, ?)");
 			$stmt->bind_param("ss", $rso_name, $student_id);
 			if(!$stmt->execute())
