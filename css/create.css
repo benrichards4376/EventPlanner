@@ -65,6 +65,20 @@ body
     overflow: auto;
 }
 
+#createRSOClubResult,
+#createRSOEventResult,
+#createPublicEventResult,
+#createPrivateEventResult
+{
+    position: relative;
+    top: 8vh;
+    font-size: 20px;
+    width: 90%;
+    text-align: left;
+    font-family: 'Ubuntu', sans-serif;
+    color: red;
+}
+
 label
 {
     position: relative;

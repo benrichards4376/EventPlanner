@@ -136,9 +136,6 @@ function cancelEdit() {
     window.location.href = `reviews.html?event_id=${event_id}`;
 }
 
-
-
-
 function canDelete(jsonPayload) {
     const urlBase = 'http://first-web.xyz/API';
     const extension = 'php';
@@ -208,38 +205,4 @@ function viewPosts()
     };
     xhr.send(JSON.stringify(tmp));
 } // end viewPosts function
-
-// function showEditForm(post_id)
-// {
-    
-//     const reviewDiv = document.getElementById(`post-${post_id}`);
-//     // Create form element
-//     const div = document.createElement('div');
-//     div.className = "editReview";
-//     div.innerHTML = `
-//     <span id="edit-title">Edit a Review</span>
-//     <label for="comment" id="edit-comment-label">Comment:</label><br>
-//     <textarea id="edit-comment" cols="70" rows="3" placeholder="Edit the review..." required></textarea>
-//     <br>
-//     <label for="rating" id="edit-rating-label">Rating:</label><br>
-//     <input type="number" id="edit-rating" min="1" max="5" required><br>
-//     <br>
-//     <span id="edit-result"></span>
-
-//     <!-- SAVE BUTTON -->
-//     <button class="button" id="save-button">Save</button>
-
-//     <!-- CANCEL BUTTON -->
-//     <button class="button" id="cancel-button">Cancel</button>`;
-
-//     reviewDiv.appendChild(div);
-//     document.getElementById("save-button").addEventListener("click", () => {
-//         editPost(post_id, document.getElementById("edit-comment").value, document.getElementById("edit-rating").value);
-//         reviewDiv.removeChild(div);
-//     })
-
-//     document.getElementById("cancel-button").addEventListener("click", () => {
-//         reviewDiv.removeChild(div);
-//     })
-// }
   

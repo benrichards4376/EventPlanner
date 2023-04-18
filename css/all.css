@@ -1,11 +1,15 @@
 .error
 {
     position: absolute;
-    top: 13%;
-    left: 20%;
-    color: rgb(255, 255, 255);
+    top: 11vh;
+    left: 10vw;
+    width: 70vw;
     font-size: 20px;
-}/* HEADER ***************************************************************/
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+
+/* HEADER ***************************************************************/
 .header
 {
     position: absolute;
