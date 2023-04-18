@@ -30,6 +30,7 @@ error_reporting(E_ALL);
 				$row = $result->fetch_assoc();
 				if ($student_uni != $row['university_name'])
 				{
+					http_response_code(400);
 					throw new Exception("You must be a student of " . $row['university_name'] . " to join this RSO");
 				}
 			}
@@ -45,6 +46,7 @@ error_reporting(E_ALL);
 				$row = $result->fetch_assoc();
 				if ($result->num_rows != 0)
 				{
+					http_response_code(400);
 					throw new Exception("You are already a member of " . $rso_name);
 					$stmt->close();
 					$conn->close();

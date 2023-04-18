@@ -1,9 +1,10 @@
 .error
 {
     position: absolute;
-    top: 15%;
-    color: red;
-    font-size: 30px;
+    top: 13%;
+    left: 20%;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
 }/* HEADER ***************************************************************/
 .header
 {

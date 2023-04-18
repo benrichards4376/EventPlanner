@@ -25,6 +25,7 @@
 		}
 		else
 		{
+			http_response_code(400);
 			throw new Exception("No Records Found");
 		}
 

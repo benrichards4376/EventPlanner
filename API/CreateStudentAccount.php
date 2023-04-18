@@ -31,6 +31,7 @@
 				$row = $result->fetch_assoc();
 				if ($result->num_rows == 0)
 				{
+					http_response_code(400);
 					throw new Exception("No university exists with the domain " . $email_ending);
 					return;
 				}
@@ -50,6 +51,7 @@
 				$result = $stmt->get_result();
 				if ($result->num_rows != 0)
 				{
+					http_response_code(400);
 					throw new Exception("Student already exists with the email " . $email);
 					return;
 				}
